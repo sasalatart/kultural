@@ -1,7 +1,7 @@
-# Grupo X
+# Grupo 7
 
-* Proyecto a trabajar: PROYECTO
-* Ayudante: AYUDANTE
+* Proyecto a trabajar: [Central de Eventos](https://github.com/IIC2513-2015-1/syllabus/blob/master/Proyectos/Central-de-eventos.md)
+* Ayudante: **Patricio López** - [@mrpatiwi](https://github.com/mrpatiwi) - pelopez2@uc.cl
 
 Pueden revisar el feedback y evaluación recibida después de cada entrega en la carpeta **feedback**.
 
