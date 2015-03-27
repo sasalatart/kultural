@@ -3,6 +3,8 @@
 * Proyecto a trabajar: PROYECTO
 * Ayudante: AYUDANTE
 
+Pueden revisar el feedback y evaluación recibida después de cada entrega en la carpeta **feedback**.
+
 ## Integrantes:
 Asegúrense de llenar lo siguiente:
 
