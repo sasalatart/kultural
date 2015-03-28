@@ -8,9 +8,11 @@ Pueden revisar el feedback y evaluación recibida después de cada entrega en la
 ## Integrantes:
 Asegúrense de llenar lo siguiente:
 
-| Nº Alumno    | Nombre              | Email UC      |
-|:-------------|:--------------------|:--------------|
-| XXXXXXXXXX   | Nombre alumno       | correo@uc.cl  |
+| Nº Alumno    | Nombre              | Email UC         |
+|:-------------|:--------------------|:-----------------|
+| 12634212     | Jaime Castro        | jecastro1@uc.cl  |
+|              | Vicente Dragicevic  |                  |
+|              | Sebastián Salata    |                  |
 
 # Instrucciones 
 
