@@ -12,7 +12,7 @@ Asegúrense de llenar lo siguiente:
 |:-------------|:--------------------|:-----------------|
 | 12634212     | Jaime Castro        | jecastro1@uc.cl  |
 |              | Vicente Dragicevic  |                  |
-|              | Sebastián Salata    |                  |
+| 11633514     | Sebastián Salata    |  sasalata@uc.cl  |
 
 # Instrucciones 
 
