@@ -11,7 +11,7 @@ Asegúrense de llenar lo siguiente:
 | Nº Alumno    | Nombre              | Email UC         |
 |:-------------|:--------------------|:-----------------|
 | 12634212     | Jaime Castro        | jecastro1@uc.cl  |
-|              | Vicente Dragicevic  |                  |
+| 12635723     | Vicente Dragicevic  |vrdragicevic@uc.cl|
 | 11633514     | Sebastián Salata    |  sasalata@uc.cl  |
 
 # Instrucciones 
