@@ -12,4 +12,5 @@
 class Group < ActiveRecord::Base
   has_many :users, through: :group_membership
   has_many :group_membership
+  has_many :events, as: :owner
 end
