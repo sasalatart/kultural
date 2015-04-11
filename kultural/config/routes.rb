@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :event_types
+  resources :events
   resources :ratings
   resources :groups
   resources :users
