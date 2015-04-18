@@ -1,11 +1,10 @@
 class CreateComments < ActiveRecord::Migration
   def change
-    #drop_table :comments
     create_table :comments do |t|
       t.text :content
-      t.integer :user_id
-      t.integer :commentable_id
-      t.string :commentable_type
+
+      t.belongs_to :user, index: true, foreign_key: true
+      t.references :commentable, polymorphic: true, index: true
 
       t.timestamps null: false
     end
