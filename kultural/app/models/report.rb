@@ -14,4 +14,8 @@
 class Report < ActiveRecord::Base
   belongs_to :user
   belongs_to :reportable, polymorphic: true
+
+  validates :user_id, presence: true
+  validates :reportable_id, presence: true
+  validates :reportable_type, presence: true
 end

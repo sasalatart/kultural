@@ -20,4 +20,17 @@ class Place < ActiveRecord::Base
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable
   has_many :reports, as: :reportable
+
+  validates :name,  presence: true,
+                    length: { minimum: 5, maximum: 50 },
+                    allow_blank: true
+
+  validates :description, presence: true,
+                          length: { maximum: 1000 },
+                          allow_blank: true
+
+  validates :x, presence: true
+  validates :y, presence: true
+  validates :owner_id, presence: true
+  validates :owner_type, presence: true
 end
