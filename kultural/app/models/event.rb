@@ -18,4 +18,5 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :event_types
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable
+  has_many :reports, as: :reportable
 end

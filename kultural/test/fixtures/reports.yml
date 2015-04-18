@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genuine: false
+  user_id: 
+  reportable_id: 
+
+two:
+  genuine: false
+  user_id: 
+  reportable_id: 

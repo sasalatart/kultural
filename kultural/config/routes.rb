@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   resources :places
   resources :comments
   resources :event_types
