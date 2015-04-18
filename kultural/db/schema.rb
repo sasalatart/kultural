@@ -72,9 +72,13 @@ ActiveRecord::Schema.define(version: 20150417113810) do
     t.string   "name"
     t.float    "x"
     t.float    "y"
+    t.integer  "owner_id"
+    t.string   "owner_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "places", ["owner_type", "owner_id"], name: "index_places_on_owner_type_and_owner_id", using: :btree
 
   create_table "places_users", id: false, force: :cascade do |t|
     t.integer "place_id"
