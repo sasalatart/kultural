@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: group_memberships
+# Table name: groups_users
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -10,10 +10,14 @@
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-class GroupMembershipTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+one:
+  user_id: 
+  group_id: 
+  is_admin: false
+
+two:
+  user_id: 
+  group_id: 
+  is_admin: false

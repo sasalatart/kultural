@@ -1,16 +1,15 @@
 # == Schema Information
 #
-# Table name: group_memberships
+# Table name: groups_users
 #
-#  id         :integer          not null, primary key
+#  is_admin   :boolean
 #  user_id    :integer
 #  group_id   :integer
-#  is_admin   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class GroupMembership < ActiveRecord::Base
+class GroupsUsers < ActiveRecord::Base
   belongs_to :user
   belongs_to :group
 end

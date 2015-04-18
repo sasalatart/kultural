@@ -14,8 +14,8 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :groups, through: :group_memberships
-  has_many :group_memberships
+  has_many :groups, through: :groups_users
+  has_many :groups_users
   has_many :events, as: :owner
   has_many :comments
   has_and_belongs_to_many :places
