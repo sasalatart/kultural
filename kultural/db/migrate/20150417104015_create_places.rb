@@ -4,6 +4,8 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :name
       t.float :x
       t.float :y
+      t.references :owner, polymorphic: true, index: true
+
 
       t.timestamps null: false
     end
