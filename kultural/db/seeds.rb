@@ -1,4 +1,5 @@
-event_types_list = [
+=begin
+  event_types_list = [
   [ "Music", "Concerts, street bands, etc" ],
   [ "Fair", "Book fairs, etc" ],
   [ "Art", "Expositions, paintings sale, etc" ],
@@ -8,9 +9,23 @@ event_types_list.each do |name, examples|
   puts("Creating event with name #{name} and examples #{examples}")
   EventType.create( name: name, examples: examples )
 end
+=end
 
+EventType.create(
+  name: 'Music',
+  examples: 'Concerts, street bands, etc'
+)
 
-=begin
+EventType.create(
+    name: 'Fair',
+    examples: 'Book fairs, etc'
+)
+
+EventType.create(
+    name: 'Art',
+    examples: 'Expositions, paintings sale, etc'
+)
+
 User.create(
     name: 'Jaime Castro R',
     password: 'macoy123',
@@ -145,7 +160,7 @@ event_dcc.comments << Comment.create(
 #  value: 50,
 #  user: User.find(id:1)
 #)
-=end
+
 
 
 
