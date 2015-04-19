@@ -155,18 +155,18 @@ event_patiwi_2.comments << Comment.create(
 puts('Creating ratings')
 
 place_dcc.ratings << Rating.create(
-  value: 100,
+  value: 10,
   user: User.find(3)
 )
 
 place_patiwi.ratings << Rating.create(
-  value: 50,
+  value: 5,
   user: User.find(5)
 )
 
 
 event_dcc.ratings << Rating.create(
-  value: 1,
+  value: 0,
   user: User.find(1)
 )
 
