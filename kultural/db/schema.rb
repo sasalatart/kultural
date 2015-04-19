@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150418074736) do
     t.text     "description"
     t.datetime "date"
     t.float    "price"
+    t.integer  "place_id"
     t.integer  "owner_id"
     t.string   "owner_type"
     t.datetime "created_at",  null: false
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150418074736) do
   end
 
   add_index "events", ["owner_type", "owner_id"], name: "index_events_on_owner_type_and_owner_id", using: :btree
+  add_index "events", ["place_id"], name: "index_events_on_place_id", using: :btree
 
   create_table "events_event_types", id: false, force: :cascade do |t|
     t.integer "event_id"
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 20150418074736) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "places"
   add_foreign_key "events_event_types", "event_types"
   add_foreign_key "events_event_types", "events"
   add_foreign_key "groups_users", "groups"

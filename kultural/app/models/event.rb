@@ -15,6 +15,7 @@
 
 class Event < ActiveRecord::Base
   belongs_to :owner, polymorphic: true
+  belongs_to :place
   has_and_belongs_to_many :event_types
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable
