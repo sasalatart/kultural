@@ -1,4 +1,4 @@
 json.array!(@event_types) do |event_type|
-  json.extract! event_type, :id, :name, :examples
+  json.extract! event_type, :id, :name, :examples, :commentable_id, :commentable_type
   json.url event_type_url(event_type, format: :json)
 end

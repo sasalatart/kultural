@@ -16,6 +16,8 @@
       <tr>
         <td><%= event_type.name %></td>
         <td><%= event_type.examples %></td>
+        <td><%= event_type.commentable_id %></td>
+        <td><%= event_type.commentable_type %></td>
         <td><%= link_to 'Show', event_type %></td>
         <td><%= link_to 'Edit', edit_event_type_path(event_type) %></td>
         <td><%= link_to 'Destroy', event_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

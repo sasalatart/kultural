@@ -9,6 +9,14 @@
   <strong>Examples:</strong>
   <%= @event_type.examples %>
 </p>
+<p>
+  <strong>Commentable id:</strong>
+  <%= @event_type.commentable_id %>
+</p>
+<p>
+  <strong>Commentable type:</strong>
+  <%= @event_type.commentable_type %>
+</p>
 
 <%= link_to 'Edit', edit_event_type_path(@event_type) %> |
 <%= link_to 'Back', event_types_path %>
