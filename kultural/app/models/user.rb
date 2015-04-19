@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :places
   has_many :comments
 
-  before_save :downcase_mail # TODO CHANGE EMAIL
+  #before_save :downcase_mail # TODO CHANGE EMAIL
 
   validates :name,  presence: true,
                     length: { minimum: 5, maximum: 50 }

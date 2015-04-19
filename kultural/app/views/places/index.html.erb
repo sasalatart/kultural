@@ -8,6 +8,8 @@
       <th>Name</th>
       <th>X</th>
       <th>Y</th>
+      <th>Owner id</th>
+      <th>Owner type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +18,11 @@
     <% @places.each do |place| %>
       <tr>
         <td><%= place.name %></td>
+        <td><%= place.description %></td>
         <td><%= place.x %></td>
         <td><%= place.y %></td>
+        <td><%= place.owner_id %></td>
+        <td><%= place.owner_type %></td>
         <td><%= link_to 'Show', place %></td>
         <td><%= link_to 'Edit', edit_place_path(place) %></td>
         <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
