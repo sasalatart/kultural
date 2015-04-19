@@ -11,9 +11,9 @@
 
 class EventType < ActiveRecord::Base
   validates :name, presence: true,
-                   length: { minimum: 5, maximum: 50 }
+                   length: { minimum: 3, maximum: 50 }
 
   validates :examples, presence: true,
-                       length: { minimum: 5, maximum: 50 }
+                       length: { minimum: 3, maximum: 50 }
 
 end

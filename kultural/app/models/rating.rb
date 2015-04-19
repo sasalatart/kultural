@@ -12,6 +12,7 @@
 
 class Rating < ActiveRecord::Base
   belongs_to :rateable, polymorphic: true
+  belongs_to :user
 
   validates :value, presence: true,
                     numericality: { greater_than_or_equal_to: 0,
@@ -19,4 +20,5 @@ class Rating < ActiveRecord::Base
 
   validates :rateable_id, presence: true
   validates :rateable_type, presence: true
+  validates :user_id, presence: true
 end

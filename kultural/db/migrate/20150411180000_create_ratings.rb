@@ -4,6 +4,7 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :value
 
       t.references :rateable, polymorphic: true, index: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
