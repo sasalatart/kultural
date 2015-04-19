@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :events, as: :owner
   has_and_belongs_to_many :places
   has_many :comments
+  has_many :reports
+  has_many :ratings
 
   #before_save :downcase_mail # TODO CHANGE EMAIL
 
