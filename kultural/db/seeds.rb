@@ -98,8 +98,6 @@ event_patiwi_1 = Event.create(
   event_types: [EventType.find(1)]
 )
 
-#event_patiwi_1.event_types << EventType.find(1)
-
 event_patiwi_2 = Event.create(
   owner: group,
   place: place_patiwi,
@@ -110,7 +108,6 @@ event_patiwi_2 = Event.create(
   event_types: [EventType.find(2)]
 )
 
-#event_patiwi_2.event_types << EventType.find(2)
 
 event_dcc = Event.create(
   owner: group,
@@ -119,10 +116,8 @@ event_dcc = Event.create(
   description: 'SQL dificil con Rails. No estan invitados los profes del datalab',
   date: DateTime.strptime('24/04/2015 11:30', '%d/%m/%Y %H:%M'),
   price: 5000000.1,
-  event_types: [EventType.find(2)]
+  event_types: [EventType.find(2), EventType.find(3)]
 )
-
-#event_dcc.event_types << EventType.find(3)
 
 event_patiwi_2.reports << Report.create(
   user: User.first,
@@ -130,7 +125,7 @@ event_patiwi_2.reports << Report.create(
 )
 
 event_dcc.comments << Comment.create(
-  content: 'Reutter se sentiria avergonzado del polimorfismo',
+  content: 'DataLab se sentiria avergonzado del polimorfismo',
   user: User.find(2)
 )
 
