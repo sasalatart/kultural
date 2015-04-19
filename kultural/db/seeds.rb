@@ -108,7 +108,7 @@ event_patiwi_2 = Event.create(
   price: 100
 )
 
-event_patiwi_2.event_types << EventType.find_by_name("Art")
+event_patiwi_2.event_types << EventType.find(2)
 
 event_dcc = Event.create(
   owner: group,
@@ -119,7 +119,7 @@ event_dcc = Event.create(
   price: 5000000.1
 )
 
-event_dcc.event_types << EventType.find(id:2)
+event_dcc.event_types << EventType.find(3)
 
 event_patiwi_2.reports << Report.create(
   user: User.first,
