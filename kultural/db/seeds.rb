@@ -94,10 +94,11 @@ event_patiwi_1 = Event.create(
   name: 'Rails presentation',
   description: 'Lorem ipsum dolor sit amet',
   date: DateTime.strptime('20/04/2015 15:00', '%d/%m/%Y %H:%M'),
-  price: 5000
+  price: 5000,
+  event_type: EventType.find(1)
 )
 
-event_patiwi_1.event_types << EventType.find(1)
+#event_patiwi_1.event_types << EventType.find(1)
 
 event_patiwi_2 = Event.create(
   owner: group,
@@ -105,10 +106,11 @@ event_patiwi_2 = Event.create(
   name: 'Musica maestro',
   description: 'Cumbia en el departamento del Ayudante. Banda de los Jaimes',
   date: DateTime.strptime('21/04/2015 12:00', '%d/%m/%Y %H:%M'),
-  price: 100
+  price: 100,
+  event_type: EventType.find(2)
 )
 
-event_patiwi_2.event_types << EventType.find(2)
+#event_patiwi_2.event_types << EventType.find(2)
 
 event_dcc = Event.create(
   owner: group,
@@ -116,10 +118,12 @@ event_dcc = Event.create(
   name: 'SQL dificil',
   description: 'SQL dificil con Rails. No estan invitados los profes del datalab',
   date: DateTime.strptime('24/04/2015 11:30', '%d/%m/%Y %H:%M'),
-  price: 5000000.1
+  price: 5000000.1,
+  event_type: EventType.find(3)
+
 )
 
-event_dcc.event_types << EventType.find(3)
+#event_dcc.event_types << EventType.find(3)
 
 event_patiwi_2.reports << Report.create(
   user: User.first,
