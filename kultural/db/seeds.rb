@@ -119,7 +119,7 @@ event_dcc = Event.create(
   description: 'SQL dificil con Rails. No estan invitados los profes del datalab',
   date: DateTime.strptime('24/04/2015 11:30', '%d/%m/%Y %H:%M'),
   price: 5000000.1,
-  event_types: [EventType.find(0)]
+  event_types: [EventType.find(2)]
 )
 
 #event_dcc.event_types << EventType.find(3)
