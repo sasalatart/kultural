@@ -10,4 +10,10 @@
 #
 
 class EventType < ActiveRecord::Base
+  validates :name, presence: true,
+                   length: { minimum: 5, maximum: 50 }
+
+  validates :examples, presence: true,
+                       length: { minimum: 5, maximum: 50 }
+
 end
