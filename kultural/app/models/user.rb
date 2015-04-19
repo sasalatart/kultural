@@ -39,5 +39,4 @@ class User < ActiveRecord::Base
                     length: { minimum: 5, maximum: 15 }
 
   validates :birthday, presence: true
-  validates :male, presence: true
 end

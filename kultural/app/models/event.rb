@@ -7,6 +7,7 @@
 #  description :text
 #  date        :datetime
 #  price       :float
+#  place_id    :integer
 #  owner_id    :integer
 #  owner_type  :string
 #  created_at  :datetime         not null

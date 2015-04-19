@@ -2,10 +2,9 @@
 #
 # Table name: groups_users
 #
-#  id         :integer          not null, primary key
+#  is_admin   :boolean
 #  user_id    :integer
 #  group_id   :integer
-#  is_admin   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

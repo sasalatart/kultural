@@ -20,5 +20,20 @@
   <%= @event.price %>
 </p>
 
+<p>
+  <strong>Place:</strong>
+  <%= @event.place_id %>
+</p>
+
+<p>
+  <strong>Owner id:</strong>
+  <%= @event.owner_id %>
+</p>
+
+<p>
+  <strong>Owner type:</strong>
+  <%= @event.owner_type %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
