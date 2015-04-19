@@ -9,6 +9,7 @@ event_types_list.each do |name, examples|
 end
 
 
+=begin
 User.create(
     name: 'Jaime Castro R',
     password: 'macoy123',
@@ -143,7 +144,7 @@ event_dcc.comments << Comment.create(
 #  value: 50,
 #  user: User.find(id:1)
 #)
-
+=end
 
 
 
