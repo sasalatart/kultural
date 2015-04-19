@@ -9,6 +9,8 @@ event_types_list.each do |name, examples|
   EventType.create( name: name, examples: examples )
 end
 
+puts("Creating users")
+
 User.create(
     name: 'Jaime Castro R',
     password: 'macoy123',
@@ -54,10 +56,14 @@ User.create(
     male: true
 )
 
+puts("Creating groups")
+
 group = Group.create(
     name: 'Spread Rails',
     description: 'Expandir el imperio de Rails y enfrentar a Django es nuestra labor'
 )
+
+puts("Filling groups")
 
 GroupsUsers.create(
   user: User.find(1),
@@ -71,6 +77,7 @@ GroupsUsers.create(
   is_admin: false
 )
 
+puts("Creating places")
 
 place_patiwi = Place.create(
   owner: User.find(3),
@@ -87,6 +94,8 @@ place_dcc = Place.create(
   x: -74.6,
   y: 33.3
 )
+
+puts("Creating events")
 
 event_patiwi_1 = Event.create(
   owner: User.find(4),
@@ -119,26 +128,33 @@ event_dcc = Event.create(
   event_types: [EventType.find(2), EventType.find(3)]
 )
 
+puts("Creating reports")
+
 event_patiwi_2.reports << Report.create(
   user: User.first,
   genuine: false
 )
+
+puts("Creating comments")
 
 event_dcc.comments << Comment.create(
   content: 'DataLab se sentiria avergonzado del polimorfismo',
   user: User.find(2)
 )
 
-#place_dcc.ratings << Rating.create(
-#  value: 100,
-#  user: User.find(id:3)
-#)
+=begin
+puts("Creating places")
 
-#place_patiwi.ratings << Rating.create(
-#  value: 50,
-#  user: User.find(id:1)
-#)
+place_dcc.ratings << Rating.create(
+  value: 100,
+  user: User.find(id:3)
+)
 
+place_patiwi.ratings << Rating.create(
+  value: 50,
+  user: User.find(id:1)
+)
+=end
 
 
 
