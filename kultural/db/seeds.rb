@@ -22,7 +22,7 @@ User.create(
     name: 'Jaime Navon C',
     password: 'iphone123',
     mail: 'jnavon@uc.cl',
-    phone: 27753473433,
+    phone: 2777858,
     birthday: Date.strptime("25/12/1960", "%d/%m/%Y"),
     male: true
 )
