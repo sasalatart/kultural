@@ -60,20 +60,20 @@ group = Group.create(
 )
 
 GroupsUsers.create(
-  user: User.find(id:1),
+  user: User.find(1),
   group: group,
   is_admin: true
 )
 
 GroupsUsers.create(
-  user: User.find(id:2),
+  user: User.find(2),
   group: group,
   is_admin: false
 )
 
 
 place_patiwi = Place.create(
-  owner: User.find(id:3),
+  owner: User.find(3),
   name: 'Casa del ayudante de Web',
   description: 'El unico lugar que encontramos',
   x: -74.1,
@@ -89,7 +89,7 @@ place_dcc = Place.create(
 )
 
 event_patiwi_1 = Event.create(
-  owner: User.find(id:4),
+  owner: User.find(4),
   place: place_patiwi,
   name: 'Rails presentation',
   description: 'Lorem ipsum dolor sit amet',
@@ -97,7 +97,7 @@ event_patiwi_1 = Event.create(
   price: 5000
 )
 
-event_patiwi_1.event_types << EventType.find(id:1)
+event_patiwi_1.event_types << EventType.find(1)
 
 event_patiwi_2 = Event.create(
   owner: group,
@@ -128,7 +128,7 @@ event_patiwi_2.reports << Report.create(
 
 event_dcc.comments << Comment.create(
   content: 'Reutter se sentiria avergonzado del polimorfismo',
-  user: User.find(id:2)
+  user: User.find(2)
 )
 
 #place_dcc.ratings << Rating.create(
