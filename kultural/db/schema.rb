@@ -101,11 +101,13 @@ ActiveRecord::Schema.define(version: 20150418074736) do
     t.integer  "value"
     t.integer  "rateable_id"
     t.string   "rateable_type"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "ratings", ["rateable_type", "rateable_id"], name: "index_ratings_on_rateable_type_and_rateable_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
     t.boolean  "genuine"
@@ -138,5 +140,6 @@ ActiveRecord::Schema.define(version: 20150418074736) do
   add_foreign_key "groups_users", "users"
   add_foreign_key "places_users", "places"
   add_foreign_key "places_users", "users"
+  add_foreign_key "ratings", "users"
   add_foreign_key "reports", "users"
 end
