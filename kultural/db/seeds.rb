@@ -5,6 +5,7 @@ event_types_list = [
 ]
 
 event_types_list.each do |name, examples|
+  puts("Creating event with name #{name} and examples #{examples}")
   EventType.create( name: name, examples: examples )
 end
 
