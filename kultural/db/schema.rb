@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20150418074736) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "event_types_events", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "event_type_id"
+  end
+
+  add_index "event_types_events", ["event_id"], name: "index_event_types_events_on_event_id", using: :btree
+  add_index "event_types_events", ["event_type_id"], name: "index_event_types_events_on_event_type_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -49,14 +57,6 @@ ActiveRecord::Schema.define(version: 20150418074736) do
 
   add_index "events", ["owner_type", "owner_id"], name: "index_events_on_owner_type_and_owner_id", using: :btree
   add_index "events", ["place_id"], name: "index_events_on_place_id", using: :btree
-
-  create_table "events_event_types", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "event_type_id"
-  end
-
-  add_index "events_event_types", ["event_id"], name: "index_events_event_types_on_event_id", using: :btree
-  add_index "events_event_types", ["event_type_id"], name: "index_events_event_types_on_event_type_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -131,9 +131,9 @@ ActiveRecord::Schema.define(version: 20150418074736) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "event_types_events", "event_types"
+  add_foreign_key "event_types_events", "events"
   add_foreign_key "events", "places"
-  add_foreign_key "events_event_types", "event_types"
-  add_foreign_key "events_event_types", "events"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
   add_foreign_key "places_users", "places"
