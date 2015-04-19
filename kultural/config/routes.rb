@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#main'
+
   resources :reports
   resources :places
   resources :comments
