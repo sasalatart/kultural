@@ -16,8 +16,7 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true
 
   validates :content, presence: true,
-                      length: { maximum: 1500 },
-                      allow_blank: true
+                      length: { maximum: 1500 }
 
   validates :user_id, presence: true
   validates :commentable_id, presence: true

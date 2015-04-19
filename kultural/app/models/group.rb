@@ -15,10 +15,8 @@ class Group < ActiveRecord::Base
   has_many :events, as: :owner
 
   validates :name,  presence: true,
-                    length: { minimum: 5, maximum: 50 },
-                    allow_blank: true
+                    length: { minimum: 5, maximum: 50 }
 
   validates :description, presence: true,
-                          length: { maximum: 1000 },
-                          allow_blank: true
+                          length: { maximum: 1000 }
 end

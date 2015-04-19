@@ -23,11 +23,9 @@ class User < ActiveRecord::Base
   before_save :downcase_mail # TODO CHANGE EMAIL
 
   validates :name,  presence: true,
-                    length: { minimum: 5, maximum: 50 },
-                    allow_blank: true
+                    length: { minimum: 5, maximum: 50 }
 
-  validates :password,  length: { minimum: 6 },
-                        allow_blank: true
+  validates :password,  length: { minimum: 6 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
   validates :mail,  presence: true,
