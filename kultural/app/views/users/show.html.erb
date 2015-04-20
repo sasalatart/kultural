@@ -30,9 +30,5 @@
   <%= @user.male %>
 </p>
 
-<% @user.groups do |group_tuple| %>
-    <td><%= group_tuple.group.name %></td>
-<% end %>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
