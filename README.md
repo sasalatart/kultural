@@ -16,7 +16,23 @@ Asegúrense de llenar lo siguiente:
 
 # Instrucciones 
 
-Aquí se deberá indicar el procedimiento necesario para poder ejecutar la aplicación Rails localmente. Para esto se debe utilizar [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## Requisitos previos
+- Postgresql
+	- Rol de la aplicación: `kultural`
+	- Password: `kulturalpass`
+- Ruby 2.2.1
+- Rails 4.2.1
+
+**La aplicación está en la carpeta `kultural`** 
+
+## Pasos a seguir
+
+- Instalar las gemas necesarias para la aplicación. Son las ''por defecto'', más `annotate` y `pg`. El detalle está en el `Gemfile`
+- Colocar los siguientes comandos:
+	- `rake db:create`
+	- `rake db:migrate`
+	- `rake db:seed` si se quiere poblar la base de datos
+- Para iniciar el server, `rails s` y entrar a `host:puerto`. Por defecto el host es `localhost`y el puerto es 3000.
 
 # Deployment
 
