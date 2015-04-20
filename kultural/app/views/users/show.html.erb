@@ -30,8 +30,8 @@
   <%= @user.male %>
 </p>
 
-<% @user.groups.each do |group| %>
-    <td><%= group.name %></td>
+<% @user.groups do |group_tuple| %>
+    <td><%= group_tuple.group.name %></td>
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
