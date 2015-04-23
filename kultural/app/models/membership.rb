@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: groups_users
+# Table name: memberships
 #
 #  is_admin   :boolean
 #  user_id    :integer
