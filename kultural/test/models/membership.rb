@@ -9,11 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-class GroupsUsers < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :group
+require 'test_helper'
 
-  validates_inclusion_of :is_admin, in: [true, false]
-  validates :user_id, presence: true
-  validates :group_id, presence: true
+class MembershipTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

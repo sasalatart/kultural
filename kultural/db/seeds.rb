@@ -54,13 +54,13 @@ group = Group.create(name: 'Spread Rails',
 
 puts('Filling groups')
 
-GroupsUsers.create(user: User.find(1),
-                   group: group,
-                   is_admin: true)
+Membership.create(user: User.find(1),
+                  group: group,
+                  is_admin: true)
 
-GroupsUsers.create(user: User.find(2),
-                   group: group,
-                   is_admin: false)
+Membership.create(user: User.find(2),
+                  group: group,
+                  is_admin: false)
 
 puts('Creating places')
 

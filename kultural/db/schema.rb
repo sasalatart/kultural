@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418074736) do
+ActiveRecord::Schema.define(version: 20150423191715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150418074736) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "groups_users", id: false, force: :cascade do |t|
+  create_table "memberships", id: false, force: :cascade do |t|
     t.boolean  "is_admin"
     t.integer  "user_id"
     t.integer  "group_id"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150418074736) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
-  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
+  add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
@@ -136,8 +136,8 @@ ActiveRecord::Schema.define(version: 20150418074736) do
   add_foreign_key "event_types_events", "event_types"
   add_foreign_key "event_types_events", "events"
   add_foreign_key "events", "places"
-  add_foreign_key "groups_users", "groups"
-  add_foreign_key "groups_users", "users"
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
   add_foreign_key "places_users", "places"
   add_foreign_key "places_users", "users"
   add_foreign_key "ratings", "users"

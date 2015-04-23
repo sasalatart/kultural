@@ -10,8 +10,8 @@
 #
 
 class Group < ActiveRecord::Base
-  has_many :users, through: :groups_users
-  has_many :groups_users
+  has_many :users, through: :memberships
+  has_many :memberships
   has_many :events, as: :owner
 
   validates :name,  presence: true,
