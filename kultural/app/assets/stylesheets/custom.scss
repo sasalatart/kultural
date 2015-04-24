@@ -1,0 +1,38 @@
+nav {
+  position: fixed;
+  left: 0px;
+  font-size: 1.5em;
+  width: 100%;
+  color: brown;
+  background: yellowgreen;
+  padding: 5px;
+}
+
+tr {
+  text-align: center;
+}
+
+#main {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+#logo {
+  float: left;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 2em;
+  font-weight: bold;
+  color: brown;
+  padding: 10px;
+}
+
+.nav-top {
+  top: 0px;
+  border-bottom: 5px solid brown;
+}
+
+.nav-bottom {
+  bottom: 0px;
+  border-top: 5px solid brown;
+}
