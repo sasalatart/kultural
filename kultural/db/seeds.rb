@@ -34,7 +34,7 @@ User.create(name: 'Patricio Lopez J',
 
 User.create(name: 'Sebastian Salata R-T',
             password: 'napoleon',
-            mail: 'sasalata@uc.cl',
+            mail: 'SASalata@uc.cl',
             phone: 58758745,
             birthday: Date.strptime('16/04/1992', '%d/%m/%Y'),
             male: true)

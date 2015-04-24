@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :reports
   has_many :ratings
 
-  #before_save :downcase_mail # TODO CHANGE EMAIL
+  before_save { |user| user.mail = user.mail.downcase }
 
   validates :name,  presence: true,
                     length: { minimum: 5, maximum: 50 }
