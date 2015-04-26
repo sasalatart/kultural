@@ -36,8 +36,10 @@
     <%= f.date_select :birthday %>
   </div>
   <div class="field">
-    <%= f.label "¿Hombre o mujer?" %><br>
-    <%= f.check_box :male %>
+    <%= f.radio_button :male, true %>
+    <%= f.label "¿Hombre?" %><br>
+    <%= f.radio_button :male, false %>
+    <%= f.label "¿Mujer?" %><br>
   </div>
   <div class="actions">
     <%= f.submit "¡Crear cuenta!" %>
