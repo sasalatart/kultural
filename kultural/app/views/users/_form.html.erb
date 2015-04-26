@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label "e-mail" %><br>
+    <%= f.text_field :mail %>
+  </div>
+  <div class="field">
     <%= f.label "Contraseña" %><br>
     <%= f.password_field :password %>
   </div>
@@ -24,20 +28,16 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label "e-mail" %><br>
-    <%= f.text_field :mail %>
-  </div>
-  <div class="field">
-    <%= f.label "Número Telefónico" %><br>
+    <%= f.label "Número telefónico" %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label "Cumpleaños" %><br>
+    <%= f.label "Fecha de nacimiento" %><br>
     <%= f.date_select :birthday %>
   </div>
   <div class="field">
     <%= f.radio_button :male, true %>
-    <%= f.label "¿Hombre?" %><br>
+    <%= f.label "¿Hombre?" %>
     <%= f.radio_button :male, false %>
     <%= f.label "¿Mujer?" %><br>
   </div>
