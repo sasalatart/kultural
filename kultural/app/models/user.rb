@@ -2,15 +2,15 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  password   :string
-#  mail       :string
-#  phone      :integer
-#  birthday   :date
-#  male       :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  password_digest :string
+#  mail            :string
+#  phone           :integer
+#  birthday        :date
+#  male            :boolean
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   validates :name,  presence: true,
                     length: { minimum: 5, maximum: 50 }
 
+  has_secure_password
   validates :password,  length: { minimum: 6 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i

@@ -1,5 +1,10 @@
 <nav class="nav-bottom">
-  <%= link_to 'About',    about_path %>
-  <%= link_to 'Help',     help_path %>
-  <%= link_to 'Contact',  contact_path %>
+  <div>
+    <%= link_to 'About',    about_path %>
+    <%= link_to 'Help',     help_path %>
+    <%= link_to 'Contact',  contact_path %>
+    <div id="debugger">
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </div>
 </nav>
