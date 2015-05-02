@@ -1,34 +1,48 @@
 <p id="notice"><%= notice %></p>
+<div>
+<div id="placeDescription">
+  <h3>Description</h3>
+  <p>
+    <strong>Name:</strong>
+    <%= @place.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @place.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+  <p>
+    <strong>X:</strong>
+    <%= @place.x %>
+  </p>
 
-<p>
-  <strong>X:</strong>
-  <%= @place.x %>
-</p>
+  <p>
+    <strong>Y:</strong>
+    <%= @place.y %>
+  </p>
 
-<p>
-  <strong>Y:</strong>
-  <%= @place.y %>
-</p>
+  <p>
+    <strong>Owner:</strong>
+    <%= render @place.owner %>
+  </p>
+</div>
 
-<p>
-  <strong>Owner id:</strong>
-  <%= @place.owner_id %>
-</p>
+<div id="placeComments">
+  <h3>Comments</h3>
+  <%= render @place.comments %>
+</div>
 
-<p>
-  <strong>Owner type:</strong>
-  <%= @place.owner_id %>
-</p>
+<div id="placeEvents">
+  <h3>Events</h3>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+  <%= render @place.events %>
+</div>
+
+<div id="placeRatings">
+  <h3>Ratings</h3>
+  <%= render @place.ratings %>
+</div>
+</div>
+<!--<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>-->
