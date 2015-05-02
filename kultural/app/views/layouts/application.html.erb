@@ -13,6 +13,12 @@
 </header>
 
 <div id="main">
+  <ul>
+    <% flash.each do |key, value| %>
+      <%= content_tag("li", value) %>
+    <% end %>
+  </ul>
+
   <%= yield %>
 </div>
 
