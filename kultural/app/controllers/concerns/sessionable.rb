@@ -1,3 +1,5 @@
+# Ideas obtenidas del libro 'Ruby on Rails Tutorial (3rd ed.)' de Michael Hartl
+
 module Sessionable
   extend ActiveSupport::Concern
 
