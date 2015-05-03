@@ -20,6 +20,7 @@ Asegúrense de llenar lo siguiente:
 - Postgresql
 	- Rol de la aplicación: `kultural`
 	- Password: `kulturalpass`
+	- Consulta que lo hace: `create role kultural with createdb login password 'kulturalpass';`
 - Ruby 2.2.1
 - Rails 4.2.1
 
