@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
+    flash[:notice] = 'Ha cerrado sesión'
     redirect_to root_path
   end
 end

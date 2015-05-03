@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      flash[:notice] = 'User was successfully created (notice).'
+      flash[:notice] = 'Su cuenta se ha creado exitosamente'
       redirect_to @user
     else
       render 'new'
