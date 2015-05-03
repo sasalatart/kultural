@@ -7,9 +7,10 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       log_in(user)
+      flash[:notice] = "Bienvenido, #{user.name}"
       redirect_to user
     else
-      flash.now[:error] = 'El usuario y la contraseña no coinciden'
+      flash.now[:alert] = 'Error: datos incorrectos'
       render 'new'
     end
   end
