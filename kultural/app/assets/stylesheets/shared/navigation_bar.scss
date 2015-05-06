@@ -1,0 +1,38 @@
+@import 'palette';
+
+nav {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  color: brown;
+  padding: 5px;
+}
+
+.nav-top {
+  top: 0px;
+  border-bottom: 5px solid brown;
+  background-color: $header-color;
+}
+
+.nav-top-right {
+  text-align: right;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.nav-bottom {
+  bottom: 0px;
+  border-top: 5px solid brown;
+  background-color: $footer-color;
+  padding: 10px;
+}
+
+#logo {
+  float: left;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 2em;
+  font-weight: bold;
+  color: brown;
+  padding: 10px;
+}
