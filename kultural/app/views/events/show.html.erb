@@ -1,39 +1,32 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @event.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+<div id="event-image">
+  EventImage
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+<div id="event-data">
+  <dl>
+    <dt>Evento de:</dt>
+    <dd><%= @event.owner.name %></dd>
+    <dt>Lugar:</dt>
+    <dd><%= @event.place.name %></dd>
+    <dt>Fecha:</dt>
+    <dd><%= @event.date %></dd>
+    <dt>Precio:</dt>
+    <dd><%= @event.price %></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+<div id="event-description">
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
+<div id="event-comments">
+  <% @event.comments.each do |comment| %>
+    <p>
+      <%= link_to comment.user.name, comment.user %>
+      <%= comment.content %>
+    </p>
+  <% end %>
+</div>
 
-<p>
-  <strong>Place:</strong>
-  <%= @event.place_id %>
-</p>
-
-<p>
-  <strong>Owner id:</strong>
-  <%= @event.owner_id %>
-</p>
-
-<p>
-  <strong>Owner type:</strong>
-  <%= @event.owner_type %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event) %>
