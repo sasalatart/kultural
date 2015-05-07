@@ -1,11 +1,11 @@
 <nav class="nav-top">
-  <div>
+  <div id="logo-container">
     <%= link_to "kultur.al", root_path, id: "logo" %>
   </div>
   <div class="nav-top-right">
     <% if logged_in? %>
-      <%= link_to current_user.name, current_user %>
-      <%= link_to "Cerrar sesión", logout_path, method: "delete" %>
+      <%= link_to current_user.name, current_user, id: "username" %>
+      <%= link_to "Logout", logout_path, method: "delete", id:"logout"%>
     <% end %>
   </div>
 </nav>

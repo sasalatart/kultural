@@ -1,6 +1,6 @@
 @import 'palette';
 
-#login_form {
+#login-form {
   text-align: center;
   padding: 50px 0 0 0px;
   width: 350px;
@@ -22,7 +22,7 @@
   }
 }
 
-.mail_input {
+.mail-input {
   margin-left:20px;
 	position:absolute;
 	width:300;
@@ -30,7 +30,7 @@
 	margin-top:10px;
 }
 
-.pass_input {
+.pass-input {
   margin-left:20px;
 	position:absolute;
 	width:300;
@@ -38,7 +38,7 @@
 	margin-top:70px;
 }
 
-.login_field {
+.login-field {
   display:block;
 	width:276px;
 	height:45px;
@@ -50,7 +50,7 @@
 	padding-left:30px;
 }
 
-#mail_img {
+#mail-img {
   position:absolute;
 	display:block;
 	margin-top:-30px;
@@ -58,7 +58,7 @@
   margin-left:8px;
 }
 
-#pass_img {
+#pass-img {
   display:block;
 	position:absolute;
 	margin-top:-34px;
@@ -66,7 +66,7 @@
 	margin-left:12px;
 }
 
-#login_submit {
+#login-submit {
 	position:relative;
 	margin-top:130px;
 	width:310px;
@@ -85,7 +85,7 @@
   }
 }
 
-#sign_up {
+#sign-up {
   color:$dark-text-color;
   text-decoration:none;
   font-weight:bold;

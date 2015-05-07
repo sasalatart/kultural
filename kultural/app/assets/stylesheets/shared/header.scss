@@ -1,0 +1,91 @@
+@import 'palette';
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left:0px;
+  background-color: $header-color;
+  padding: 10px;
+  padding-right:50px;
+  box-sizing: border-box;
+
+}
+
+header .header-left {
+  float: left;
+}
+
+header .header-right {
+  float: right;
+}
+
+header .header-user-menu {
+  position: relative;
+  border-radius:2px;
+  line-height:0;
+}
+
+//Dropdown menu
+header .header-user-menu ul{
+	display: none;
+	font:bold 13px monospace;
+	list-style: none;
+	position: absolute;
+	text-align: center;
+	width: 130px;
+	top: 23px;
+
+	left: 0;
+	padding: 10px;
+	border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+	box-sizing: border-box;
+}
+
+header .header-user-menu:active ul,
+header .header-user-menu:hover ul,
+header .header-user-menu.show ul{
+	display:block;
+}
+
+header .header-user-menu ul li {
+  padding:10px;
+  display: block;
+  background-color:$dropdown-color;
+  border-bottom: 2px solid $dropdown-hover-color;
+  &:hover {
+    background-color:$dropdown-hover-color;
+  }
+}
+
+header .header-user-menu ul li a{
+  color:$light-text-color;
+  font-style: bold;
+  text-decoration: none;
+}
+
+#logo {
+
+  font-family: "monospace";
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: $logo-text-color;
+  vertical-align:middle;
+}
+
+#profile-img {
+  float:left;
+  vertical-align:middle;
+  border: 2px solid white;
+  border-radius:50%;
+  width: 30px;
+}
+
+#username {
+  display: inline-block;
+  padding-left:10px;
+  color: $light-text-color;
+}
