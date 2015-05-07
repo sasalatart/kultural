@@ -1,7 +1,7 @@
 @import 'palette';
 //http://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/
 footer {
-  position:absolute;
+  position:fixed;
   bottom:0px;
   left:0px;
 	background-color: $footer-color;
@@ -10,8 +10,8 @@ footer {
 	text-align: left;
 	font: normal 16px sans-serif;
 
-	padding: 45px 50px;
-	margin-top: 80px;
+  padding: 45px;
+	margin-top: 30px;
 }
 
 footer .footer-left p{
@@ -26,6 +26,7 @@ footer p.footer-links{
 	font-weight: bold;
 	color:  $dark-text-color;
 	padding: 0;
+  margin:0;
 }
 
 footer p.footer-links a{
