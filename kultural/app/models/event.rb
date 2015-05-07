@@ -15,6 +15,9 @@
 #
 
 class Event < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: :name #TODO: maybe add :description.
+                  #:if => !:finished? #only search for future events
   belongs_to :owner, polymorphic: true
   belongs_to :place
   has_and_belongs_to_many :event_types

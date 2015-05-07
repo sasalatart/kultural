@@ -14,6 +14,8 @@
 #
 
 class User < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: :name
   has_many :groups, through: :memberships
   has_many :memberships
   has_many :events, as: :owner
