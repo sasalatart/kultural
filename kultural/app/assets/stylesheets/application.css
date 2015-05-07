@@ -13,25 +13,3 @@
  *= require_tree .
  *= require_self
  */
- @import 'palette';
- 
- body {
-   background-color: $body-color;
- }
-
- #debugger {
-   font-size: 0.75em;
- }
-
- #main {
-   margin: 75px;
- }
-
-
-
- .centered {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
- }
