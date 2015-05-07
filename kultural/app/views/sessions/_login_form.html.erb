@@ -1,0 +1,15 @@
+<%= form_for(:session, url: login_path, html: {id: "login_form"}) do |f| %>
+  <h2> LOGIN </h2>
+  <div class="mail_input">
+    <%= f.text_field :mail, placeholder: 'user@domain.com', class: "login_field" %>
+    <%= image_tag("login/mailicon.png", id: "mail_img") %>
+  </div>
+
+  <div class="pass_input">
+    <%= f.password_field :password, class: "login_field" %>
+    <%= image_tag("login/passicon.png", id: "pass_img") %>
+  </div>
+
+  <%= f.submit 'SIGN IN', id: "login_submit" %>
+  <%= link_to 'Register', signup_path,  id: "sign_up" %>
+<% end %>

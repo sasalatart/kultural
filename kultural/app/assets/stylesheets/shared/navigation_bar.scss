@@ -10,7 +10,7 @@ nav {
 
 .nav-top {
   top: 0px;
-  border-bottom: 5px solid brown;
+  //border-bottom: 5px solid $border-color;
   background-color: $header-color;
 }
 
@@ -22,17 +22,17 @@ nav {
 
 .nav-bottom {
   bottom: 0px;
-  border-top: 5px solid brown;
+  //border-top: 5px solid brown;
   background-color: $footer-color;
   padding: 10px;
 }
 
 #logo {
   float: left;
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-  font-size: 2em;
+  font-family: "monospace";
+  text-decoration: none;
+  font-size: 1.5em;
   font-weight: bold;
-  color: brown;
+  color: $logo-text-color;
   padding: 10px;
 }
