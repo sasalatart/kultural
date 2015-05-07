@@ -1,5 +1,8 @@
-@import 'palette';
+//Idea obtenida de:
 //http://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/
+
+@import 'palette';
+
 footer {
   position:fixed;
   bottom:0px;
@@ -10,7 +13,7 @@ footer {
 	text-align: left;
 	font: normal 16px sans-serif;
 
-  padding: 45px;
+  padding: 15px 45px;
 	margin-top: 30px;
 }
 

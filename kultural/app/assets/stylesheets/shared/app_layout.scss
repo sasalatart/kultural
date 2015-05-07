@@ -1,17 +1,12 @@
 @import 'palette';
+
 body {
   background-color: $body-color;
-}
-
-#debugger {
-  font-size: 0.75em;
 }
 
 #main {
   margin: 75px;
 }
-
-
 
 .centered {
   position: fixed;
