@@ -17,9 +17,22 @@
   <%= yield %>
 </div>
 
-<footer>
-  <%= render 'layouts/footer' %>
-</footer>
+<!--http://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/-->
 
+<footer>
+
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+          <%= link_to 'About',    about_path %>
+
+          <%= link_to 'Help',     help_path %>
+
+          <%= link_to 'Contact',  contact_path %>
+				</p>
+
+			</div>
+</footer>
 </body>
 </html>

@@ -6,8 +6,6 @@
     <% if logged_in? %>
       <%= link_to current_user.name, current_user %>
       <%= link_to "Cerrar sesión", logout_path, method: "delete" %>
-    <% else %>
-      <%= link_to "¿Nuevo en kultur.al?", signup_path %>
     <% end %>
   </div>
 </nav>

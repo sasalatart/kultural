@@ -1,5 +1,4 @@
 @import 'palette';
-
 body {
   background-color: $body-color;
 }
@@ -9,6 +8,7 @@ body {
 }
 
 #main {
+  height: 100%;
   margin: 75px;
 }
 

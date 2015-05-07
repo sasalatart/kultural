@@ -1,14 +1,14 @@
 @import 'palette';
 
 nav {
-  position: fixed;
   left: 0px;
   width: 100%;
   color: brown;
-  padding: 5px;
+
 }
 
 .nav-top {
+  position: fixed;
   top: 0px;
   //border-bottom: 5px solid $border-color;
   background-color: $header-color;
@@ -17,14 +17,14 @@ nav {
 .nav-top-right {
   text-align: right;
   vertical-align: middle;
-  padding: 10px;
 }
 
 .nav-bottom {
+  position:absolute;
   bottom: 0px;
+  height:100px;
   //border-top: 5px solid brown;
   background-color: $footer-color;
-  padding: 10px;
 }
 
 #logo {
