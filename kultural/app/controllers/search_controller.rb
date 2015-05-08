@@ -2,7 +2,10 @@ class SearchController < ApplicationController
 
   #This return all the PG SEARCH DOCUMENTS, not the actual objects.
   def search
-    @search_results = PgSearch.multisearch(params[:search_string])
+    @search_users = User.search(params[:search_string])
+    @search_events = Event.search(params[:search_string])
+    @search_places = Place.search(params[:search_string])
+
     render 'index'
   end
   def autocomplete
@@ -12,7 +15,10 @@ class SearchController < ApplicationController
     #  results_hash << {type: r.searchable_type, id: r.searchable_id}
     #end
     #render json: results_hash.to_json
-    @search_results = PgSearch.multisearch(params[:search_string])
+    @search_users = User.search(params[:search_string])
+    @search_events = Event.search(params[:search_string])
+    @search_places = Place.search(params[:search_string])
+
     respond_to do |format|
       format.js
     end

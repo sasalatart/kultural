@@ -1,6 +1,8 @@
 <%= form_tag search_path, action: 'search', method: 'get' do %>
-  <%= text_field_tag :search_field,
+  <%= text_field_tag :search_string,
                       params[:search_string],
                       placeholder: 'Search for events, places or users...',
-                      id: 'search-field'%>
+                      id: 'search-field',
+                      autocomplete: 'off'%>
 <% end %>
+<ul id="autocomplete" class="dropdown"></ul>

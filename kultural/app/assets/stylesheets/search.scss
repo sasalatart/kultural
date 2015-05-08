@@ -3,18 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'shared/palette';
 
+$bar-width: 350px;
+
 #search-bar {
+  position: relative;
   float:left;
   padding-left:40px;
   #search-field {
     display:block;
-  	width:350px;
     height:25px;
+    width: $bar-width;
   	//background:transparent;
     border: 2px solid $border-color;
     border-radius: 5px;
   	font-family: monospace;
   	font-size:14px;
   	padding-left:30px;
+  }
+
+  #autocomplete {
+    top: 6px;
+    left: 30px;
+    width: 384px;
+    li {
+
+    }
+
+    .search-separator {
+      
+    }
   }
 }
