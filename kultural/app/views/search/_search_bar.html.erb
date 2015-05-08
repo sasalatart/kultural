@@ -1,6 +1,6 @@
 <%= form_tag search_path, action: 'search', method: 'get' do %>
-  <%= text_field_tag :search_string,
+  <%= text_field_tag :search_field,
                       params[:search_string],
                       placeholder: 'Search for events, places or users...',
-                      id: 'search-field' %>
+                      id: 'search-field'%>
 <% end %>

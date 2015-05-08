@@ -24,7 +24,9 @@
 
   <p>
     <strong>Owner:</strong>
+    <p>
     <%= render @place.owner %>
+    </p>
   </p>
 </div>
 
@@ -35,8 +37,11 @@
 
 <div id="placeEvents">
   <h3>Events</h3>
-
-  <%= render @place.events %>
+  <% @place.events.each do |event| %>
+    <p>
+    <%= render event %>
+    </p>
+  <% end %>
 </div>
 
 <div id="placeRatings">

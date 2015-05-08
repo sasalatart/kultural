@@ -5,9 +5,21 @@ class SearchController < ApplicationController
     @search_results = PgSearch.multisearch(params[:search_string])
     render 'index'
   end
+  def autocomplete
+    #results_hash = []
+    #@search_results = PgSearch.multisearch(params[:search_string])
+    #@search_results.each do |r|
+    #  results_hash << {type: r.searchable_type, id: r.searchable_id}
+    #end
+    #render json: results_hash.to_json
+    @search_results = PgSearch.multisearch(params[:search_string])
+    respond_to do |format|
+      format.js
+    end
+  end
   private
     # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
+    def search_params
       params.require(:search_string)
     end
 end
