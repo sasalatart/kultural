@@ -15,9 +15,9 @@ class SearchController < ApplicationController
     #  results_hash << {type: r.searchable_type, id: r.searchable_id}
     #end
     #render json: results_hash.to_json
-    @search_users = User.search(params[:search_string])
-    @search_events = Event.search(params[:search_string])
-    @search_places = Place.search(params[:search_string])
+    @autocomplete_users = User.search(params[:search_string])
+    @autocomplete_events = Event.search(params[:search_string])
+    @autocomplete_places = Place.search(params[:search_string])
 
     respond_to do |format|
       format.js
