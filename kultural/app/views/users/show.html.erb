@@ -28,5 +28,13 @@
   <%= @user.male %>
 </p>
 
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+
+<p>
+  <%= render 'follow_form' if logged_in? %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

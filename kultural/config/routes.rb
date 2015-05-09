@@ -10,6 +10,15 @@ Rails.application.routes.draw do
   resources :groups
   resources :users
 
+  # Allow user/id/followers and user/id/following urls
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
+
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
