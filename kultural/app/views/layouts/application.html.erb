@@ -8,17 +8,41 @@
 </head>
 
 <body>
+
+<!--Some things on this page were taken from http://tutorialzine.com/-->
 <header>
-  <%= render 'layouts/header' %>
+  <%= link_to "kultur.al", root_path, id: "logo" %>
+  <% if logged_in? %>
+    <div id="search-bar">
+      <%= render 'search/search_bar' %>
+    </div>
+    <div class="header-right">
+      <div class="header-user-menu">
+        <!-- TODO: Change profile placeholder to user's image-->
+        <%= image_tag("placeholders/profile.png", id: "profile-img") %>
+  			<h3 id="username"><%= current_user.name %></h3>
+  			<ul>
+  				<li><%= link_to "Profile", current_user, id: "profile" %></li>
+  				<li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
+  			</ul>
+  		</div>
+    </div>
+  <% end %>
 </header>
 
 <div id="main">
+  <%= render 'shared/flash' %>
   <%= yield %>
 </div>
 
 <footer>
-  <%= render 'layouts/footer' %>
+	<div class="footer-left">
+		<p class="footer-links">
+      <%= link_to 'About',    about_path %>
+      <%= link_to 'Help',     help_path %>
+      <%= link_to 'Contact',  contact_path %>
+		</p>
+	</div>
 </footer>
-
 </body>
 </html>

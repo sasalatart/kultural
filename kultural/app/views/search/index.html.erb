@@ -1,0 +1,12 @@
+<h1>Results:</h1>
+<div>
+  <% @search_events.each do |event| %>
+    <%= render event %>
+  <% end %>
+  <% @search_users.each do |user| %>
+    <%= render user %>
+  <% end %>
+  <% @search_places.each do |place| %>
+    <%= render place %>
+  <% end %>
+</div>

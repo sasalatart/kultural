@@ -1,0 +1,41 @@
+@import 'palette';
+//http://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/
+footer {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+	background-color: $footer-color;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: normal 16px sans-serif;
+
+  padding: 45px;
+	margin-top: 30px;
+}
+
+footer .footer-left p{
+	color:  $dark-text-color;
+	font-size: 14px;
+	margin: 0;
+}
+
+footer p.footer-links{
+  font-family: monospace;
+	font-size:16px;
+	font-weight: bold;
+	color:  $dark-text-color;
+	padding: 0;
+  margin:0;
+}
+
+footer p.footer-links a{
+  padding-right: 10px;
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+  &:hover {
+    color: $dark-text-hover-color;
+  }
+}
