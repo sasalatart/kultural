@@ -1,0 +1,19 @@
+@import 'shared/palette';
+@import 'shared/borders';
+
+.form {
+  @include borders;
+  width: 50%;
+  padding: 10px;
+  position: relative;
+  margin: 0px auto;
+
+  .field, .actions {
+    width: 75%;
+    margin: 10px auto;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+}
