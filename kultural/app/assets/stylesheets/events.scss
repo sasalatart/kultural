@@ -9,12 +9,16 @@
   border-radius: 10px;
 }
 
-.event-square {
-  @include borders;
-  height: 200px;
-  width: calc(33% - 8px);
+.small-rectangle {
+  width: 33%;
   vertical-align: top;
   display: inline-block;
+  margin: 10px auto;
+}
+
+.small-rectangle .event-square {
+  @include borders;
+  height: 200px;
   margin: 10px auto;
 
   dt {
@@ -22,15 +26,17 @@
   }
 }
 
-#event-description {
+.big-rectangle {
+  width: 100%;
+}
+
+.big-rectangle .event-description {
   @include borders;
   font-size: 0.80em;
   clear: both;
-  width: calc(100% - 8px);
 }
 
-#event-comments {
+.big-rectangle .event-comments {
   @include borders;
-  width: calc(100% - 8px);
-  margin-top: 10px;
+  margin: 10px auto;
 }

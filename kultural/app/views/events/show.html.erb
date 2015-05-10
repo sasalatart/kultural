@@ -1,11 +1,16 @@
 <h1><%= @event.name %></h1>
-<%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
 
+<div class="clear">
+  <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
 <div>
+
+<div class="small-rectangle">
   <div class="event-square">
     EventImage
   </div>
+</div>
 
+<div class="small-rectangle">
   <div class="event-square">
     <dl>
       <dt>Evento de:</dt>
@@ -18,25 +23,31 @@
       <dd><%= number_to_currency @event.price %></dd>
     </dl>
   </div>
+</div>
 
+<div class="small-rectangle">
   <div class="event-square">
     Aquí irá el mapa cuando lo implementemos.
   </div>
 </div>
 
-<div id="event-description">
-  <p><%= @event.description %></p>
+<div class="big-rectangle">
+  <div class="event-description">
+    <p><%= @event.description %></p>
+  </div>
 </div>
 
 <% if @event.comments.count > 0 %>
-  <div id="event-comments">
-    <% @event.comments.each do |comment| %>
-      <p>
-        <%= link_to comment.user.name, comment.user %>
-        <%= ": #{comment.content}" %>
-      </p>
-    <% end %>
+  <div class="big-rectangle">
+    <div class="event-comments">
+      <% @event.comments.each do |comment| %>
+        <p>
+          <%= link_to comment.user.name, comment.user %>
+          <%= ": #{comment.content}" %>
+        </p>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
-<%= button_to 'Comentar', comments_path(current_user.id,), class: 'btn' %>
+<%= link_to 'Comentar', new_comment_path, class: 'btn' %>
