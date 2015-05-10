@@ -1,7 +1,10 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for [@commentable, Comment.new], url: comments_path, remote: true do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2>
+        <%= pluralize(@comment.errors.count, "error") %>
+        prohibited this comment from being saved:
+      </h2>
 
       <ul>
       <% @comment.errors.full_messages.each do |message| %>
@@ -11,12 +14,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br>
+  <div class="big-rectangle">
     <%= f.text_area :content %>
   </div>
 
-  <div class="btn">
-    <%= f.submit %>
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :commentable_id, { value: @commentable.id } %>
+  <%= f.hidden_field :commentable_type, { value: @commentable.class } %>
+
+  <div class="actions">
+    <%= f.submit 'Crear comentario' %>
   </div>
 <% end %>

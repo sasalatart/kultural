@@ -1,6 +1,7 @@
 @import 'palette';
 
-.btn {
+input[type=submit], .button {
+  display: inline-block;
   border: 0;
   border-radius: 5px;
   font-weight: bold;
@@ -15,4 +16,9 @@
   &:hover {
     background-color: $button-hover-color;
   }
+}
+
+.big-rectangle textarea {
+  width: 90%;
+  height: 90%;
 }

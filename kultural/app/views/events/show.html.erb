@@ -1,7 +1,7 @@
 <h1><%= @event.name %></h1>
 
 <div class="clear">
-  <%= link_to 'Edit', edit_event_path(@event), class: 'btn' %>
+  <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
 <div>
 
 <div class="small-rectangle">
@@ -37,17 +37,15 @@
   </div>
 </div>
 
+<% @commentable = @event %>
 <% if @event.comments.count > 0 %>
   <div class="big-rectangle">
     <div class="event-comments">
-      <% @event.comments.each do |comment| %>
-        <p>
-          <%= link_to comment.user.name, comment.user %>
-          <%= ": #{comment.content}" %>
-        </p>
-      <% end %>
+      <%= render @event.comments.reverse %>
+      <div id="new-comment">
+      </div>
     </div>
   </div>
 <% end %>
 
-<%= link_to 'Comentar', new_comment_path, class: 'btn' %>
+<% if logged_in? %><%= render 'comments/form' %><% end %>

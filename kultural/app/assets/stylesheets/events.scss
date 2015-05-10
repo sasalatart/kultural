@@ -3,11 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'shared/palette';
-
-@mixin borders {
-  border: 4px solid $border-color;
-  border-radius: 10px;
-}
+@import 'shared/borders';
 
 .small-rectangle {
   width: 33%;

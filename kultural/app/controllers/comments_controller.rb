@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -69,6 +70,8 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
+      puts params
+
       params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
     end
 end
