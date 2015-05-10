@@ -27,14 +27,33 @@
 
 <section>
   Events
+
+  <%= render @user.events %>
+
 </section>
 
 <section>
-  Places
+  Places that I own
+
+  <%= render @user.places %>
+</section>
+
+<section>
+  Places where I'm fan
+
+  <%= render @user.favourite_places %>
 </section>
 
 <section>
   Last comments
+
+  <%= render @user.comments %>
+</section>
+
+<section>
+  Groups
+
+  <%= render @user.groups %>
 </section>
 
 </div>

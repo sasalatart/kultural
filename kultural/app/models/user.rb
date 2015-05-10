@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
   has_many :memberships
   has_many :events, as: :owner
-  has_and_belongs_to_many :places
+  has_many :places, as: :owner
+  has_and_belongs_to_many :favourite_places, class_name: 'Place'
   has_many :comments
   has_many :reports
   has_many :ratings
