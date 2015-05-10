@@ -1,51 +1,49 @@
-<h1><%= @event.name %></h1>
+<div class="events">
+  <h1><%= @event.name %></h1>
 
-<div class="clear">
-  <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
-<div>
+  <div class="clear">
+    <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
+  <div>
 
-<div class="small-rectangle">
-  <div class="event-square">
-    EventImage
-  </div>
-</div>
-
-<div class="small-rectangle">
-  <div class="event-square">
-    <dl>
-      <dt>Evento de:</dt>
-      <dd><%= link_to @event.owner.name, @event.owner %></dd>
-      <dt>Lugar:</dt>
-      <dd><%= link_to @event.place.name, @event.place %></dd>
-      <dt>Fecha:</dt>
-      <dd><%= @event.date %></dd>
-      <dt>Precio:</dt>
-      <dd><%= number_to_currency @event.price %></dd>
-    </dl>
-  </div>
-</div>
-
-<div class="small-rectangle">
-  <div class="event-square">
-    Aquí irá el mapa cuando lo implementemos.
-  </div>
-</div>
-
-<div class="big-rectangle">
-  <div class="event-description">
-    <p><%= @event.description %></p>
-  </div>
-</div>
-
-<% @commentable = @event %>
-<% if @event.comments.count > 0 %>
-  <div class="big-rectangle">
-    <div class="event-comments">
-      <%= render @event.comments.reverse %>
-      <div id="new-comment">
-      </div>
+  <div class="small-rectangle">
+    <div class="event-square">
+      EventImage
     </div>
   </div>
-<% end %>
 
-<% if logged_in? %><%= render 'comments/form' %><% end %>
+  <div class="small-rectangle">
+    <div class="event-square">
+      <dl>
+        <dt>Evento de:</dt>
+        <dd><%= link_to @event.owner.name, @event.owner %></dd>
+        <dt>Lugar:</dt>
+        <dd><%= link_to @event.place.name, @event.place %></dd>
+        <dt>Fecha:</dt>
+        <dd><%= @event.date %></dd>
+        <dt>Precio:</dt>
+        <dd><%= number_to_currency @event.price %></dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="small-rectangle">
+    <div class="event-square">
+      Aquí irá el mapa cuando lo implementemos.
+    </div>
+  </div>
+
+  <div class="big-rectangle">
+    <div class="event-description">
+      <p><%= @event.description %></p>
+    </div>
+  </div>
+
+  <% @commentable = @event %>
+  <div class="big-rectangle">
+    <div id="comments">
+      <%= render 'comments/commentable_comments' %>
+    </div>
+  </div>
+
+  <% if logged_in? %><%= render 'comments/form' %><% end %>
+</div>

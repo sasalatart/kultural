@@ -1,0 +1,13 @@
+<dl>
+  <% @commentable.comments.reverse.each do |comment| %>
+    <div class="user-comment">
+      <dt>
+        <%= link_to comment.user.name, comment.user %>
+        <span class="date"><%= comment.created_at %></span>
+      </dt>
+      <dd>
+        <%= comment.content %>
+      </dd>
+    </div>
+  <% end %>
+</dl>

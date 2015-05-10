@@ -1,1 +1,1 @@
-$('#new-comment').html("<%= escape_javascript render(@comment) %>");
+$('#comments').html("<%= escape_javascript render('commentable_comments') %>");

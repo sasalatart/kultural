@@ -12,6 +12,7 @@ input[type=submit], .button {
   margin: 5px;
 
   color: white;
+
   background-color: $button-color;
   &:hover {
     background-color: $button-hover-color;

@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @commentable = Event.find(@comment.commentable_id)
 
     respond_to do |format|
       if @comment.save
