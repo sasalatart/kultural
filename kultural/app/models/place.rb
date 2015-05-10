@@ -20,7 +20,7 @@ class Place < ActiveRecord::Base
                   using: {tsearch: {prefix: true}}
                   
   belongs_to :owner, polymorphic: true
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :fans, class_name: 'User', foreign_key: 'user_id'
   has_many :events
   has_many :ratings, as: :rateable
   has_many :comments, as: :commentable

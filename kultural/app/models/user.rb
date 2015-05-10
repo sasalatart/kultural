@@ -21,10 +21,17 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
   has_many :memberships
   has_many :events, as: :owner
-  has_and_belongs_to_many :places
+  has_many :places, as: :owner
+  has_and_belongs_to_many :favourite_places, class_name: 'Place'
   has_many :comments
   has_many :reports
   has_many :ratings
+
+  # Follow people
+  has_many :active_relationships, class_name: 'Relationship',foreign_key: 'follower_id', dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships
 
   before_save { |user| user.mail = user.mail.downcase }
 
@@ -44,4 +51,21 @@ class User < ActiveRecord::Base
                     length: { minimum: 5, maximum: 15 }
 
   validates :birthday, presence: true
+
+
+  # Utility methods
+
+  def follow(foo_user)
+    active_relationships.create(followed_id: foo_user.id)
+  end
+
+  def unfollow(foo_user)
+    active_relationships.find_by(followed_id: foo_user.id).destroy
+  end
+
+  def following?(foo_user)
+    following.include?(foo_user)
+  end
+
+
 end
