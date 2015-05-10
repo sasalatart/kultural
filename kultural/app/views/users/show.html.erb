@@ -1,40 +1,40 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div id="user_info">
 
-<p>
-  <strong>Password (digest):</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
-
-<p>
-  <strong>Male:</strong>
-  <%= @user.male %>
-</p>
-
-<section class="stats">
+<div id="user_presentation">
+  <div id="user_name_image">
+    <%= image_tag("placeholders/profile.png", class: "profile-img") %>
+    <div class="user_name_container">
+      <%= link_to @user.name, @user %>
+    </div>
+  </div>
+  <%= render 'follow_form' if logged_in? %>
   <%= render 'shared/stats' %>
+</div>
+
+<div id="user_about">
+  <div><strong>Gender: </strong><%= gender @user %></div>
+  <div><strong>Birthday: </strong><%= @user.birthday %></div>
+  <div><strong>Mail: </strong><%= @user.mail %></div>
+  <div><strong>Phone: </strong><%= @user.phone %></div>
+</div>
+
+<!-- <%= link_to 'Edit', edit_user_path(@user) %> -->
+
+
+</div>
+
+<div id="user_activity">
+
+<section>
+  Events
 </section>
 
-<p>
-  <%= render 'follow_form' if logged_in? %>
-</p>
+<section>
+  Places
+</section>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<section>
+  Last comments
+</section>
+
+</div>
