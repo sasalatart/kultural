@@ -6,19 +6,6 @@
 @import 'shared/borders';
 
 .events {
-
-  a {
-    text-decoration: none;
-    font-weight: bold;
-
-    &:hover {
-      text-decoration: underline;
-    }
-    &:visited {
-      color: blue;
-    }
-  }
-
   .small-rectangle {
     width: 33%;
     vertical-align: top;
@@ -27,6 +14,7 @@
     .event-square {
       @include borders;
       height: 200px;
+      padding: 5px 10px;
       margin: 0px auto 10px auto;
 
       dt {
@@ -42,6 +30,7 @@
       @include borders;
       font-size: 0.80em;
       clear: both;
+      padding: 5px 10px;
       margin-bottom: 10px;
     }
 

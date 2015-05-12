@@ -1,25 +1,39 @@
 @import 'palette';
 
-input[type=submit], .button {
+.button {
   display: inline-block;
-  border: 0;
+  border: 0px;
   border-radius: 5px;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 15px;
+  font: bold 15px monospace;
   text-transform: uppercase;
   padding: 2px 10px;
   margin: 5px;
 
   color: white;
+}
 
+.button-def {
+  @extend .button;
   background-color: $button-color;
   &:hover {
     background-color: $button-hover-color;
   }
 }
 
+.button-del {
+  @extend .button;
+  background-color: $button-del-color;
+  &:hover {
+    background-color: $button-del-hover-color;
+  }
+}
+
+.floated {
+  float: left;
+  margin-right: 5px;
+}
+
 .big-rectangle textarea {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
 }
