@@ -15,7 +15,7 @@
       @include borders;
       height: 200px;
       padding: 5px 10px;
-      margin: 0px auto 10px auto;
+      margin: 0px auto;
 
       dt {
         font-weight: bold;
@@ -25,16 +25,16 @@
 
   .big-rectangle {
     width: 100%;
+    margin: 5px auto;
 
     .event-description {
       @include borders;
       font-size: 0.80em;
       clear: both;
       padding: 5px 10px;
-      margin-bottom: 10px;
     }
 
-    #comments {
+    .comments {
       @include borders;
       margin: 10px auto;
 

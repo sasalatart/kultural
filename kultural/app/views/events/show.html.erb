@@ -6,7 +6,7 @@
   <%= button_to 'Edit', edit_event_path(@event),
                 method: 'get', class: 'button-def floated' %>
   <%= button_to 'Delete', event_path(@event),
-                method: 'delete', class: 'button-del floated', confirm: 'Are you sure?' %>
+                method: 'delete', class: 'button-del floated', data: { confirm: 'Are you sure?' } %>
 
   <div class="clear">
     <div class="small-rectangle">
