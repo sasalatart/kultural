@@ -13,7 +13,7 @@ module Authorizable
   end
 
   def correct_user
-    unless current_user == User.find(params[:id])
+    unless current_user.id == params[:id]
       flash[:alert] = 'Este contenido no está disponible para usted'
       redirect_to root_path
     end
