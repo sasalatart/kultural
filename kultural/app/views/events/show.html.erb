@@ -3,10 +3,12 @@
     <h1><%= @event.name %></h1>
   </div>
 
-  <%= button_to 'Edit', edit_event_path(@event),
-                method: 'get', class: 'button-def floated' %>
-  <%= button_to 'Delete', event_path(@event),
-                method: 'delete', class: 'button-del floated', data: { confirm: 'Are you sure?' } %>
+  <% if owner_of_event? %>
+    <%= button_to 'Edit', edit_event_path(@event),
+                  method: 'get', class: 'button-def floated' %>
+    <%= button_to 'Delete', event_path(@event),
+                  method: 'delete', class: 'button-del floated', data: { confirm: 'Are you sure?' } %>
+  <% end %>
 
   <div class="clear">
     <div class="small-rectangle">
