@@ -1,9 +1,12 @@
 <h1>Eventos Existentes</h1>
 
+<%= button_to '¡Crear nuevo evento!',
+              new_event_path, method: :get, class: 'button-def' %>
+
 <table>
   <thead>
     <tr>
-      <th>Nombre de evento</th>
+      <th>Evento</th>
       <th>Descripción</th>
       <th>Fecha</th>
       <th>Precio</th>
@@ -13,19 +16,13 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
+        <td><%= link_to event.name, event %></td>
+        <td><%= truncate event.description, length: 140, separator: ' ' %></td>
         <td><%= event.date %></td>
         <td><%= number_to_currency(event.price) %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= button_to '¡Crear nuevo evento!',
-              new_event_path, method: :get, class: 'button-def' %>
