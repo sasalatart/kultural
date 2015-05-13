@@ -13,10 +13,19 @@
 
 <div id="user_about">
   <div><strong>Gender: </strong><%= gender @user %></div>
-  <div><strong>Birthday: </strong><%= @user.birthday %></div>
+  <div><strong>Birth Date: </strong><%= @user.birthday %></div>
   <div><strong>Mail: </strong><%= @user.mail %></div>
   <div><strong>Phone: </strong><%= @user.phone %></div>
 </div>
+
+<% if @user.groups.count > 0 %>
+<div id="user_groups">
+  <div><strong>Groups where I am a member:</strong></div>
+  <% @user.groups.each do |group| %>
+    <div><%= link_to group.name, group %></div>
+  <% end %>
+</div>
+<% end %>
 
 <!-- <%= link_to 'Edit', edit_user_path(@user) %> -->
 
@@ -24,36 +33,39 @@
 </div>
 
 <div id="user_activity">
+  
+  <% if @user.events.count > 0%>
+  <div>
+    <h3>My events</h3>
+    <% @user.events.order(date: :desc).each do |event| %>
+      <div> <%= link_to event.name, event %> <span class="tiny"> | <%= event.date %></span></div>
+    <% end %>
+  </div>
+  <% end %>
 
-<section>
-  Events
+  <% if @user.places.count > 0%>
+  <div>
+    <h3>My places</h3>
+      <% @user.places.each do |place| %>
+        <div><%= link_to place.name, place %></div>
+      <% end %>
+  </div>
+  <% end %>
 
-  <%= render @user.events %>
-
-</section>
-
-<section>
-  Places that I own
-
-  <%= render @user.places %>
-</section>
-
-<section>
-  Places where I'm fan
-
-  <%= render @user.favourite_places %>
-</section>
-
-<section>
-  Last comments
-
-  <%= render @user.comments %>
-</section>
-
-<section>
-  Groups
-
-  <%= render @user.groups %>
-</section>
-
+  <% if @user.comments.count > 0 %>
+  <div>
+    <h3>My last comments</h3>
+    <% @user.comments.limit(5).each do |com| %>
+      <div class="user_comment">
+        <div class="user_comment_head">
+          <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
+          <span class="tiny"> | <%= com.created_at %> </span>
+        </div>
+        <div class="user_comment_body">
+          <%= com.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>

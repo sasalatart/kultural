@@ -3,14 +3,9 @@ body {
   background-color: $body-color;
 }
 
-#debugger {
-  font-size: 0.75em;
-}
-
 #main {
   margin: 75px;
 }
-
 
 
 .centered {
@@ -18,4 +13,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.container_center{
+  display: flex;
+  flex-direction: column;
+
+  .center{
+    margin: auto;
+  }
 }

@@ -23,6 +23,7 @@
   			<h3 id="username"><%= current_user.name %></h3>
   			<ul>
   				<li><%= link_to "Profile", current_user, id: "profile" %></li>
+          <li><%= link_to "Edit profile", edit_user_path(id: current_user.id), id:"edit-profile" %></li>
   				<li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
   			</ul>
   		</div>

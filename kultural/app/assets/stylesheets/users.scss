@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a{
+	text-decoration: none;
+}
+
+.tiny{
+	font-size: 0.7em;
+}
 
 #user_info{
 	display: block;
@@ -40,7 +47,6 @@
 				overflow: hidden;
 
 				a{
-					text-decoration: none;
 					font-size: 1.5em;
 					font-weight: bold;
 				}
@@ -68,6 +74,18 @@
 			}
 		}
 	}
+
+	#user_about{
+
+	}
+
+	#user_groups{
+		margin-top: 1em;
+
+		>*{
+			margin-bottom: 0.3em;
+		}
+	}
 }
 
 #user_activity{
@@ -75,4 +93,28 @@
 	float: left;
 	width: 68%;
 	margin: 0 1%;
+
+
+	.user_comment{
+
+		margin-bottom: 1em;
+
+		>*{
+			margin-bottom: 0.3em;
+		}
+
+		.user_comment_head{
+
+		}
+
+		.user_comment_body{
+			margin-left: 50px;
+		}
+
+	}
+
+}
+
+.user_back_link{
+	margin-top: 1em;
 }

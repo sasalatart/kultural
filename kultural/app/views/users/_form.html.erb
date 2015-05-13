@@ -14,36 +14,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Nombre" %><br>
+    <%= f.label "Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label "e-mail" %><br>
+    <%= f.label "Mail" %><br>
     <%= f.text_field :mail %>
   </div>
   <div class="field">
-    <%= f.label "Contraseña" %><br>
+    <%= f.label "Password" %><br>
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label "Confirma tu contraseña" %><br>
+    <%= f.label "Confirm your password" %><br>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label "Número telefónico" %><br>
+    <%= f.label "Phone" %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label "Fecha de nacimiento" %><br>
+    <%= f.label "Birth Date" %><br>
     <%= f.date_select :birthday, start_year: 1900, end_year: Time.now.year %>
   </div>
   <div class="field">
     <%= f.radio_button :male, true %>
-    <%= f.label "¿Hombre?" %>
+    <%= f.label "Male" %>
     <%= f.radio_button :male, false %>
-    <%= f.label "¿Mujer?" %><br>
+    <%= f.label "Female" %><br>
   </div>
   <div class="actions">
-    <%= f.submit "¡Crear cuenta!" %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>
