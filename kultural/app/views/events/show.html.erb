@@ -1,16 +1,24 @@
 <div class="events">
+  
   <div class="center-align">
     <h1><%= @event.name %></h1>
+    <div id="avg-rating">
+      <%= render 'ratings/avg_rating' %>
+    </div>
   </div>
 
   <% if owner_of_event? %>
     <%= button_to 'Edit', edit_event_path(@event),
-                  method: 'get', class: 'button-def floated' %>
+                  method: 'get', class: 'button-def floated-left' %>
     <%= button_to 'Delete', event_path(@event),
-                  method: 'delete', class: 'button-del floated', data: { confirm: 'Are you sure?' } %>
+                  method: 'delete', class: 'button-del floated-left', data: { confirm: 'Are you sure?' } %>
   <% end %>
 
-  <div class="clear">
+  <div class="floated-right">
+    <%= render 'ratings/form' %>
+  </div>
+
+  <div class="big-rectangle clear">
     <div class="small-rectangle">
       <div class="event-square">
         EventImage
@@ -27,7 +35,7 @@
           <dt>Fecha:</dt>
           <dd><%= @event.date %></dd>
           <dt>Precio:</dt>
-          <dd><%= number_to_currency @event.price %></dd>
+          <dd><%= number_to_currency @event.price, precision: 0 %></dd>
         </dl>
       </div>
     </div>
@@ -40,15 +48,16 @@
   </div>
 
   <div class="big-rectangle">
-    <div class="event-description">
+    <div class="event-description clear">
       <p><%= @event.description %></p>
     </div>
   </div>
 
-  <% @commentable = @event %>
   <div id="comments">
     <%= render 'comments/commentable_comments' %>
   </div>
 
-  <% if logged_in? %><%= render 'comments/form' %><% end %>
+  <% if logged_in? %>
+    <%= render 'comments/form' %>
+  <% end %>
 </div>

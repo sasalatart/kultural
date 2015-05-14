@@ -1,7 +1,9 @@
 <h1>Eventos Existentes</h1>
 
-<%= button_to '¡Crear nuevo evento!',
-              new_event_path, method: :get, class: 'button-def' %>
+<% if logged_in? %>
+  <%= button_to '¡Crear nuevo evento!',
+                new_event_path, method: :get, class: 'button-def' %>
+<% end %>
 
 <table>
   <thead>
@@ -19,7 +21,7 @@
         <td><%= link_to event.name, event %></td>
         <td><%= truncate event.description, length: 140, separator: ' ' %></td>
         <td><%= event.date %></td>
-        <td><%= number_to_currency(event.price) %></td>
+        <td><%= number_to_currency event.price, precision: 0 %></td>
       </tr>
     <% end %>
   </tbody>

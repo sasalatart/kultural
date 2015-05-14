@@ -25,10 +25,17 @@ class RatingsController < ApplicationController
   # POST /ratings.json
   def create
     @rating = Rating.new(rating_params)
+    @rateable = Event.find(@rating.rateable_id)
+
+    existing_rating = Rating.find_by(user_id: @rating.user_id)
+    if existing_rating
+      Rating.delete(existing_rating)
+    end
 
     respond_to do |format|
       if @rating.save
         format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { render :new }
