@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'shared/palette';
+@import 'shared/fonts';
 
 $bar-width: 350px;
 
@@ -16,7 +17,7 @@ $bar-width: 350px;
   	//background:transparent;
     border: 2px solid $border-color;
     border-radius: 5px;
-  	font-family: monospace;
+  	font-family: $default-font;
   	font-size:14px;
   	padding-left:30px;
   }
@@ -30,7 +31,7 @@ $bar-width: 350px;
     }
 
     .search-separator {
-      
+
     }
   }
 }

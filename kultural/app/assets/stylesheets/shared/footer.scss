@@ -2,6 +2,7 @@
 //http://tutorialzine.com/2015/01/freebie-5-responsive-footer-templates/
 
 @import 'palette';
+@import 'fonts';
 
 footer {
   position:fixed;
@@ -24,7 +25,7 @@ footer .footer-left p{
 }
 
 footer p.footer-links{
-  font-family: monospace;
+  font-family: $default-font;
 	font-size:16px;
 	font-weight: bold;
 	color:  $dark-text-color;
