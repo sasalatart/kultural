@@ -18,8 +18,9 @@ class User < ActiveRecord::Base
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
 
-  has_many :groups, through: :memberships
   has_many :memberships
+  has_many :groups, through: :memberships
+  has_many :groups_where_is_admin, ->{where memberships: {is_admin: true} }, through: :memberships, class_name: 'Group', source: 'group'
   has_many :events, as: :owner
   has_many :places, as: :owner
   has_and_belongs_to_many :favourite_places, class_name: 'Place'
@@ -53,7 +54,7 @@ class User < ActiveRecord::Base
   validates :birthday, presence: true
 
 
-  # Utility methods
+  # Utility methods for follow system
 
   def follow(foo_user)
     active_relationships.create(followed_id: foo_user.id)
@@ -67,5 +68,10 @@ class User < ActiveRecord::Base
     following.include?(foo_user)
   end
 
+  # Utility methods for groups
+
+  def create_group(group_params)
+    groups_where_is_admin.create(group_params)
+  end
 
 end
