@@ -1,4 +1,6 @@
 <h3>
-  <%= "Average Rating:
-  #{number_with_precision @rateable.ratings.average(:value), precision: 2}" %>
+  <% if @rateable.ratings.count > 0 %>
+    <%= "Average Rating: 
+    #{number_with_precision @rateable.ratings.average(:value), precision: 2}" %>
+  <% end %>
 <h3>

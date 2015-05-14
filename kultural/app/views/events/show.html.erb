@@ -11,7 +11,8 @@
     <%= button_to 'Edit', edit_event_path(@event),
                   method: 'get', class: 'button-def floated-left' %>
     <%= button_to 'Delete', event_path(@event),
-                  method: 'delete', class: 'button-del floated-left', data: { confirm: 'Are you sure?' } %>
+                  method: 'delete', class: 'button-del floated-left',
+                  data: { confirm: 'Are you sure?' } %>
   <% end %>
 
   <div class="floated-right">
