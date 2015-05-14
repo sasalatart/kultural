@@ -1,3 +1,47 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'shared/palette';
+@import 'shared/borders';
+
+.events {
+  .big-rectangle {
+    width: 100%;
+    margin: 5px auto;
+
+    .small-rectangle {
+      width: 33%;
+      vertical-align: top;
+      display: inline-block;
+
+      .event-square {
+        @include borders;
+        height: 200px;
+
+        dt {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .event-description {
+      @include borders;
+      font-size: 0.80em;
+      padding: 5px 10px;
+    }
+
+    .comments {
+      @include borders;
+      margin: 10px auto;
+
+      .user-comment {
+        margin: 10px;
+
+        .date {
+          font-size: 0.75em;
+        }
+      }
+    }
+  }
+}

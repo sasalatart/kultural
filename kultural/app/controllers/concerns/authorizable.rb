@@ -12,10 +12,21 @@ module Authorizable
     end
   end
 
+  def owner_of_event
+    unless current_user == Event.find(params[:id]).owner
+      not_available_forwarding
+    end
+  end
+
+  def owner_of_place
+    unless current_user == Place.find(params[:id]).owner
+      not_available_forwarding
+    end
+  end
+
   def correct_user
     unless current_user == User.find(params[:id])
-      flash[:alert] = 'Este contenido no está disponible para usted'
-      redirect_to root_path
+      not_available_forwarding
     end
   end
 
@@ -24,5 +35,10 @@ module Authorizable
       flash[:alert] = 'You are not allowed to perform this action'
       redirect_to root_path
     end
+  end
+
+  def not_available_forwarding
+    flash[:alert] = 'Este contenido no está disponible para usted'
+    redirect_to root_path
   end
 end

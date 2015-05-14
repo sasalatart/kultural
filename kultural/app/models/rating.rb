@@ -21,5 +21,6 @@ class Rating < ActiveRecord::Base
 
   validates :rateable_id, presence: true
   validates :rateable_type, presence: true
-  validates :user_id, presence: true
+  validates :user_id, presence: true,
+                      uniqueness: { scope: [:rateable_id, :rateable_type] }
 end

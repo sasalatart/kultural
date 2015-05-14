@@ -1,39 +1,63 @@
-<p id="notice"><%= notice %></p>
+<div class="events">
+  
+  <div class="center-align">
+    <h1><%= @event.name %></h1>
+    <div id="avg-rating">
+      <%= render 'ratings/avg_rating' %>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+  <% if owner_of_event? %>
+    <%= button_to 'Edit', edit_event_path(@event),
+                  method: 'get', class: 'button-def floated-left' %>
+    <%= button_to 'Delete', event_path(@event),
+                  method: 'delete', class: 'button-del floated-left', data: { confirm: 'Are you sure?' } %>
+  <% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <div class="floated-right">
+    <%= render 'ratings/form' %>
+  </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+  <div class="big-rectangle clear">
+    <div class="small-rectangle">
+      <div class="event-square">
+        EventImage
+      </div>
+    </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
+    <div class="small-rectangle">
+      <div class="event-square">
+        <dl>
+          <dt>Evento de:</dt>
+          <dd><%= link_to @event.owner.name, @event.owner %></dd>
+          <dt>Lugar:</dt>
+          <dd><%= link_to @event.place.name, @event.place %></dd>
+          <dt>Fecha:</dt>
+          <dd><%= @event.date %></dd>
+          <dt>Precio:</dt>
+          <dd><%= number_to_currency @event.price, precision: 0 %></dd>
+        </dl>
+      </div>
+    </div>
 
-<p>
-  <strong>Place:</strong>
-  <%= @event.place_id %>
-</p>
+    <div class="small-rectangle">
+      <div class="event-square">
+        Aquí irá el mapa cuando lo implementemos.
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Owner id:</strong>
-  <%= @event.owner_id %>
-</p>
+  <div class="big-rectangle">
+    <div class="event-description clear">
+      <p><%= @event.description %></p>
+    </div>
+  </div>
 
-<p>
-  <strong>Owner type:</strong>
-  <%= @event.owner_type %>
-</p>
+  <div id="comments">
+    <%= render 'comments/commentable_comments' %>
+  </div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <% if logged_in? %>
+    <%= render 'comments/form' %>
+  <% end %>
+</div>

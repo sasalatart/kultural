@@ -1,9 +1,8 @@
 @mixin flash-box {
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
   width: 450px;
+  text-align: center;
+  background-color: LightGray;
+  margin: 100px auto 0 auto;
 }
 
 #notice {
