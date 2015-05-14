@@ -1,31 +1,28 @@
-<h1>Listing Users</h1>
+<div class="container_center">
+  <div class="center">
+    <h2> <%= @title %> </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Mail</th>
+          <th>Phone</th>
+          <th>Birth Date</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Password (digest)</th>
-      <th>Mail</th>
-      <th>Phone</th>
-      <th>Birthday</th>
-      <th>Male</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= render user %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.mail %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.birthday %></td>
-        <td><%= user.male %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= render user %></td>
+            <td><%= user.mail %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.birthday %></td>
+            <td><%= user.male ? "Male" : "Female" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

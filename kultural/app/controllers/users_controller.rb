@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
+    @title = 'Users'
     @users = User.all
   end
 
@@ -53,13 +54,13 @@ class UsersController < ApplicationController
   def following
     @title = 'Following'
     @users = @user.following
-    render 'show_follow'
+    render 'index'
   end
 
   def followers
     @title = 'Followers'
     @users = @user.followers
-    render 'show_follow'
+    render 'index'
   end
 
   private
