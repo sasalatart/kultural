@@ -32,13 +32,12 @@ module Authorizable
 
   def is_group_admin
     unless current_user.is_group_admin? Group.find(params[:id])
-      flash[:alert] = 'You are not allowed to perform this action'
-      redirect_to root_path
+      not_available_forwarding
     end
   end
 
   def not_available_forwarding
-    flash[:alert] = 'Este contenido no está disponible para usted'
+    flash[:alert] = 'You are not allowed to perform this action'
     redirect_to root_path
   end
 end
