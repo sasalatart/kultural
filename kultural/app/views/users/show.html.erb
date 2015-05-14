@@ -1,9 +1,9 @@
-<div id="user_info">
+<div id="user-info">
 
-<div id="user_presentation">
-  <div id="user_name_image">
+<div class="user-presentation">
+  <div class="user-name-image">
     <%= image_tag("placeholders/profile.png", class: "profile-img") %>
-    <div class="user_name_container">
+    <div class="user-name-container">
       <%= link_to @user.name, @user %>
     </div>
   </div>
@@ -11,7 +11,7 @@
   <%= render 'shared/stats' %>
 </div>
 
-<div id="user_about">
+<div class="user-about">
   <div><strong>Gender: </strong><%= gender @user %></div>
   <div><strong>Birth Date: </strong><%= @user.birthday %></div>
   <div><strong>Mail: </strong><%= @user.mail %></div>
@@ -19,7 +19,7 @@
 </div>
 
 <% if @user.groups.count > 0 %>
-<div id="user_groups">
+<div class="user-groups">
   <div><strong>Groups where I am a member:</strong></div>
   <% @user.groups.each do |group| %>
     <div><%= link_to group.name, group %></div>
@@ -32,7 +32,7 @@
 
 </div>
 
-<div id="user_activity">
+<div id="user-activity">
   
   <% if @user.events.count > 0%>
   <div>
@@ -56,12 +56,12 @@
   <div>
     <h3>My last comments</h3>
     <% @user.comments.limit(5).each do |com| %>
-      <div class="user_comment">
-        <div class="user_comment_head">
+      <div class="user-comment">
+        <div class="user-comment_head">
           <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
           <span class="tiny"> | <%= com.created_at %> </span>
         </div>
-        <div class="user_comment_body">
+        <div class="user-comment-body">
           <%= com.content %>
         </div>
       </div>

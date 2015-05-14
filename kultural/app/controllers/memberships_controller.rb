@@ -1,7 +1,8 @@
 class MembershipsController < ApplicationController
 
   before_action :logged_in_user
-  before_action :has_permission
+  before_action :set_membership, only: [:update, :destroy]
+  before_action :has_permission, only: [:update, :destroy]
 
   def create
     @group = Group.find(params[:group_id])
