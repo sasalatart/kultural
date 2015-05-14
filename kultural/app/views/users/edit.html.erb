@@ -1,6 +1,12 @@
-<h1>Editing User</h1>
+<div class="container_center">
+	<div class="center">
 
-<%= render 'form' %>
+		<h3>Editing my profile</h3>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+		<%= render 'form' %>
+
+		<div class="user_back_link">
+			<%= link_to 'Back to my profile', @user %>
+		</div>
+	</div>
+</div>

@@ -1,3 +1,120 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a{
+	text-decoration: none;
+}
+
+.tiny{
+	font-size: 0.7em;
+}
+
+#user_info{
+	display: block;
+	float: left;
+	width: 28%;
+	margin: 0 1%;
+
+	#user_presentation{
+		margin-bottom: 1em;
+		>div{
+			margin-bottom: 0.5em;
+		}
+
+		#user_name_image{
+			overflow: auto;
+			margin-top: 0;
+			padding: 0;
+			position: relative;
+
+			.profile-img{
+				margin-right: 5%;
+				background-color: #000;
+				height: 15%;
+				width: 15%;
+			}
+
+			.user_name_container{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 20%;
+
+				width: 80%;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+
+				a{
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+			}
+		}
+
+		#follow_form{
+			text-align: center;
+
+			form{
+				display: inline;
+			}
+		}
+
+		.stats{
+			text-align: center;
+
+			a{
+				padding: 0 0.5em;
+				text-decoration: none;
+
+				&:first-child{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	#user_about{
+
+	}
+
+	#user_groups{
+		margin-top: 1em;
+
+		>*{
+			margin-bottom: 0.3em;
+		}
+	}
+}
+
+#user_activity{
+	display: block;
+	float: left;
+	width: 68%;
+	margin: 0 1%;
+
+
+	.user_comment{
+
+		margin-bottom: 1em;
+
+		>*{
+			margin-bottom: 0.3em;
+		}
+
+		.user_comment_head{
+
+		}
+
+		.user_comment_body{
+			margin-left: 50px;
+		}
+
+	}
+
+}
+
+.user_back_link{
+	margin-top: 1em;
+}
