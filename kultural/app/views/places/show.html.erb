@@ -1,53 +1,53 @@
-<p id="notice"><%= notice %></p>
-<div>
-<div id="placeDescription">
-  <h3>Description</h3>
-  <p>
-    <strong>Name:</strong>
-    <%= @place.name %>
-  </p>
+<h2>  <%= @place.name %></h2>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @place.description %>
-  </p>
+<% if owner_of_place? %>
+  <%= button_to 'Edit', edit_place_path(@place),
+                method: 'get', class: 'button-def' %>
+  <%= button_to 'Delete', place_path(@place),
+                method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
+<% end %>
+<div id="place-show-top">
+  <div id="placeDescription">
+      <p>
+        <strong>Description:</strong>
+        <%= @place.description %>
+      </p>
 
-  <p>
-    <strong>X:</strong>
-    <%= @place.x %>
-  </p>
+      <p>
+        <strong>Owner:</strong>
+          <%= render @place.owner %>
+      </p>
 
-  <p>
-    <strong>Y:</strong>
-    <%= @place.y %>
-  </p>
+      <p>
+        <strong>X:</strong>
+        <%= @place.x %>
+      </p>
 
-  <p>
-    <strong>Owner:</strong>
-    <p>
-    <%= render @place.owner %>
-    </p>
-  </p>
+      <p>
+        <strong>Y:</strong>
+        <%= @place.y %>
+      </p>
+
+    </div>
+
+  <div id="placeEvents">
+    <h3>Events</h3>
+    <% @place.events.each do |event| %>
+      <p>
+      <%= render event %>
+      </p>
+    <% end %>
+  </div>
+
 </div>
 
-<div id="placeComments">
-  <h3>Comments</h3>
-  <%= render @place.comments %>
-</div>
-
-<div id="placeEvents">
-  <h3>Events</h3>
-  <% @place.events.each do |event| %>
-    <p>
-    <%= render event %>
-    </p>
+<div id="place-show-bottom>">
+  <% if logged_in? %>
+    <%= render 'comments/form' %>
   <% end %>
-</div>
-
-<div id="placeRatings">
-  <h3>Ratings</h3>
-  <%= render @place.ratings %>
-</div>
+  <div id="place-comments">
+    <%= render 'comments/commentable_comments' %>
+  </div>
 </div>
 <!--<%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>-->

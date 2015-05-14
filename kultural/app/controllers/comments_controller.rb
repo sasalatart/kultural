@@ -25,8 +25,12 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @commentable = Event.find(@comment.commentable_id)
-
+    if @comment.commentable_type == 'Event'
+      @commentable = Event.find(@comment.commentable_id)
+    else
+      @commentable = Place.find(@comment.commentable_id)
+    end
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
