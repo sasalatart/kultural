@@ -27,14 +27,9 @@
     <%= f.label :y %><br>
     <%= f.text_field :y %>
   </div>
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.text_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_type %><br>
-    <%= f.text_field :owner_type %>
-  </div>
+  <%= f.hidden_field :owner_id, { value: current_user.id } %>
+  <%= f.hidden_field :owner_type, { value: current_user.class } %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
