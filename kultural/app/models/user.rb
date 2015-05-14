@@ -85,4 +85,8 @@ class User < ActiveRecord::Base
   def belongs_to_group?(group)
     groups.include?(group)
   end
+
+  def is_group_admin?(group)
+    groups_where_is_admin.include?(group)
+  end
 end

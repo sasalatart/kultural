@@ -15,6 +15,6 @@ class Membership < ActiveRecord::Base
   belongs_to :group
 
   validates_inclusion_of :is_admin, in: [true, false]
-  validates :user_id, presence: true
+  validates :user_id, presence: true, uniqueness: {scope: :group_id}
   validates :group_id, presence: true
 end

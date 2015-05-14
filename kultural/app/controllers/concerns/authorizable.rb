@@ -18,4 +18,11 @@ module Authorizable
       redirect_to root_path
     end
   end
+
+  def is_group_admin
+    unless current_user.is_group_admin? Group.find(params[:id])
+      flash[:alert] = 'You are not allowed to perform this action'
+      redirect_to root_path
+    end
+  end
 end

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-  resources :memberships, only: [:create, :destroy]
+  resources :memberships, only: [:create, :destroy, :update]
 
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
