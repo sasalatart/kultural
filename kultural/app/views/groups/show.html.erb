@@ -10,5 +10,11 @@
   <%= @group.description %>
 </p>
 
+<p>
+  <%= link_to 'Members', members_group_path %>
+</p>
+
+<p> <%= render 'join_form' if logged_in? %> </p>
+
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

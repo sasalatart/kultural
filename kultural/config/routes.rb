@@ -17,7 +17,15 @@ Rails.application.routes.draw do
     end
   end
 
+  # Allow group/id/members urls
+  resources :groups do
+    member do
+      get :members
+    end
+  end
+
   resources :relationships, only: [:create, :destroy]
+  resources :memberships, only: [:create, :destroy]
 
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'

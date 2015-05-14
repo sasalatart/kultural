@@ -74,4 +74,15 @@ class User < ActiveRecord::Base
     groups_where_is_admin.create(group_params)
   end
 
+  def join_group(group)
+    memberships.create(group_id: group.id, is_admin: false)
+  end
+
+  def leave_group(group)
+    memberships.find_by(group_id: group.id).destroy
+  end
+
+  def belongs_to_group?(group)
+    groups.include?(group)
+  end
 end
