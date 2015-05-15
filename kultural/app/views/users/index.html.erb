@@ -1,6 +1,11 @@
 <div class="container_center">
   <div class="center">
-    <h2> <%= @title %> </h2>
+    <h2> 
+      <%= @title %> 
+      <% unless @user.nil? %>
+       <%= link_to @user.name, @user %>
+      <% end %>
+    </h2>
     <table>
       <thead>
         <tr>

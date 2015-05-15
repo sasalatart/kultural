@@ -14,14 +14,18 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    @membership = Membership.find_by(id: params[:id])
-    @membership.is_admin = params[:is_admin]
+    @membership.is_admin = !@membership.is_admin
+    @membership.save
+    respond_to do |format|
+      format.html {redirect_to members_group_path id: @membership.group.id}
+      format.js
+    end
 
   end
 
   def destroy
-    @group = Membership.find_by(id: params[:id]).group
-    current_user.leave_group(@group)
+    @group = @membership.group
+    @membership.user.leave_group(@group)
     respond_to do |format|
       format.html {redirect_to @group}
       format.js

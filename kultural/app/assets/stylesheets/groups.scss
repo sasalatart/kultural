@@ -1,3 +1,103 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.group-member{
+  display: table;
+
+  div.user-as-member{
+    display: table-row;
+
+    >div{
+      display: table-cell;
+      padding: 0.5em;
+    }
+  }  
+}
+
+#group-info{
+  display: block;
+  float: left;
+  width: 28%;
+  margin: 0 1%;
+
+  .group-presentation{
+    margin-bottom: 1em;
+    >div{
+      margin-bottom: 0.5em;
+    }
+
+    .group-name-image{
+      overflow: auto;
+      margin-top: 0;
+      padding: 0;
+      position: relative;
+
+      >img{
+        margin-right: 5%;
+        background-color: #000;
+        height: 15%;
+        width: 15%;
+      }
+
+      .group-name-container{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20%;
+
+        width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a{
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .group-forms{
+      text-align: center;
+      .join-form, .edit-form, .delete-form, form{
+        display: inline;
+      }
+    }
+
+
+    .stats{
+      text-align: center;
+
+      a{
+        padding: 0 0.5em;
+        text-decoration: none;
+
+        &:first-child{
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .group-about{
+    >div{
+      margin-bottom: 1em;
+    }
+  }
+
+  .group-admins{
+    margin-top: 1em;
+
+    >*{
+      margin-bottom: 0.3em;
+    }
+  }
+}
+
+#group-activity{
+  display: block;
+  float: left;
+  width: 68%;
+  margin: 0 1%;
+}

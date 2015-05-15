@@ -59,7 +59,7 @@
       <div class="user-comment">
         <div class="user-comment_head">
           <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
-          <span class="tiny"> | <%= com.created_at %> </span>
+          <span class="tiny"> | <%= time_ago_in_words com.created_at %> ago</span>
         </div>
         <div class="user-comment-body">
           <%= com.content %>

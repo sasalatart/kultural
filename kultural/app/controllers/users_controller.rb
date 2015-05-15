@@ -52,13 +52,13 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = 'Following'
+    @title = 'Following to'
     @users = @user.following
     render 'index'
   end
 
   def followers
-    @title = 'Followers'
+    @title = 'Followers of'
     @users = @user.followers
     render 'index'
   end
