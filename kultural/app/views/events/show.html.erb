@@ -41,6 +41,12 @@
         <dd><%= @event.date %></dd>
         <dt>Price:</dt>
         <dd><%= number_to_currency @event.price, precision: 0 %></dd>
+        <dt>Categories:</dt>
+        <dd>
+          <% @event.event_types.to_a.each do |et| %>
+            <%= et.name %>
+          <% end %>
+        </dd>
       </dl>
     </div>
 
