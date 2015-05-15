@@ -1,5 +1,5 @@
-<div class="events">
-  <div class="form">
+<div class="events container_center">
+  <div class="form center">
     <div class="contents">
       <%= form_for(@event) do |f| %>
         <% if @event.errors.any? %>
@@ -40,7 +40,7 @@
         </div>
 
         <% EventType.all.each do |et| %>
-          <div class=field"">
+          <div class="field">
             <%= label_tag et.id, et.name %>
             <%= check_box_tag "event[event_type_ids][]", et.id %>
           </div>
