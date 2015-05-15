@@ -6,35 +6,35 @@
 @import 'shared/borders';
 
 .events {
+  .statistics {
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
   .big-rectangle {
+    @include borders;
     width: 100%;
     margin: 5px auto;
     display: table;
 
-    .small-rectangle {
+    .event-info {
       width: 33%;
+      height: 200px;
       vertical-align: top;
       display: table-cell;
 
-      .event-square {
-        @include borders;
-        height: 200px;
-
-        dt {
-          font-weight: bold;
-        }
+      dt {
+        font-weight: bold;
       }
     }
 
     .event-description {
-      @include borders;
       font-size: 0.80em;
       padding: 5px 10px;
     }
 
     .comments {
-      @include borders;
-      margin: 10px auto;
+      margin: auto;
 
       .user-comment {
         margin: 10px;
@@ -45,8 +45,15 @@
       }
     }
 
-    textarea {
-      width: 100%;
+    .comment-input {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+
+      textarea {
+        width: 100%;
+      }
     }
   }
 }

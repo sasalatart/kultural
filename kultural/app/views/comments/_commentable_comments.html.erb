@@ -1,7 +1,5 @@
-<div class="big-rectangle">
-  <div class="<%="comments" if @commentable.comments.count > 0%>">
-    <dl>
-      <%= render @commentable.comments.reverse %>
-    </dl>
-  </div>
+<div class="<%="comments" if @commentable.comments.count > 0%>">
+  <dl>
+    <%= render @commentable.comments.reverse %>
+  </dl>
 </div>

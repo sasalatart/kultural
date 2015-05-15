@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   def show
     @comment = Comment.new
     @commentable = @event
+    @reportable = @event
     @rateable = @event
   end
 

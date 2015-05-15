@@ -2,8 +2,9 @@
   
   <div class="center-align">
     <h1><%= @event.name %></h1>
-    <div id="avg-rating">
-      <%= render 'ratings/avg_rating' %>
+    <div class="statistics">
+      <span id="avg-rating"><%= render 'ratings/avg_rating' %> </span>
+      <span id="num-reports"><%= render 'reports/num_reports' %></span>
     </div>
   </div>
 
@@ -15,36 +16,36 @@
                   data: { confirm: 'Are you sure?' } %>
   <% end %>
 
-  <div class="floated-right">
-    <%= render 'ratings/form' %>
-  </div>
+  <% if logged_in? %>
+    <div class="floated-right">
+      <%= render 'reports/form' %>
+    </div>
+
+    <div class="floated-right">
+      <%= render 'ratings/form' %>
+    </div>
+  <% end %>
 
   <div class="big-rectangle clear">
-    <div class="small-rectangle">
-      <div class="event-square">
-        EventImage
-      </div>
+    <div class="event-info">
+      EventImage
     </div>
 
-    <div class="small-rectangle">
-      <div class="event-square">
-        <dl>
-          <dt>Evento de:</dt>
-          <dd><%= link_to @event.owner.name, @event.owner %></dd>
-          <dt>Lugar:</dt>
-          <dd><%= link_to @event.place.name, @event.place %></dd>
-          <dt>Fecha:</dt>
-          <dd><%= @event.date %></dd>
-          <dt>Precio:</dt>
-          <dd><%= number_to_currency @event.price, precision: 0 %></dd>
-        </dl>
-      </div>
+    <div class="event-info">
+      <dl>
+        <dt>Owner of Event:</dt>
+        <dd><%= render @event.owner %></dd>
+        <dt>Place:</dt>
+        <dd><%= link_to @event.place.name, @event.place %></dd>
+        <dt>Date:</dt>
+        <dd><%= @event.date %></dd>
+        <dt>Price:</dt>
+        <dd><%= number_to_currency @event.price, precision: 0 %></dd>
+      </dl>
     </div>
 
-    <div class="small-rectangle">
-      <div class="event-square">
-        Aquí irá el mapa cuando lo implementemos.
-      </div>
+    <div class="event-info">
+      Aquí irá el mapa cuando lo implementemos.
     </div>
   </div>
 
@@ -54,11 +55,15 @@
     </div>
   </div>
 
-  <div id="comments">
-    <%= render 'comments/commentable_comments' %>
-  </div>
+  <div class="big-rectangle">
+    <% if logged_in? %>
+      <div class="comment-input">
+        <%= render 'comments/form' %>
+      </div>
+    <% end %>
 
-  <% if logged_in? %>
-    <%= render 'comments/form' %>
-  <% end %>
+    <div id="comments">
+      <%= render 'comments/commentable_comments' %>
+    </div>
+  </div>
 </div>

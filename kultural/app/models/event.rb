@@ -19,8 +19,8 @@ class Event < ActiveRecord::Base
   #TODO: pg search: maybe add :description.
   #:if => !:finished? #only search for future events
   pg_search_scope :search, against: :name,
-                  using: {tsearch: {prefix: true}}
-                  
+                  using: { tsearch: { prefix: true } }
+
   belongs_to :owner, polymorphic: true
   belongs_to :place
   has_and_belongs_to_many :event_types

@@ -1,13 +1,11 @@
-<div class="big-rectangle">
-  <%= form_for [@commentable, Comment.new], url: comments_path, remote: true do |f| %>
-    <%= f.text_area :content %>
+<%= form_for [@commentable, Comment.new], url: comments_path, remote: true do |f| %>
+  <%= f.text_area :content, id: 'content' %>
 
-    <%= f.hidden_field :user_id, { value: current_user.id } %>
-    <%= f.hidden_field :commentable_id, { value: @commentable.id } %>
-    <%= f.hidden_field :commentable_type, { value: @commentable.class } %>
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :commentable_id, { value: @commentable.id } %>
+  <%= f.hidden_field :commentable_type, { value: @commentable.class } %>
 
-    <div class="action">
-      <%= f.submit 'Crear comentario', class: 'button-def' %>
-    </div>
-  <% end %>
-</end>
+  <div class="action">
+    <%= f.submit 'Comment!', class: 'button-def' %>
+  </div>
+<% end %>
