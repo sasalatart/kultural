@@ -10,7 +10,10 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    @comment = Comment.new
     @commentable = @place
+    @reportable = @event
+    @rateable = @event
   end
 
   # GET /places/new

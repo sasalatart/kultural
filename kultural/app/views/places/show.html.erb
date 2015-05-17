@@ -41,11 +41,13 @@
 
 </div>
 
-<div id="place-show-bottom>">
+<div id="place-show-bottom">
   <% if logged_in? %>
-    <%= render 'comments/form' %>
+    <div class="comment-input">
+      <%= render 'comments/form' %>
+    </div>
   <% end %>
-  <div id="place-comments">
+  <div id="comments">
     <%= render 'comments/commentable_comments' %>
   </div>
 </div>

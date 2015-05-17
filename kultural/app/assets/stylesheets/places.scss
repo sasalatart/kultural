@@ -4,33 +4,34 @@
 @import 'shared/borders';
 
 #place-show-top {
-  position:relative;
+  @include borders;
+  padding-left:10px;
   margin-bottom:30px;
+  width: 100%;
+  margin: 5px auto;
+  display: table;
 }
 
 #place-show-bottom {
-  position:relative;
+  @include borders;
+  display: block;
+  width: 100%;
+  margin: 5px auto;
+  display: table;
 }
 
 #placeDescription {
-  @include borders;
   display: block;
   float:left;
-  width:45%;
   min-height:18em;
-}
-
-#placeComments {
-  @include borders;
-
-  margin-bottom:50px;
+  width: 50%;
 }
 
 #placeEvents {
-  @include borders;
   display: block;
   float:left;
-  width:45%;
   min-height:18em;
   overflow: scroll;
+  width: 50%;
+
 }

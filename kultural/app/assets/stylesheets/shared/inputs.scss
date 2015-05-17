@@ -35,3 +35,26 @@
   float: right;
   margin-left: 5px;
 }
+
+.comments {
+  margin: auto;
+
+  .user-comment {
+    margin: 10px;
+
+    .date {
+      font-size: 0.75em;
+    }
+  }
+}
+
+.comment-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+  textarea {
+    width: 100%;
+  }
+}
