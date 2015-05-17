@@ -1,14 +1,14 @@
-<% events.each do |event| %>
+<% autocomplete_events.each do |event| %>
   <li class="search-result">
   <%= render event %>
   </li>
 <% end %>
-<% users.each do |user| %>
+<% autocomplete_users.each do |auser| %>
   <li class="search-result">
-  <%= render user %>
+  <%= render auser %>
   </li>
 <% end %>
-<% places.each do |place| %>
+<% autocomplete_places.each do |place| %>
   <li class="search-result">
   <%= render place %>
   </li>

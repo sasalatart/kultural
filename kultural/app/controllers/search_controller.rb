@@ -9,12 +9,6 @@ class SearchController < ApplicationController
     render 'index'
   end
   def autocomplete
-    #results_hash = []
-    #@search_results = PgSearch.multisearch(params[:search_string])
-    #@search_results.each do |r|
-    #  results_hash << {type: r.searchable_type, id: r.searchable_id}
-    #end
-    #render json: results_hash.to_json
     @autocomplete_users = User.search(params[:search_string])
     @autocomplete_events = Event.search(params[:search_string])
     @autocomplete_places = Place.search(params[:search_string])
