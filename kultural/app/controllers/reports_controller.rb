@@ -26,9 +26,16 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
 
+    if @report.reportable_type == 'Event'
+      @reportable = Event.find(@report.reportable_id)
+    else
+      @reportable = Place.find(@report.reportable_id)
+    end
+
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }

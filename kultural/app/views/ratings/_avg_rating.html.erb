@@ -1,6 +1,9 @@
-<h3>
-  <% if @rateable.ratings.count > 0 %>
-    <%= "Average Rating: 
-    #{number_with_precision @rateable.ratings.average(:value), precision: 2}" %>
+<%= "Average Rating: " %>
+<% if @rateable.ratings.count > 0 %>
+  <%= "#{number_with_precision @rateable.ratings.average(:value), precision: 2}" %>
+  <% if logged_in? && @rateable.ratings.where(:user_id == current_user.id) %>
+    <%= '(You rated this)' %>
   <% end %>
-<h3>
+<% else %>
+  <%= 'NONE' %>
+<% end %>

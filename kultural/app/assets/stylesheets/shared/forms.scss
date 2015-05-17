@@ -13,7 +13,20 @@
     margin: 10px auto;
   }
 
-  input, textarea {
+  input[type="text"], input[type="submit"], textarea {
     width: 100%;
+  }
+
+  .tag-table {
+    display: table;
+    margin: auto;
+
+    .tag-row {
+      display: table-row;
+
+      .tag-cell {
+        display: table-cell;
+      }
+    }
   }
 }

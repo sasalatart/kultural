@@ -1,50 +1,60 @@
-<div class="form">
-  <div class="contents">
-    <%= form_for(@event) do |f| %>
-      <% if @event.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@event.errors.count, "error") %>
-            prohibited this event from being saved:
-          </h2>
-          <ul>
-          <% @event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+<div class="events container_center">
+  <div class="form center">
+    <div class="contents">
+      <%= form_for(@event) do |f| %>
+        <% if @event.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@event.errors.count, "error") %>
+              prohibited this event from being saved:
+            </h2>
+            <ul>
+            <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :place %><br>
+          <%= f.collection_select :place_id,
+                                  Place.order(:name), :id, :name,
+                                  include_blank: true%>
+        </div>  
+        <div class="field">
+          <%= f.label :date %><br>
+          <%= f.datetime_select :date %>
+        </div>
+        <div class="field">
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </div>
+        <div class="field">
+          <%= f.label :price %><br>
+          <%= f.number_field :price %>
+        </div>
+        <div class="tag-table">
+          <% EventType.all.each do |et| %>
+            <div class="tag-row">
+              <%= label_tag et.id, et.name, class: 'tag-cell' %>
+              <%= check_box_tag "event[event_type_ids][]", et.id, class: 'tag-cell' %>
+            </div>
           <% end %>
-          </ul>
+        </div>
+
+        <!-- TODO adapt for groups -->
+        <%= f.hidden_field :owner_id, { value: current_user.id } %>
+        <%= f.hidden_field :owner_type, { value: current_user.class } %>
+
+        <div class="actions">
+          <%= f.submit 'Ready!', class: 'button-def' %>
         </div>
       <% end %>
-
-      <div class="field">
-        <%= f.label 'Nombre del evento' %><br>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label 'Lugar' %><br>
-        <%= f.collection_select :place_id,
-                                Place.order(:name), :id, :name,
-                                include_blank: true%>
-      </div>
-      <div class="field">
-        <%= f.label 'Fecha' %><br>
-        <%= f.datetime_select :date %>
-      </div>
-      <div class="field">
-        <%= f.label 'Descripción' %><br>
-        <%= f.text_area :description %>
-      </div>
-      <div class="field">
-        <%= f.label 'Precio' %><br>
-        <%= f.number_field :price %>
-      </div>
-
-      <!-- TODO adapt for groups -->
-      <%= f.hidden_field :owner_id, { value: current_user.id } %>
-      <%= f.hidden_field :owner_type, { value: current_user.class } %>
-
-      <div class="actions">
-        <%= f.submit '¡Listo!' %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
