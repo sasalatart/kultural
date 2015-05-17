@@ -1,1 +1,5 @@
-describe User
+require 'user'
+
+describe User do
+  
+end
