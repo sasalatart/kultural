@@ -39,12 +39,14 @@
           <%= f.number_field :price %>
         </div>
 
-        <% EventType.all.each do |et| %>
-          <div class="field">
-            <%= label_tag et.id, et.name %>
-            <%= check_box_tag "event[event_type_ids][]", et.id %>
-          </div>
-        <% end %>
+        <div class="tag-table">
+          <% EventType.all.each do |et| %>
+            <div class="tag-row">
+              <%= label_tag et.id, et.name, class: 'tag-cell' %>
+              <%= check_box_tag "event[event_type_ids][]", et.id, class: 'tag-cell' %>
+            </div>
+          <% end %>
+        </div>
 
         <!-- TODO adapt for groups -->
         <%= f.hidden_field :owner_id, { value: current_user.id } %>

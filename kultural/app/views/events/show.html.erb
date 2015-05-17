@@ -3,8 +3,13 @@
   <div class="center-align">
     <h1><%= @event.name %></h1>
     <div class="statistics">
-      <span id="avg-rating"><%= render 'ratings/avg_rating' %> </span>
-      <span id="num-reports"><%= render 'reports/num_reports' %></span>
+      <span id="avg-rating">
+        <%= render 'ratings/avg_rating' %>
+      </span>
+      |
+      <span id="num-reports">
+        <%= render 'reports/num_reports' %>
+      </span>
     </div>
   </div>
 
@@ -32,22 +37,7 @@
     </div>
 
     <div class="event-info">
-      <dl>
-        <dt>Owner of Event:</dt>
-        <dd><%= render @event.owner %></dd>
-        <dt>Place:</dt>
-        <dd><%= link_to @event.place.name, @event.place %></dd>
-        <dt>Date:</dt>
-        <dd><%= @event.date %></dd>
-        <dt>Price:</dt>
-        <dd><%= number_to_currency @event.price, precision: 0 %></dd>
-        <dt>Categories:</dt>
-        <dd>
-          <% @event.event_types.to_a.each do |et| %>
-            <%= et.name %>
-          <% end %>
-        </dd>
-      </dl>
+      <%= render 'event_info' %>
     </div>
 
     <div class="event-info">
