@@ -7,7 +7,7 @@ module Authorizable
 
   def logged_in_user
     unless logged_in?
-      flash[:alert] = 'Debe haber iniciado sesión para acceder aquí'
+      flash[:alert] = 'Error: you must log in to access this'
       redirect_to login_path
     end
   end
@@ -37,7 +37,7 @@ module Authorizable
   end
 
   def not_available_forwarding
-    flash[:alert] = 'You are not allowed to perform this action'
+    flash[:alert] = 'Error: you are not allowed to perform this action'
     redirect_to root_path
   end
 end
