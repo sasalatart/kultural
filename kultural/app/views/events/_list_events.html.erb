@@ -1,5 +1,11 @@
-<% events.each do |event| %>
-  <li class="info-window">
-  <%= render event %>
-  </li>
-<% end %>
+<div class="info-window">
+  <%= render place %>
+  <ul class="info-window-events">
+    <% place.events.each do |event| %>
+      <li class="info-window-event">
+      <%= render event %>
+      </li>
+    <hr>
+    <% end %>
+  </ul>
+</div>

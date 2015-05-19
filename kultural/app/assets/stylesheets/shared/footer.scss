@@ -5,17 +5,17 @@
 @import 'fonts';
 
 footer {
-  position:fixed;
+  //position:fixed;
+  margin:0;
   bottom:0px;
   left:0px;
 	background-color: $footer-color;
-	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
-
-  padding: 15px 45px;
-	margin-top: 30px;
+  height: 30px;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 footer .footer-left p{

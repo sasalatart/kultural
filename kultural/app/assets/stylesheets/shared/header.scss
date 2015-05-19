@@ -2,6 +2,7 @@
 @import 'fonts';
 
 header {
+  z-index:9;
   width: 100%;
   position: fixed;
   top: 0px;
@@ -9,7 +10,7 @@ header {
   background-color: $header-color;
   padding: 10px;
   padding-right:50px;
-  box-sizing: border-box;
+  display: block;
 }
 
 header .header-left {
@@ -17,13 +18,14 @@ header .header-left {
 }
 
 header .header-right {
+  margin-right:50px;
   float: right;
 }
 
 header .header-user-menu {
   position: relative;
   border-radius:2px;
-  line-height:0;
+  line-height:30px;
 }
 
 //Dropdown menu
