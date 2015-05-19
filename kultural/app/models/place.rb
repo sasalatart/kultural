@@ -11,6 +11,7 @@
 #  owner_type  :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  address     :string
 #
 
 class Place < ActiveRecord::Base
@@ -18,7 +19,11 @@ class Place < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
-                  
+
+  #Geolocation
+  geocoded_by :address, latitude: :lat, longitude: :lon
+  after_validation :geocode
+
   belongs_to :owner, polymorphic: true
   has_and_belongs_to_many :fans, class_name: 'User', foreign_key: 'user_id'
   has_many :events
@@ -32,8 +37,7 @@ class Place < ActiveRecord::Base
   validates :description, presence: true,
                           length: { maximum: 1000 }
 
-  validates :x, presence: true
-  validates :y, presence: true
+  validates :address, presence: true
   validates :owner_id, presence: true
   validates :owner_type, presence: true
 end

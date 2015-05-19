@@ -16,8 +16,9 @@
       <tr>
         <td><%= link_to place.name, place %></td>
         <td><%= place.description %></td>
-        <td><%= place.x %></td>
-        <td><%= place.y %></td>
+        <td><%= place.lat %></td>
+        <td><%= place.lon %></td>
+        <td><%= place.address %></td>
         <td><%= render place.owner %></td>
       </tr>
     <% end %>

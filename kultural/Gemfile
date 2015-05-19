@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Google maps for rails
 gem 'gmaps4rails'
+
+# Geocoder
+gem 'geocoder'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
