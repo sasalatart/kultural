@@ -1,0 +1,17 @@
+<div class="container_center">
+  <div class="center">
+    <h2>Members of <%= link_to @group.name, @group %></h2>
+
+    <div class="group-member">
+      <% @members.each do |member| %>
+        <div class="user-as-member">
+        <% if current_user.is_group_admin? @group %>
+          <div class="toggle-form"><%= render 'toggle_form', member: member %></div>
+          <div><%= render 'kick_form', member: member%></div>
+        <% end %>
+        <div><%= render member %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+@import 'palette';
+
+.button {
+  display: inline-block;
+  border: 0px;
+  border-radius: 5px;
+  font: bold 15px monospace;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  color: white;
+}
+
+.button-def {
+  @extend .button;
+  background-color: $button-color;
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+.button-del {
+  @extend .button;
+  background-color: $button-del-color;
+  &:hover {
+    background-color: $button-del-hover-color;
+  }
+}
+
+.floated-left {
+  float: left;
+  margin-right: 5px;
+}
+
+.floated-right {
+  float: right;
+  margin-left: 5px;
+}
+
+.comments {
+  margin: auto;
+
+  .user-comment {
+    margin: 10px;
+
+    .date {
+      font-size: 0.75em;
+    }
+  }
+}
+
+.comment-input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+  textarea {
+    width: 100%;
+  }
+}

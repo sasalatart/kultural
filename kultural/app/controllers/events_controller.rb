@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :owner_of_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -10,6 +11,10 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @comment = Comment.new
+    @commentable = @event
+    @reportable = @event
+    @rateable = @event
   end
 
   # GET /events/new
@@ -25,6 +30,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.event_type_ids = params[:event][:event_type_ids]
 
     respond_to do |format|
       if @event.save
@@ -40,8 +46,11 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    params[:event][:event_type_ids] ||= []
+    @event.event_type_ids = params[:event][:event_type_ids]
+
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update_attributes(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else

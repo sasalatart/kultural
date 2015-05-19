@@ -1,0 +1,1 @@
+$('#avg-rating').html("<%= escape_javascript render('avg_rating') %>");

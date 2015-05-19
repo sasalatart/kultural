@@ -1,39 +1,81 @@
-<p id="notice"><%= notice %></p>
+<div class="events">
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+  <div class="center-align">
+    <h1><%= @event.name %></h1>
+    <div class="statistics">
+      <span id="avg-rating">
+        <%= render 'ratings/avg_rating' %>
+      </span>
+      |
+      <span id="num-reports">
+        <%= render 'reports/num_reports' %>
+      </span>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <% if owner_of_event? %>
+    <%= button_to 'Edit', edit_event_path(@event),
+                  method: 'get', class: 'button-def floated-left' %>
+    <%= button_to 'Delete', event_path(@event),
+                  method: 'delete', class: 'button-del floated-left',
+                  data: { confirm: 'Are you sure?' } %>
+  <% end %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+  <% if logged_in? %>
+    <div class="floated-right">
+      <%= render 'reports/form' %>
+    </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
+    <div class="floated-right">
+      <%= render 'ratings/form' %>
+    </div>
+  <% end %>
 
-<p>
-  <strong>Place:</strong>
-  <%= @event.place_id %>
-</p>
+  <div class="big-rectangle clear">
+    <div class="event-info">
+      EventImage
+    </div>
 
-<p>
-  <strong>Owner id:</strong>
-  <%= @event.owner_id %>
-</p>
+    <div class="event-info">
+      <%= render 'event_info' %>
+    </div>
 
-<p>
-  <strong>Owner type:</strong>
-  <%= @event.owner_type %>
-</p>
+    <div class="event-info">
+      <div id="event-map"></div>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <div class="big-rectangle">
+    <div class="event-description clear">
+      <p><%= @event.description %></p>
+    </div>
+  </div>
+
+  <div class="big-rectangle">
+    <% if logged_in? %>
+      <div class="comment-input">
+        <%= render 'comments/form' %>
+      </div>
+    <% end %>
+
+    <div id="comments">
+      <%= render 'comments/commentable_comments' %>
+    </div>
+  </div>
+</div>
+<!--
+<script type="text/javascript">
+handlera = Gmaps.build('Google');
+handlera.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%= raw @event.place.lat %>,
+      "lng": <%= raw @event.place.lon %>,
+      "infowindow": "<%= raw @event.place.name %>"
+    }
+  ]);
+  handlera.bounds.extendWith(markers);
+  handlera.fitMapToBounds();
+});
+</script>
+-->

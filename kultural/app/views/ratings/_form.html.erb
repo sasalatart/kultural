@@ -1,29 +1,14 @@
-<%= form_for(@rating) do |f| %>
-  <% if @rating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
-
-      <ul>
-      <% @rating.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :value %><br>
+<%= form_for [@rateable, Rating.new], url: ratings_path, remote: true do |f| %>
+  <div class="field floated-left">
+    <%= f.label 'Rate it! (0 - 10): '%>
     <%= f.number_field :value %>
   </div>
-  <div class="field">
-    <%= f.label :rateable_id %><br>
-    <%= f.number_field :rateable_id %>
-  </div>
-  <div class="field">
-    <%= f.label :rateable_type %><br>
-    <%= f.text_field :rateable_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :rateable_id, { value: @rateable.id } %>
+  <%= f.hidden_field :rateable_type, { value: @rateable.class } %>
+
+  <div class="actions floated-left">
+    <%= f.submit 'Submit rating', class: 'button-def' %>
   </div>
 <% end %>

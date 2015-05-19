@@ -1,34 +1,50 @@
-<p id="notice"><%= notice %></p>
+<h2>  <%= @place.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+<% if owner_of_place? %>
+  <%= button_to 'Edit', edit_place_path(@place),
+                method: 'get', class: 'button-def' %>
+  <%= button_to 'Delete', place_path(@place),
+                method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
+<% end %>
+<div id="place-show-top">
+  <div id="placeDescription">
+      <p>
+        <strong>Description:</strong>
+        <%= @place.description %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+      <p>
+        <strong>Owner:</strong>
+          <%= render @place.owner %>
+      </p>
 
-<p>
-  <strong>X:</strong>
-  <%= @place.x %>
-</p>
+      <p>
+        <strong>Address:</strong>
+          <%= @place.address %>
+      </p>
 
-<p>
-  <strong>Y:</strong>
-  <%= @place.y %>
-</p>
+    </div>
 
-<p>
-  <strong>Owner id:</strong>
-  <%= @place.owner_id %>
-</p>
+  <div id="placeEvents">
+    <h3>Events</h3>
+    <% @place.events.each do |event| %>
+      <p>
+      <%= render event %>
+      </p>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Owner type:</strong>
-  <%= @place.owner_id %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<div id="place-show-bottom">
+  <% if logged_in? %>
+    <div class="comment-input">
+      <%= render 'comments/form' %>
+    </div>
+  <% end %>
+  <div id="comments">
+    <%= render 'comments/commentable_comments' %>
+  </div>
+</div>
+<!--<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>-->

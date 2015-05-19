@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# pg search
+gem 'pg_search'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,6 +20,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -26,6 +30,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Google maps for rails
+gem 'gmaps4rails'
+
+# Geocoder
+gem 'geocoder'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -44,10 +53,14 @@ group :development, :test do
 
   gem 'annotate', '~> 2.6.8'
 
-  # Better Errors replaces the standard Rails error page with a much better and more useful error page. 
+  # Better Errors replaces the standard Rails error page with a much better and more useful error page.
   gem 'better_errors'
-  
+
   # Using binding_of_caller we can grab bindings from higher up the call stack and evaluate code in that context.
   gem 'binding_of_caller'
-end
 
+  gem 'rspec', '~> 3.0'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end

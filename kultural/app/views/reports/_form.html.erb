@@ -1,33 +1,9 @@
-<%= form_for(@report) do |f| %>
-  <% if @report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+<%= form_for [@reportable, Report.new], url: reports_path, remote: true do |f| %>
+  <%= f.hidden_field :user_id, { value: current_user.id } %>
+  <%= f.hidden_field :reportable_id, { value: @reportable.id } %>
+  <%= f.hidden_field :reportable_type, { value: @reportable.class } %>
 
-      <ul>
-      <% @report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :genuine %><br>
-    <%= f.check_box :genuine %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :reportable_id %><br>
-    <%= f.text_field :reportable_id %>
-  </div>
-  <div class="field">
-    <%= f.label :reportable_type %><br>
-    <%= f.text_field :reportable_type %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Report as fake!', class: 'button-del' %>
   </div>
 <% end %>

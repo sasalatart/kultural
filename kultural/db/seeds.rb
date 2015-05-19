@@ -72,14 +72,12 @@ puts('Creating places')
 place_patiwi = Place.create(owner: User.find(3),
                             name: 'Casa del ayudante de Web',
                             description: 'El unico lugar que encontramos',
-                            x: -74.1,
-                            y: 33.1)
+                            address: 'Vicuña Maquena 3320')
 
 place_dcc = Place.create(owner: group,
                          name: 'Sala Javier Pinto',
                          description: 'Algunas veces la prestan, otras no',
-                         x: -74.6,
-                         y: 33.3)
+                         address: 'Las Perdices 771')
 
 puts('Creating events')
 
@@ -109,11 +107,9 @@ event_dcc = Event.create(owner: group,
 
 puts('Creating reports')
 
-event_patiwi_1.reports << Report.create(user: User.find(4),
-                                        genuine: true)
+event_patiwi_1.reports << Report.create(user: User.find(4))
 
-event_patiwi_2.reports << Report.create(user: User.find(2),
-                                        genuine: false)
+event_patiwi_2.reports << Report.create(user: User.find(2))
 
 puts('Creating comments')
 

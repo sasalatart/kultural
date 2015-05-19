@@ -1,14 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div id="group-info">
+  <div class="group-presentation">
+    <div class="group-name-image">
+      <%= image_tag("placeholders/profile.png", class: "profile-img") %>
+      <div class="group-name-container">
+        <%= link_to @group.name, @group %>
+      </div>
+    </div>
+    <div class="group-forms">
+      <%= render 'join_form' if logged_in? %>
+      <% if current_user.is_group_admin?(@group) %>
+      <div class="edit-form"><%= button_to 'Edit', edit_group_path(@group), method: :get, class: ['button', 'button-def'] %></div>
+      <div class="delete-form"><%= button_to 'Delete group', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: ['button', 'button-del'] %></div>
+      <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+  <div class="group-about">
+    <div>
+        <div><strong>Description</strong></div>
+        <%= @group.description %>
+    </div>
+    <div>
+      <strong>Created at</strong> <%= @group.created_at %>
+    </div>
+    <div>
+      <div><strong>Admins</strong></div>
+      <%= render @group.admins.limit(5) %>
+    </div>
+    <div><%= link_to 'See all members', members_group_path %></div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
+<div id="group-activity">
+<% if @group.events.count > 0%>
+  <div>
+    <h3>Our events</h3>
+    <% @group.events.order(date: :desc).each do |event| %>
+      <div> <%= link_to event.name, event %> <span class="tiny"> | <%= event.date %></span></div>
+    <% end %>
+  </div>
+  <% end %>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <% if @group.places.count > 0%>
+  <div>
+    <h3>Our places</h3>
+      <% @group.places.each do |place| %>
+        <div><%= link_to place.name, place %></div>
+      <% end %>
+  </div>
+  <% end %>
+</div>

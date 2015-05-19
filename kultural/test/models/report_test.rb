@@ -3,7 +3,6 @@
 # Table name: reports
 #
 #  id              :integer          not null, primary key
-#  genuine         :boolean
 #  user_id         :integer
 #  reportable_id   :integer
 #  reportable_type :string

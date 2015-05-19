@@ -1,34 +1,71 @@
-<p id="notice"><%= notice %></p>
+<div id="user-info">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="user-presentation">
+  <div class="user-name-image">
+    <%= image_tag("placeholders/profile.png", class: "profile-img") %>
+    <div class="user-name-container">
+      <%= link_to @user.name, @user %>
+    </div>
+  </div>
+  <%= render 'follow_form' if logged_in? %>
+  <%= render 'shared/stats' %>
+</div>
 
-<p>
-  <strong>Password (digest):</strong>
-  <%= @user.password_digest %>
-</p>
+<div class="user-about">
+  <div><strong>Gender: </strong><%= gender @user %></div>
+  <div><strong>Birth Date: </strong><%= @user.birthday %></div>
+  <div><strong>Mail: </strong><%= @user.mail %></div>
+  <div><strong>Phone: </strong><%= @user.phone %></div>
+</div>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
+<% if @user.groups.count > 0 %>
+<div class="user-groups">
+  <div><strong>Groups where I am a member:</strong></div>
+  <% @user.groups.each do |group| %>
+    <div><%= link_to group.name, group %></div>
+  <% end %>
+</div>
+<% end %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+<!-- <%= link_to 'Edit', edit_user_path(@user) %> -->
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
 
-<p>
-  <strong>Male:</strong>
-  <%= @user.male %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div id="user-activity">
+  
+  <% if @user.events.count > 0%>
+  <div>
+    <h3>My events</h3>
+    <% @user.events.order(date: :desc).each do |event| %>
+      <div> <%= link_to event.name, event %> <span class="tiny"> | <%= event.date %></span></div>
+    <% end %>
+  </div>
+  <% end %>
+
+  <% if @user.places.count > 0%>
+  <div>
+    <h3>My places</h3>
+      <% @user.places.each do |place| %>
+        <div><%= link_to place.name, place %></div>
+      <% end %>
+  </div>
+  <% end %>
+
+  <% if @user.comments.count > 0 %>
+  <div>
+    <h3>My last comments</h3>
+    <% @user.comments.limit(5).each do |com| %>
+      <div class="user-comment">
+        <div class="user-comment_head">
+          <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
+          <span class="tiny"> | <%= time_ago_in_words com.created_at %> ago</span>
+        </div>
+        <div class="user-comment-body">
+          <%= com.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>

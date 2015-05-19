@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501212727) do
+ActiveRecord::Schema.define(version: 20150519205838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150501212727) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "memberships", id: false, force: :cascade do |t|
+  create_table "memberships", force: :cascade do |t|
     t.boolean  "is_admin"
     t.integer  "user_id"
     t.integer  "group_id"
@@ -79,12 +79,13 @@ ActiveRecord::Schema.define(version: 20150501212727) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.float    "x"
-    t.float    "y"
+    t.float    "lat"
+    t.float    "lon"
     t.integer  "owner_id"
     t.string   "owner_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "address"
   end
 
   add_index "places", ["owner_type", "owner_id"], name: "index_places_on_owner_type_and_owner_id", using: :btree
@@ -109,8 +110,18 @@ ActiveRecord::Schema.define(version: 20150501212727) do
   add_index "ratings", ["rateable_type", "rateable_id"], name: "index_ratings_on_rateable_type_and_rateable_id", using: :btree
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", null: false
+    t.integer  "followed_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+
   create_table "reports", force: :cascade do |t|
-    t.boolean  "genuine"
     t.integer  "user_id"
     t.integer  "reportable_id"
     t.string   "reportable_type"
@@ -141,5 +152,7 @@ ActiveRecord::Schema.define(version: 20150501212727) do
   add_foreign_key "places_users", "places"
   add_foreign_key "places_users", "users"
   add_foreign_key "ratings", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "reports", "users"
 end
