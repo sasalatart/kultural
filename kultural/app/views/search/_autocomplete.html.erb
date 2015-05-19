@@ -1,15 +1,24 @@
-<% autocomplete_events.each do |event| %>
-  <li class="search-result">
-  <%= render event %>
-  </li>
+<% if autocomplete_events.any? %>
+  <li class="autocomplete-separator">Events:</li>
+  <% autocomplete_events.each do |event| %>
+    <li class="search-result">
+    <%= render event %>
+    </li>
+  <% end %>
 <% end %>
-<% autocomplete_users.each do |auser| %>
-  <li class="search-result">
-  <%= render auser %>
-  </li>
+<% if autocomplete_users.any? %>
+  <li class="autocomplete-separator">Users:</li>
+  <% autocomplete_users.each do |user| %>
+    <li class="search-result">
+    <%= render user %>
+    </li>
+  <% end %>
 <% end %>
-<% autocomplete_places.each do |place| %>
-  <li class="search-result">
-  <%= render place %>
-  </li>
+<% if autocomplete_places.any? %>
+  <li class="autocomplete-separator">Places:</li>
+  <% autocomplete_places.each do |place| %>
+    <li class="search-result">
+    <%= render place %>
+    </li>
+  <% end %>
 <% end %>

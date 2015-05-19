@@ -29,9 +29,14 @@ $bar-width: 350px;
     li {
 
     }
-
-    .search-separator {
-
+    .autocomplete-separator {
+      text-align: left;
+      padding: 2px 10px;
+      font-style:none;
+      background-color: $body-color;
+      &:hover {
+        background-color:$dropdown-color;
+      }
     }
   }
 }
