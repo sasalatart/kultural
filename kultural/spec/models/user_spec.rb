@@ -22,6 +22,12 @@ describe User do
                   male: male)
 
     end
+
+    @user1 = user_creator(name: 'Esteban Retamal',
+                          mail: 'esretamal@uc.cl')
+    @user2 = user_creator(name: 'Gema Rubí',
+                          mail: 'gemarubi@uc.cl')
+
   end
 
   describe 'Try to create' do
@@ -145,8 +151,7 @@ describe User do
 
     describe 'when all seems to be correct' do
       it 'should be valid' do
-        user = user_creator
-        expect(user).to be_valid
+        expect(@user1).to be_valid
       end
     end
   end
@@ -155,28 +160,22 @@ describe User do
   describe 'Following people' do 
     describe 'when a user try to follow himself' do
       it 'should not change' do 
-        user1 = user_creator
-        expect { user1.follow(user1) }.not_to change {user1.following.count}
+        expect { @user1.follow(@user1) }.not_to change {@user1.following.count}
       end
     end
 
     describe 'when a user try to follow another user' do
       it 'following should change by 1' do
-        user1 = user_creator
-        user2 = user_creator name: 'Jeronimo', mail: 'heroku@uc.cl'
-        expect {user1.follow(user2)}.to change {user1.following.count}.by(1)
+        expect {@user1.follow(@user2)}.to change {@user1.following.count}.by(1)
       end
     end
 
     describe 'when a user try to follow another user twice' do
       it 'should fail' do 
-        user1 = user_creator
-        user2 = user_creator name: 'Jeronimo', mail: 'heroku@uc.cl'
-        user1.follow(user2)
-        expect {user1.follow(user2)}.to raise_exception
+        @user1.follow(@user2)
+        expect {@user1.follow(@user2)}.to raise_exception
       end
     end
-
   end
-
+  
 end
