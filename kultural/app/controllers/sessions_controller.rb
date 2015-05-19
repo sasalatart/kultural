@@ -7,17 +7,17 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       log_in(user)
-      flash[:notice] = "Bienvenido, #{user.name}"
+      flash[:notice] = "Welcome, #{user.name}"
       redirect_to user
     else
-      flash.now[:alert] = 'Error: datos incorrectos'
+      flash.now[:alert] = 'Error: credentials do not match'
       render 'new'
     end
   end
 
   def destroy
     log_out
-    flash[:notice] = 'Ha cerrado sesión'
+    flash[:notice] = 'You have logged out'
     redirect_to root_path
   end
 end
