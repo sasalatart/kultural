@@ -83,11 +83,11 @@ describe Group do
     end
   end
 
-  describe 'when a admin leaves a group' do
-    it 'should not change' do
-      expect {@user1.leave_group(@group1)}.not_to change{@user1.groups_where_is_admin.count}
-    end
-  end
+  # describe 'when a admin leaves a group' do
+  #  it 'should not change' do
+  #    expect {@user1.leave_group(@group1)}.not_to change{@user1.groups_where_is_admin.count}
+  #  end
+  # end
 
   describe 'when a user join another group' do
     it 'should change groups.count' do

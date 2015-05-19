@@ -15,12 +15,13 @@
 
 class User < ActiveRecord::Base
   include PgSearch
+
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
 
   has_many :memberships
   has_many :groups, through: :memberships
-  has_many :groups_where_is_admin, ->{where memberships: {is_admin: true} }, through: :memberships, class_name: 'Group', source: 'group'
+  has_many :groups_where_is_admin, ->{where memberships: { is_admin: true} }, through: :memberships, class_name: 'Group', source: 'group'
   has_many :events, as: :owner
   has_many :places, as: :owner
   has_and_belongs_to_many :favourite_places, class_name: 'Place'
@@ -51,7 +52,7 @@ class User < ActiveRecord::Base
   validates :phone, presence: true,
                     length: { minimum: 5, maximum: 15 }
 
-  validates :birthday, presence: true
+  validates :birthday, presence: true, date_past_or_today: true
 
 
   # Utility methods for follow system
