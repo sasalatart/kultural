@@ -1,5 +1,5 @@
 <div class="events">
-  
+
   <div class="center-align">
     <h1><%= @event.name %></h1>
     <div class="statistics">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="event-info">
-      Aquí irá el mapa cuando lo implementemos.
+      <div id="event-map"></div>
     </div>
   </div>
 
@@ -63,3 +63,19 @@
     </div>
   </div>
 </div>
+<!--
+<script type="text/javascript">
+handlera = Gmaps.build('Google');
+handlera.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%= raw @event.place.lat %>,
+      "lng": <%= raw @event.place.lon %>,
+      "infowindow": "<%= raw @event.place.name %>"
+    }
+  ]);
+  handlera.bounds.extendWith(markers);
+  handlera.fitMapToBounds();
+});
+</script>
+-->
