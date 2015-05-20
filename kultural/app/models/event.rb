@@ -24,9 +24,9 @@ class Event < ActiveRecord::Base
   belongs_to :owner, polymorphic: true
   belongs_to :place
   has_and_belongs_to_many :event_types
-  has_many :ratings, as: :rateable
-  has_many :comments, as: :commentable
-  has_many :reports, as: :reportable
+  has_many :ratings, as: :rateable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :reports, as: :reportable, dependent: :destroy
 
   validates :name, presence: true,
                    length: { minimum: 5, maximum: 50 }
