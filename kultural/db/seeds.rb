@@ -99,10 +99,10 @@ place_patiwi = Place.create(owner: User.find(3),
 place_dcc = Place.create(owner: group_1,
                          name: 'Sala Javier Pinto',
                          description: 'Algunas veces la prestan, otras no',
-                         address: 'Avda. Vicuña Mackenna 4860')
+                         address: 'Vicuña Mackenna 4860')
 
 place_fito = Place.create(owner: User.find(2),
-                          name: 'El Fito'
+                          name: 'El Fito',
                           description: 'Restaurante terrible de elegante',
                           address: 'Vicuña Mackenna 4735')
 
@@ -169,3 +169,18 @@ place_patiwi.ratings << Rating.create(value: 5,
 
 event_dcc.ratings << Rating.create(value: 0,
                                    user: User.find(1))
+
+puts('Creating relationships')
+
+Relationship.create(follower:User.find(1), followed:User.find(2))
+Relationship.create(follower:User.find(3), followed:User.find(2))
+Relationship.create(follower:User.find(4), followed:User.find(2))
+Relationship.create(follower:User.find(5), followed:User.find(2))
+Relationship.create(follower:User.find(2), followed:User.find(3))
+Relationship.create(follower:User.find(5), followed:User.find(4))
+Relationship.create(follower:User.find(5), followed:User.find(3))
+Relationship.create(follower:User.find(2), followed:User.find(4))
+Relationship.create(follower:User.find(3), followed:User.find(1))
+Relationship.create(follower:User.find(4), followed:User.find(1))
+Relationship.create(follower:User.find(2), followed:User.find(5))
+Relationship.create(follower:User.find(3), followed:User.find(5))
