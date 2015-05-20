@@ -1,6 +1,9 @@
-<h1>Editing Group</h1>
 
-<%= render 'form' %>
+<div class="container_center">
+  <div class="center group-form">
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+    <h2 class="center-align">Edit <%= link_to @group.name , @group %></h2>
+    <%= render 'form' %>
+    <%= button_to 'Back', groups_path, method: :get, class: 'button-def' %>
+  </div>
+</div>

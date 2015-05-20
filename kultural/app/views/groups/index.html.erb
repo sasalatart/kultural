@@ -1,25 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container_center">
+  <div class="center">
 
-<h1>Listing Groups</h1>
+    <h2 class="center-align">Groups</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= render group %></td>
-        <td><%= group.description %></td>
-      </tr>
+    <div>
+    <% if logged_in? %>
+    <%= button_to 'New group', new_group_path, method: :get, class: 'button-def' %>
     <% end %>
-  </tbody>
-</table>
+    </div>
 
-<br>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Group', new_group_path %>
+      <tbody>
+        <% @groups.each do |group| %>
+          <tr>
+            <td><%= render group %></td>
+            <td><%= group.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

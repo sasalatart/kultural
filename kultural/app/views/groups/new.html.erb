@@ -1,5 +1,8 @@
-<h1>New Group</h1>
+<div class="container_center">
+  <div class="center group-form">
 
-<%= render 'form' %>
-
-<%= link_to 'Back', groups_path %>
+    <h2 class="center-align">New Group</h2>
+    <%= render 'form' %>
+    <%= button_to 'Back', groups_path, method: :get, class: 'button-def' %>
+  </div>
+</div>
