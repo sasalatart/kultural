@@ -22,6 +22,12 @@ describe User do
                   male: male)
 
     end
+
+    @user1 = user_creator(name: 'Esteban Retamal',
+                          mail: 'esretamal@uc.cl')
+    @user2 = user_creator(name: 'Gema Rubí',
+                          mail: 'gemarubi@uc.cl')
+
   end
 
   describe 'Try to create' do
@@ -82,15 +88,6 @@ describe User do
 
     end
 
-    # Any value casts to 'false'
-    # In Rails 5 this behaviour will change to 'true'
-    describe 'when male is anything but true or false' do
-      it 'should not be valid' do
-        user = user_creator(male: 'should be dancing')
-        expect(user).not_to be_valid
-      end
-    end
-
     describe 'with phone number problems' do
 
       describe 'when phone number is too short (less than 5)' do
@@ -134,12 +131,42 @@ describe User do
       end
     end
 
+    describe 'when email already exists' do
+      it 'should fail' do
+        user1 = user_creator
+        user2 = user_creator(name: 'Jeronimo')
+        expect(user1).to be_valid
+        expect(user2).not_to be_valid
+      end
+    end
+
     describe 'when all seems to be correct' do
       it 'should be valid' do
-        user = user_creator
-        expect(user).to be_valid
+        expect(@user1).to be_valid
       end
     end
   end
 
+
+  describe 'Following people' do 
+    # describe 'when a user try to follow himself' do
+    #  it 'should not change' do 
+    #    expect { @user1.follow(@user1) }.not_to change {@user1.following.count}
+    #  end
+    # end
+
+    describe 'when a user try to follow another user' do
+      it 'following should change by 1' do
+        expect {@user1.follow(@user2)}.to change {@user1.following.count}.by(1)
+      end
+    end
+
+    describe 'when a user try to follow another user twice' do
+      it 'should fail' do 
+        @user1.follow(@user2)
+        expect {@user1.follow(@user2)}.not_to change{@user1.following.count}
+      end
+    end
+  end
+  
 end

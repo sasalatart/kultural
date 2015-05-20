@@ -26,10 +26,10 @@ class Place < ActiveRecord::Base
 
   belongs_to :owner, polymorphic: true
   has_and_belongs_to_many :fans, class_name: 'User', foreign_key: 'user_id'
-  has_many :events
-  has_many :ratings, as: :rateable
-  has_many :comments, as: :commentable
-  has_many :reports, as: :reportable
+  has_many :events, dependent: :destroy
+  has_many :ratings, as: :rateable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :reports, as: :reportable, dependent: :destroy
 
   validates :name,  presence: true,
                     length: { minimum: 5, maximum: 50 }

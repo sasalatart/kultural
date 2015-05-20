@@ -20,20 +20,35 @@ describe 'Authorization' do
                          male: false)
   end
 
-  describe 'Try to edit another user' do
+  describe 'Try to edit a user' do
     describe 'when signed in' do
-      it 'should fail' do
-        log_in @user1
-        visit edit_user_path @user2
+      before do
+        visit login_path
+        fill_in 'session_mail',     with: @user1.mail
+        fill_in 'session_password', with: @user1.password
+        click_button 'login-submit'
+      end
 
-        expect(page).to have_content('Error')
+      describe 'and visiting my own edit path' do
+        it 'should not fail' do
+          visit edit_user_path @user1
+          expect(page).not_to have_content('Error')
+        end
+      end
+
+      describe 'and visiting an edit path I do not own' do
+        it 'should fail' do
+          visit edit_user_path @user2
+          expect(page).to have_content('Error')
+        end
       end
     end
 
     describe 'when not signed in' do
       it 'should fail' do
+        visit edit_user_path @user1
+        expect(page).to have_content('Error')
         visit edit_user_path @user2
-
         expect(page).to have_content('Error')
       end
     end
