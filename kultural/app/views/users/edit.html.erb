@@ -5,6 +5,9 @@
 
 		<%= render 'form' %>
 
+    <div class="delete-form"><%= button_to 'Delete my profile', @user, method: :delete, data: { confirm: 'Are you sure? All your groups, events, places, comments, and ratings will be deleted' }, class: ['button', 'button-del'] %>
+    </div>
+
 		<div class="user_back_link">
 			<%= link_to 'Back to my profile', @user %>
 		</div>
