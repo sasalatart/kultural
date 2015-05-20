@@ -8,7 +8,7 @@
     </div>
     <div class="group-forms">
       <%= render 'join_form' if logged_in? %>
-      <% if current_user.is_group_admin?(@group) %>
+      <% if !current_user.nil? && current_user.is_group_admin?(@group) %>
       <div class="edit-form"><%= button_to 'Edit', edit_group_path(@group), method: :get, class: ['button', 'button-def'] %></div>
       <div class="delete-form"><%= button_to 'Delete group', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: ['button', 'button-del'] %></div>
       <% end %>

@@ -14,8 +14,8 @@ class Group < ActiveRecord::Base
   has_many :users, through: :memberships
   has_many :admins, ->{ where memberships: { is_admin: true } }, through: :memberships, class_name: 'User', source: 'user'
   
-  has_many :events, as: :owner
-  has_many :places, as: :owner
+  has_many :events, as: :owner, dependent: :destroy
+  has_many :places, as: :owner, dependent: :destroy
 
   validates :name,  presence: true,
                     length: { minimum: 5, maximum: 50 }
