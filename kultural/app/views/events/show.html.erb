@@ -14,21 +14,21 @@
   </div>
 
   <% if owner_of_event? %>
-    <%= button_to 'Edit', edit_event_path(@event),
-                  method: 'get', class: 'button-def floated-left' %>
-    <%= button_to 'Delete', event_path(@event),
-                  method: 'delete', class: 'button-del floated-left',
-                  data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Edit', edit_event_path(@event),
+  method: 'get', class: 'button-def floated-left' %>
+  <%= button_to 'Delete', event_path(@event),
+  method: 'delete', class: 'button-del floated-left',
+  data: { confirm: 'Are you sure?' } %>
   <% end %>
 
   <% if logged_in? %>
-    <div class="floated-right">
-      <%= render 'reports/form' %>
-    </div>
+  <div class="floated-right">
+    <%= render 'reports/form' %>
+  </div>
 
-    <div class="floated-right">
-      <%= render 'ratings/form' %>
-    </div>
+  <div class="floated-right">
+    <%= render 'ratings/form' %>
+  </div>
   <% end %>
 
   <div class="big-rectangle clear">
@@ -40,8 +40,7 @@
       <%= render 'event_info' %>
     </div>
 
-    <div class="event-info">
-      <div id="event-map"></div>
+    <div id="map" class="event-info">
     </div>
   </div>
 
@@ -53,9 +52,9 @@
 
   <div class="big-rectangle">
     <% if logged_in? %>
-      <div class="comment-input">
-        <%= render 'comments/form' %>
-      </div>
+    <div class="comment-input">
+      <%= render 'comments/form' %>
+    </div>
     <% end %>
 
     <div id="comments">
@@ -63,19 +62,22 @@
     </div>
   </div>
 </div>
-<!--
-<script type="text/javascript">
-handlera = Gmaps.build('Google');
-handlera.buildMap({ provider: {}, internal: {id: 'event-map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": <%= raw @event.place.lat %>,
-      "lng": <%= raw @event.place.lon %>,
-      "infowindow": "<%= raw @event.place.name %>"
-    }
-  ]);
-  handlera.bounds.extendWith(markers);
-  handlera.fitMapToBounds();
-});
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 17,
+    center: new google.maps.LatLng(<%= @event.place.lat %>, <%= @event.place.lon %>)
+  };
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(<%= @event.place.lat %>, <%= @event.place.lon %>),
+    map: map,
+    title: '<%= @event.place.name %>'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
--->
