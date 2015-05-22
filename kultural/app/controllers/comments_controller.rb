@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     else
       @commentable = Place.find(@comment.commentable_id)
     end
-    
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -75,8 +75,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      puts params
-
       params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
     end
 end
