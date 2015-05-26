@@ -2,7 +2,7 @@
 
   <div class="center-align">
     <h1><%= @event.name %></h1>
-    <div class="statistics">
+    <div class="stats-container">
       <span id="avg-rating">
         <%= render 'ratings/avg_rating' %>
       </span>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="big-container borders">
-    <div class="event-description clear">
+    <div class="description clear">
       <p><%= @event.description %></p>
     </div>
   </div>
