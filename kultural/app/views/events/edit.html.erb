@@ -4,4 +4,13 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', events_path %>
+<div class="form center">
+  <fieldset class="borders">
+    <legend>Delete event</legend>
+    <div class="contents">
+      <div class="field">
+        <%= button_to 'Delete event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: ['button', 'button-del'] %>
+      </div>
+    </div>
+  </fieldset>
+</div>
