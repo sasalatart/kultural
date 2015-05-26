@@ -6,8 +6,8 @@
   <%= button_to 'Delete', place_path(@place),
                 method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
 <% end %>
-<div id="place-show-top">
-  <div id="placeDescription">
+<div class="big-container borders">
+  <div class="info-container col-3">
       <p>
         <strong>Description:</strong>
         <%= @place.description %>
@@ -25,7 +25,7 @@
 
     </div>
 
-  <div id="placeEvents">
+  <div class="info-container col-3">
     <h3>Events</h3>
     <% @place.events.each do |event| %>
       <p>
@@ -33,10 +33,15 @@
       </p>
     <% end %>
   </div>
-
+  <div class="info-container col-3">
+    <div class="map-container">
+      <div id="map">
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="place-show-bottom">
+<div class="big-container borders">
   <% if logged_in? %>
     <div class="comment-input">
       <%= render 'comments/form' %>

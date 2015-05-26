@@ -1,0 +1,45 @@
+@import 'shared/borders';
+
+.big-container {
+  width: 100%;
+  margin: 5px auto;
+  display: table;
+
+}
+
+.info-container {
+  height: 200px;
+  vertical-align: top;
+  display: table-cell;
+
+  dt {
+    font-weight: bold;
+  }
+}
+
+.stats-container {
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+
+.description {
+  font-size: 0.80em;
+  padding: 5px 10px;
+}
+
+.map-container {
+  width:100%;
+  height:inherit;
+}
+
+.map-container-big {
+  @extend .map-container;
+  height:500px;
+}
+
+
+
+.col-3 {
+  width:33%;
+}

@@ -1,37 +1,3 @@
 // Place all the styles related to the Places controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import 'shared/borders';
-
-#place-show-top {
-  @include borders;
-  padding-left:10px;
-  margin-bottom:30px;
-  width: 100%;
-  margin: 5px auto;
-  display: table;
-}
-
-#place-show-bottom {
-  @include borders;
-  display: block;
-  width: 100%;
-  margin: 5px auto;
-  display: table;
-}
-
-#placeDescription {
-  display: block;
-  float:left;
-  min-height:18em;
-  width: 50%;
-}
-
-#placeEvents {
-  display: block;
-  float:left;
-  min-height:18em;
-  overflow: scroll;
-  width: 50%;
-
-}

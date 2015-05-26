@@ -2,7 +2,7 @@
 
   <div class="center-align">
     <h1><%= @event.name %></h1>
-    <div class="statistics">
+    <div class="stats-container">
       <span id="avg-rating">
         <%= render 'ratings/avg_rating' %>
       </span>
@@ -31,26 +31,29 @@
   </div>
   <% end %>
 
-  <div class="big-rectangle clear">
-    <div class="event-info">
+  <div class="big-container clear borders">
+    <div class="info-container col-3">
       EventImage
     </div>
 
-    <div class="event-info">
+    <div class="info-container col-3">
       <%= render 'event_info' %>
     </div>
-
-    <div id="map" class="event-info">
+    <div class="info-container col-3">
+      <div class="map-container">
+        <div id="map">
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="big-rectangle">
-    <div class="event-description clear">
+  <div class="big-container borders">
+    <div class="description clear">
       <p><%= @event.description %></p>
     </div>
   </div>
 
-  <div class="big-rectangle">
+  <div class="big-container borders">
     <% if logged_in? %>
     <div class="comment-input">
       <%= render 'comments/form' %>
