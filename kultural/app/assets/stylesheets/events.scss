@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'shared/palette';
-@import 'shared/borders';
 
 .events {
   .statistics {
@@ -11,33 +10,9 @@
     margin-bottom: 25px;
   }
 
-  .big-rectangle {
-    @include borders;
-    width: 100%;
-    margin: 5px auto;
-    display: table;
 
-    .event-info {
-      width: 33%;
-      height: 200px;
-      vertical-align: top;
-      display: table-cell;
-
-      dt {
-        font-weight: bold;
-      }
-
-      #event-map {
-        width:100%;
-        height:inherit;
-      }
-    }
-
-    .event-description {
-      font-size: 0.80em;
-      padding: 5px 10px;
-    }
-
-    
+  .event-description {
+    font-size: 0.80em;
+    padding: 5px 10px;
   }
 }
