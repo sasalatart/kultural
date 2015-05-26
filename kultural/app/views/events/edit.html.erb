@@ -1,4 +1,6 @@
-<h1 class="center-align">Editing Event</h1>
+<h1 class="center-align">
+  Editing <%= link_to @event.name, edit_event_path(@event) %>
+</h1>
 
 <%= render 'form' %>
 
