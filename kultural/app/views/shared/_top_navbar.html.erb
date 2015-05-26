@@ -1,6 +1,7 @@
-<%= link_to "kultur.al", root_path, id: "logo" %>
+<div class="header-footer-wrapper">
+  <%= link_to "kultur.al", root_path, id: "logo" %>
 
-<% if logged_in? %>
+  <% if logged_in? %>
   <div id="search-bar">
     <%= render 'search/search_bar' %>
   </div>
@@ -19,16 +20,14 @@
       <%= image_tag("placeholders/profile.png", id: "profile-img") %>
       <h3 id="username"><%= current_user.name %></h3>
       <ul>
-        <li><%= link_to "Profile", current_user,
-                                   id: "profile" %></li>
+        <li><%= link_to "Profile", current_user, id: "profile" %></li>
 
         <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
-                                        id:"edit-profile" %></li>
+                                          id:"edit-profile" %></li>
 
-        <li><%= link_to "Logout", logout_path,
-                                  method: "delete",
-                                  id:"logout"%></li>
+        <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
       </ul>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>
