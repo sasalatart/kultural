@@ -6,7 +6,15 @@
   </div>
 
   <div class="header-right">
-    <div class="header-user-menu">
+    <div class="dropdown">
+      <h3>Get Started!</h3>
+      <ul>
+        <li><%= link_to "New Event", new_event_path %></li>
+        <li><%= link_to "New Place", new_place_path %></li>
+        <li><%= link_to "New Group", new_group_path %></li>
+      </ul>
+    </div>
+    <div class="dropdown">
       <!-- TODO: Change profile placeholder to user's image-->
       <%= image_tag("placeholders/profile.png", id: "profile-img") %>
       <h3 id="username"><%= current_user.name %></h3>
