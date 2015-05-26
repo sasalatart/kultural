@@ -1,6 +1,14 @@
-<h1>Editing Place</h1>
+<h1 class="center-align">Editing <%= link_to @place.name, @place %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @place %> |
-<%= link_to 'Back', places_path %>
+<div class="form center">
+  <fieldset class="borders">
+    <legend>Delete place</legend>
+    <div class="contents">
+      <div class="field">
+        <%= button_to 'Delete place', @place, method: :delete, data: { confirm: 'Are you sure?' }, class: ['button', 'button-del'] %>
+      </div>
+    </div>
+  </fieldset>
+</div>
