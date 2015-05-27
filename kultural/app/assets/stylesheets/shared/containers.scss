@@ -13,13 +13,13 @@
 }
 
 .info-container {
-  height: 200px;
   vertical-align: top;
   display: table-cell;
+  padding: 10px;
+}
 
-  dt {
-    font-weight: bold;
-  }
+.description-container {
+  display: block;
 }
 
 .stats-container {
@@ -27,22 +27,22 @@
   margin-bottom: 25px;
 }
 
-
-.description {
-  font-size: 0.80em;
-  padding: 5px 10px;
-}
-
-.map-container {
-  width:100%;
-  height:inherit;
-}
-
 .map-container-big {
-  @extend .map-container;
   height:500px;
+}
+
+.col-2 {
+  width:50%;
 }
 
 .col-3 {
   width:33%;
+}
+
+.floated-left {
+  float: left;
+}
+
+.floated-right {
+  float: right;
 }

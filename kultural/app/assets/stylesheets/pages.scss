@@ -8,7 +8,11 @@
 
 #map {
   width: 100%;
-  height:inherit;
+  height: 100%;
+}
+
+.mini-map {
+  height: 200px;
 }
 
 .info-window {
