@@ -24,13 +24,14 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = Rating.new(rating_params)
-    @rateable = Event.find(@rating.rateable_id)
-
-    existing_rating = Rating.find_by(user_id: @rating.user_id)
-    if existing_rating
-      Rating.delete(existing_rating)
+    @rating = Rating.find_by(user_id: rating_params[:user_id])
+    if @rating
+      @rating.update rating_params
+    else
+      @rating = Rating.new(rating_params)
     end
+
+    @rateable = @rating.rateable
 
     respond_to do |format|
       if @rating.save
