@@ -1,0 +1,88 @@
+#profile-info{
+  display: block;
+  float: left;
+  width: 28%;
+  margin: 0 1%;
+
+  .profile-presentation{
+    margin-bottom: 1em;
+    >div{
+      margin-bottom: 0.5em;
+    }
+
+    .profile-name-image{
+      overflow: auto;
+      margin-top: 0;
+      padding: 0;
+      position: relative;
+
+      .profile-img{
+        margin-right: 5%;
+        background-color: #000;
+        height: 15%;
+        width: 15%;
+      }
+
+      .profile-name-container{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20%;
+
+        width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a{
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+      }
+    }
+
+    // TO-DO (JOIN STATS)
+    .stats{
+      text-align: center;
+
+      a{
+        padding: 0 0.5em;
+        text-decoration: none;
+
+        &:first-child{
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+#profile-activity{
+  display: block;
+  float: left;
+  width: 68%;
+  margin: 0 1%;
+
+  h3, >*{
+    margin-bottom: 0.6em;
+  }
+
+  >**{
+    margin-bottom: 0.3em;
+  }
+
+  .profile-comment{
+
+    margin-bottom: 1em;
+
+    .profile-comment-head{
+
+    }
+
+    .profile-comment-body{
+      margin-left: 50px;
+    }
+
+  }
+
+}
