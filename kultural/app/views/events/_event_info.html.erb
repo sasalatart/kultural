@@ -1,6 +1,11 @@
 <div class="info-container col-3">
-  <strong>Owner of Event:</strong>
+  <strong>Owner:</strong>
   <%= render @event.owner %>
+</div>
+
+<div class="info-container col-3">
+  <strong>Description:</strong>
+  <div><%= @event.description %></div>
 </div>
 
 <div class="info-container col-3">
@@ -9,11 +14,6 @@
     <dd><%= link_to @event.place.name, @event.place %></dd>
     <dt>Date:</dt>
     <dd><%= @event.date %></dd>
-  </dl>
-</div>
-
-<div class="info-container col-3">
-  <dl>
     <dt>Price:</dt>
     <dd><%= number_to_currency @event.price, precision: 0 %></dd>
     <dt>Categories:</dt>

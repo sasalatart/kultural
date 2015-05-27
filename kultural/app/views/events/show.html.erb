@@ -32,19 +32,16 @@
   <% end %>
 
   <div class="big-container clear borders">
-    <div class="info-container col-2">
-      EventImage
+    <div class="info-container col-3">
+      <%= image_tag 'events/default.png', height: 200 %>
     </div>
-    <div class="info-container mini-map col-2">
+    <div class="info-container mini-map col-3-2">
       <div id="map"></div>
     </div>
   </div>
 
-  <div class="borders">
-    <div class="big-container">
-      <%= render 'event_info' %>
-    </div>
-    <p> <%= @event.description %> </p>
+  <div class="big-container borders">
+    <%= render 'event_info' %>
   </div>
 
   <div class="big-container borders">
