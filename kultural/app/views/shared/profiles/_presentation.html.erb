@@ -1,0 +1,9 @@
+<% # Assumes owner as parameter %>
+<div class="profile-presentation">
+  <div class="profile-name-image">
+    <%= image_tag("placeholders/profile.png", class: "profile-img") %>
+    <div class="profile-name-container">
+      <%= link_to owner.name, owner %>
+    </div>
+  </div>
+</div>
