@@ -48,10 +48,6 @@
         <% end %>
       </div>
 
-      <!-- TODO adapt for groups -->
-      <%= f.hidden_field :owner_id, { value: current_user.id } %>
-      <%= f.hidden_field :owner_type, { value: current_user.class } %>
-
       <div class="actions">
         <%= f.submit 'Ready!', class: 'button-def' %>
       </div>

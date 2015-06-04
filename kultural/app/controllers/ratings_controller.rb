@@ -26,12 +26,11 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.find_by(user_id: rating_params[:user_id])
     if @rating
-      @rating.update rating_params
+      @rating.update_attributes rating_params
     else
-      @rating = Rating.new(rating_params)
+      @rating = @rateable.ratings.new rating_params
+      @rating.user = current_user
     end
-
-    @rateable = @rating.rateable
 
     respond_to do |format|
       if @rating.save
@@ -77,6 +76,6 @@ class RatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:value, :rateable_id, :rateable_type, :user_id)
+      params.require(:rating).permit(:value)
     end
 end

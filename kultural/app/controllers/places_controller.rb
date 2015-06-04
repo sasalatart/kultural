@@ -11,9 +11,6 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @comment = Comment.new
-    @commentable = @place
-    @reportable = @event
-    @rateable = @event
   end
 
   # GET /places/new
@@ -29,6 +26,7 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
+    @place.owner = current_user
 
     respond_to do |format|
       if @place.save
@@ -73,6 +71,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:name, :description, :address, :lat, :lon, :owner_id, :owner_type)
+      params.require(:place).permit(:name, :description, :address, :lat, :lon)
     end
 end

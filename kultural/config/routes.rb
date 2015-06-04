@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
   root 'pages#main'
 
-  resources :reports
-  resources :places
   resources :comments
-  resources :event_types
-  resources :events
+  resources :reports
   resources :ratings
+
+  resources :places do
+    resources :comments, module: :places
+    resources :reports, module: :places
+    resources :ratings, module: :places
+  end
+
+  resources :events do
+    resources :comments, module: :events
+    resources :reports, module: :events
+    resources :ratings, module: :events
+  end
+
   resources :groups
   resources :users
+  resources :event_types
 
   # Allow user/id/followers and user/id/following urls
   resources :users do

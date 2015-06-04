@@ -12,9 +12,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @comment = Comment.new
-    @commentable = @event
-    @reportable = @event
-    @rateable = @event
   end
 
   # GET /events/new
@@ -30,6 +27,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.owner = current_user
     @event.event_type_ids = params[:event][:event_type_ids]
 
     respond_to do |format|
@@ -78,6 +76,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :date, :price, :place_id, :owner_id, :owner_type)
+      params.require(:event).permit(:name, :description, :date, :price, :place_id)
     end
 end

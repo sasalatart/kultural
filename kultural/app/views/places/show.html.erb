@@ -44,11 +44,11 @@
 <div class="big-container borders">
   <% if logged_in? %>
     <div class="comment-input">
-      <%= render 'comments/form' %>
+      <%= render partial: 'comments/form', locals: { commentable: @place } %>
     </div>
   <% end %>
   <div id="comments">
-    <%= render 'comments/commentable_comments' %>
+    <%= render partial: 'comments/commentable_comments', locals: { commentable: @place } %>
   </div>
 </div>
 <!--<%= link_to 'Edit', edit_place_path(@place) %> |

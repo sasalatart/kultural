@@ -1,5 +1,7 @@
 <div>
   <dl>
-    <%= render @commentable.comments.reverse %>
+    <% commentable.comments.reverse.each do |c| %>
+      <%= render partial: '/comments/comment', locals: { comment: c } %>
+    <% end %>
   </dl>
 </div>

@@ -4,11 +4,11 @@
     <h1><%= @event.name %></h1>
     <div class="stats-container">
       <span id="avg-rating">
-        <%= render 'ratings/avg_rating' %>
+        <%= render partial: 'ratings/avg_rating', locals: { rateable: @event } %>
       </span>
       |
       <span id="num-reports">
-        <%= render 'reports/num_reports' %>
+        <%= render partial: 'reports/num_reports', locals: { reportable: @event } %>
       </span>
     </div>
   </div>
@@ -23,11 +23,11 @@
 
   <% if logged_in? %>
   <div class="floated-right">
-    <%= render 'reports/form' %>
+    <%= render partial: 'reports/form', locals: { reportable: @event } %>
   </div>
 
   <div class="floated-right">
-    <%= render 'ratings/form' %>
+    <%= render partial: 'ratings/form', locals: { rateable: @event } %>
   </div>
   <% end %>
 
@@ -47,12 +47,12 @@
   <div class="big-container borders">
     <% if logged_in? %>
     <div class="comment-input">
-      <%= render 'comments/form' %>
+      <%= render partial: 'comments/form', locals: { commentable: @event } %>
     </div>
     <% end %>
 
     <div id="comments">
-      <%= render 'comments/commentable_comments' %>
+      <%= render partial: 'comments/commentable_comments', locals: { commentable: @event } %>
     </div>
   </div>
 </div>

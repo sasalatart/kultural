@@ -24,13 +24,8 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
-
-    if @report.reportable_type == 'Event'
-      @reportable = Event.find(@report.reportable_id)
-    else
-      @reportable = Place.find(@report.reportable_id)
-    end
+    @report = @reportable.reports.new
+    @report.user = current_user
 
     respond_to do |format|
       if @report.save
@@ -76,6 +71,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:genuine, :user_id, :reportable_id, :reportable_type)
+      params.require(:report).permit()
     end
 end

@@ -1,1 +1,1 @@
-$('#avg-rating').html("<%= escape_javascript render('avg_rating') %>");
+$('#avg-rating').html("<%= escape_javascript render partial: 'avg_rating', locals: { rateable: @rateable } %>");
