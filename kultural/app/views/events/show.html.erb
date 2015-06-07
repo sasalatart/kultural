@@ -57,7 +57,18 @@
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  });
+</script>
+
+<!-- <script>
 function initialize() {
   var mapOptions = {
     zoom: 17,
@@ -83,4 +94,4 @@ function loadScript() {
 
 window.onload = loadScript;
 google.maps.event.addDomListener(window, 'page:load', initialize);
-</script>
+</script>-->

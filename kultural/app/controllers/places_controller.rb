@@ -11,6 +11,12 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @comment = Comment.new
+
+    @hash = Gmaps4rails.build_markers(@place) do |place, marker|
+      marker.lat place.lat
+      marker.lng place.lon
+      marker.infowindow render_to_string partial: 'events/list_events', locals: {place: place}
+    end
   end
 
   # GET /places/new
