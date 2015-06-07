@@ -1,4 +1,4 @@
-class Places:ReportsController < ReportsController
+class Places::ReportsController < ReportsController
   before_action :set_reportable
 
   private

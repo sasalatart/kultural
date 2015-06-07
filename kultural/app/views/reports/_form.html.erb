@@ -1,3 +1,7 @@
+<% report = Report.find_by(user: current_user, reportable: reportable) %>
+<% unless report %>
 <%= form_for [reportable, Report.new], remote: true do |f| %>
-  <%= f.submit 'Report as fake!', class: 'button-del' %>
+<%= f.submit 'Report as fake!', class: 'button-del' %>
 <% end %>
+<% end %>
+
