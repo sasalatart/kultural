@@ -2,7 +2,7 @@
 
   <%= render 'shared/profiles/presentation.html', owner: @group %>
 
-  <div class="group-forms">
+  <div class="profile-forms">
     <%= render 'join_form' if logged_in? %>
     <% if !current_user.nil? && current_user.is_group_admin?(@group) %>
     <div class="edit-form"><%= button_to 'Edit', edit_group_path(@group), method: :get, class: ['button', 'button-def'] %></div>

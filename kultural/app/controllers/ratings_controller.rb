@@ -24,7 +24,7 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = Rating.find_by(user_id: rating_params[:user_id])
+    @rating = Rating.find_by(rateable: @rateable, user: current_user)
     if @rating
       @rating.update_attributes rating_params
     else

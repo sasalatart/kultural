@@ -1,7 +1,9 @@
 <div id="profile-info">
 
   <%= render 'shared/profiles/presentation', owner: @user %>
-  <%= render 'follow_form' if logged_in? %>
+  <div class="profile-forms">
+    <%= render 'follow_form' if logged_in? %>
+  </div>
   <%= render 'stats' %>
 
   <div class="user-about">
@@ -14,7 +16,7 @@
   <% if @user.groups.count > 0 %>
   <div class="user-groups">
     <div><strong>Groups where I am a member:</strong></div>
-      <%= render @user.groups %>
+    <%= render @user.groups %>
   </div>
   <% end %>
 

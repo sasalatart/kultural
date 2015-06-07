@@ -14,6 +14,12 @@ body {
   font-family: $default-font;
 }
 
+#main{
+  >*{
+    margin: auto;
+  }
+}
+
 .wrapper {
 	min-height: 100%;
   width: 1190px;
@@ -47,12 +53,15 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
+  color: $dark-text-color;
+
+  &:visited {
+    color: $dark-text-color;
+  }
 
   &:hover {
+    color: $dark-text-hover-color;
     text-decoration: underline;
-  }
-  &:visited {
-    color: blue;
   }
 }
 
