@@ -12,14 +12,20 @@
     </div>
   </div>
 
+
   <% if owner_of_place? %>
-  <%= button_to 'Edit', edit_place_path(@place),
-  method: 'get', class: 'button-def' %>
-  <%= button_to 'Delete', place_path(@place),
-  method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
+  <div class="floated-left">
+    <%= button_to 'Edit', edit_place_path(@place),
+    method: 'get', class: 'button-def' %>
+  </div>
+  <div class="floated-left">
+    <%= button_to 'Delete', place_path(@place),
+    method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
+  </div>
   <% end %>
 
   <% if logged_in? %>
+
   <div class="floated-right">
     <%= render partial: 'reports/form', locals: { reportable: @place } %>
   </div>

@@ -14,11 +14,15 @@
   </div>
 
   <% if owner_of_event? %>
-  <%= button_to 'Edit', edit_event_path(@event),
-  method: 'get', class: 'button-def floated-left' %>
-  <%= button_to 'Delete', event_path(@event),
-  method: 'delete', class: 'button-del floated-left',
-  data: { confirm: 'Are you sure?' } %>
+  <div class="floated-left">
+    <%= button_to 'Edit', edit_event_path(@event),
+    method: 'get', class: 'button-def floated-left' %>
+  </div>
+  <div class="floated-left">
+    <%= button_to 'Delete', event_path(@event),
+    method: 'delete', class: 'button-del floated-left',
+    data: { confirm: 'Are you sure?' } %>
+  </div>
   <% end %>
 
   <% if logged_in? %>
