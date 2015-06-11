@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#main'
 
-
   resources :comments, only: [:create, :update, :destroy]
   resources :reports, only: [:create]
   resources :ratings, only: [:create]
@@ -18,7 +17,6 @@ Rails.application.routes.draw do
     resources :reports, module: :events, only: [:create]
     resources :ratings, module: :events, only: [:create]
   end
-
 
   resources :groups
   resources :users

@@ -18,7 +18,6 @@ class EventsController < ApplicationController
       marker.lng place.lon
       marker.infowindow render_to_string partial: 'events/list_events', locals: {place: place}
     end
-
   end
 
   # GET /events/new
