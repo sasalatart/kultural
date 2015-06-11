@@ -6,9 +6,7 @@
 }
 
 html, body {
-  height: 100%;
-
-  padding:0;
+	height: 100%;
 }
 
 body {
@@ -17,17 +15,13 @@ body {
 }
 
 .wrapper {
-  height: 100%;
-  margin: 55px auto -85px;
-  .push {
-    height: 85px;
-  }
+	min-height: 100%;
+	margin: 75px 25px -75px 25px; /* the bottom margin is the negative value of the footer's height */
 }
 
-
-
-#main {
-  padding-left:50px;
+.footer, .push {
+	height: 75px; /* .push must be the same height as .footer */
+  bottom: 0;
 }
 
 .centered {
