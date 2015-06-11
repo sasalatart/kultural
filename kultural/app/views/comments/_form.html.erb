@@ -1,11 +1,4 @@
-<%= form_for [@commentable, Comment.new], url: comments_path, remote: true do |f| %>
-  <%= f.text_area :content, id: 'content' %>
-
-  <%= f.hidden_field :user_id, { value: current_user.id } %>
-  <%= f.hidden_field :commentable_id, { value: @commentable.id } %>
-  <%= f.hidden_field :commentable_type, { value: @commentable.class } %>
-
-  <div class="action">
-    <%= f.submit 'Comment!', class: 'button-def' %>
-  </div>
+<%= form_for [commentable, Comment.new], remote: true do |f| %>
+  <%= f.text_area :content, id: 'content', placeholder: 'Write a comment...' %>
+  <%= f.submit 'Comment!', class: 'button-def' %>
 <% end %>

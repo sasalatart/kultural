@@ -1,0 +1,28 @@
+<div class="info-container col-3">
+
+    <strong>Owner:</strong>
+    <%= render @place.owner %>
+    <strong>Description:</strong>
+    <div><%= @place.description %></div>
+</div>
+
+<div class="info-container col-3">
+  <dl>
+    <dt>Address:</dt>
+    <dd><%= @place.address %></dd>
+    <dt>Latitude:</dt>
+    <dd><%= @place.lat %></dd>
+    <dt>Longitude:</dt>
+    <dd><%= @place.lon %></dd>
+  </dl>
+
+</div>
+
+<div class="info-container col-3">
+  <h3>Events</h3>
+  <% @place.events.each do |event| %>
+  <p>
+    <%= render event %>
+  </p>
+  <% end %>
+</div>

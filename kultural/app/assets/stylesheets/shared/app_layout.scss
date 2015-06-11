@@ -6,9 +6,7 @@
 }
 
 html, body {
-  height: 100%;
-
-  padding:0;
+	height: 100%;
 }
 
 body {
@@ -16,18 +14,25 @@ body {
   font-family: $default-font;
 }
 
-.wrapper {
-  height: 100%;
-  margin: 55px auto -85px;
-  .push {
-    height: 85px;
+#main{
+  >*{
+    margin: auto;
   }
 }
 
+.wrapper {
+	min-height: 100%;
+  width: 1190px;
+	margin-top: 75px;
+  margin-bottom: -75px; /* negative value of the footer's height */
 
+  margin-left: auto;
+  margin-right: auto;
+}
 
-#main {
-  padding-left:50px;
+.footer, .push {
+	height: 75px; /* .push must be the same height as .footer */
+  bottom: 0;
 }
 
 .centered {
@@ -35,15 +40,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.container_center{
-  display: flex;
-  flex-direction: column;
-
-  .center{
-    margin: auto;
-  }
 }
 
 .center-align {
@@ -57,11 +53,22 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
+  color: $dark-text-color;
+
+  &:visited {
+    color: $dark-text-color;
+  }
 
   &:hover {
+    color: $dark-text-hover-color;
     text-decoration: underline;
   }
-  &:visited {
-    color: blue;
-  }
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 25px;
 }

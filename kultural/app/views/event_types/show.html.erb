@@ -1,12 +1,22 @@
-<p>
-  <strong>Name:</strong>
-  <%= @event_type.name %>
-</p>
+<div>
+  <h1 class="center-align"> 
+    <%= 'Events of category ' %> 
+    <% unless @event_type.nil? %>
+    <%= link_to @event_type.name, @event_type %>
+    <% end %>
+  </h1>
+</div>
 
-<p>
+<div>
+  <div class="floated-left">
   <strong>Examples:</strong>
   <%= @event_type.examples %>
-</p>
+  </div>
+  <div class="floated-right">
+  <%= button_to "All event types", event_types_path, 
+  class: 'button-def', method: :get %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>
+<% @events = @event_type.events %>
+<%= render '/events/listing' %>

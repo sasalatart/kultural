@@ -1,12 +1,8 @@
-<%= form_for [@rateable, Rating.new], url: ratings_path, remote: true do |f| %>
+<%= form_for [rateable, Rating.new], remote: true do |f| %>
   <div class="field floated-left">
     <%= f.label 'Rate it! (0 - 10): '%>
     <%= f.number_field :value %>
   </div>
-
-  <%= f.hidden_field :user_id, { value: current_user.id } %>
-  <%= f.hidden_field :rateable_id, { value: @rateable.id } %>
-  <%= f.hidden_field :rateable_type, { value: @rateable.class } %>
 
   <div class="actions floated-left">
     <%= f.submit 'Submit rating', class: 'button-def' %>

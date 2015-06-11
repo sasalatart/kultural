@@ -2,134 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.user-show{
-  height: 4em;
-  line-height: 4em;
+// TO-DO(PROFILE FORMS)
+.follow-form{
+  text-align: center;
 
-  img{
-    background-color: #000;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    height: 2.5em;
-    margin-right: 1em;
-  }
-
-  span {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;      
+  form{
+    display: inline;
   }
 }
 
-#user-info{
-  display: block;
-  float: left;
-  width: 28%;
-  margin: 0 1%;
+// TO-DO (JOIN STATS)
+.stats{
+  text-align: center;
 
-  .user-presentation{
-    margin-bottom: 1em;
-    >div{
-      margin-bottom: 0.5em;
-    }
+  a{
+    padding: 0 0.5em;
+    text-decoration: none;
 
-    .user-name-image{
-      overflow: auto;
-      margin-top: 0;
-      padding: 0;
-      position: relative;
-
-      .profile-img{
-        margin-right: 5%;
-        background-color: #000;
-        height: 15%;
-        width: 15%;
-      }
-
-      .user-name-container{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 20%;
-
-        width: 80%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-
-        a{
-          font-size: 1.5em;
-          font-weight: bold;
-        }
-      }
-    }
-
-    .follow-form{
-      text-align: center;
-
-      form{
-        display: inline;
-      }
-    }
-
-    .stats{
-      text-align: center;
-
-      a{
-        padding: 0 0.5em;
-        text-decoration: none;
-
-        &:first-child{
-          padding-left: 0;
-        }
-      }
-    }
-  }
-
-  .user-about{
-
-  }
-
-  .user-groups{
-    margin-top: 1em;
-
-    >*{
-      margin-bottom: 0.3em;
+    &:first-child{
+      padding-left: 0;
     }
   }
 }
 
-#user-activity{
-  display: block;
-  float: left;
-  width: 68%;
-  margin: 0 1%;
+// TO-DO (GENERAL LISTS)
+.user-groups{
+  margin-top: 1em;
 
-  h3, >*{
-    margin-bottom: 0.6em;
-  }
-
-  >**{
+  >*{
     margin-bottom: 0.3em;
   }
-
-  .user-comment{
-
-    margin-bottom: 1em;
-
-    .user-comment-head{
-
-    }
-
-    .user-comment-body{
-      margin-left: 50px;
-    }
-
-  }
-
-}
-
-.user-back-link{
-  margin-top: 1em;
 }

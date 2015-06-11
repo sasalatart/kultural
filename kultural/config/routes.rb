@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
   root 'pages#main'
 
-  resources :reports
-  resources :places
-  resources :comments
-  resources :event_types
-  resources :events
-  resources :ratings
+
+  resources :comments, only: [:create, :update, :destroy]
+  resources :reports, only: [:create]
+  resources :ratings, only: [:create]
+  resources :event_types, only: [:index, :show]
+
+  resources :places do
+    resources :comments, module: :places, only: [:index, :create, :update, :destroy]
+    resources :reports, module: :places, only: [:create]
+    resources :ratings, module: :places, only: [:create]
+  end
+
+  resources :events do
+    resources :comments, module: :events, only: [:index, :create, :update, :destroy]
+    resources :reports, module: :events, only: [:create]
+    resources :ratings, module: :events, only: [:create]
+  end
+
+
   resources :groups
   resources :users
 

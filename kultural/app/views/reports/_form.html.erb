@@ -1,9 +1,7 @@
-<%= form_for [@reportable, Report.new], url: reports_path, remote: true do |f| %>
-  <%= f.hidden_field :user_id, { value: current_user.id } %>
-  <%= f.hidden_field :reportable_id, { value: @reportable.id } %>
-  <%= f.hidden_field :reportable_type, { value: @reportable.class } %>
-
-  <div class="actions">
-    <%= f.submit 'Report as fake!', class: 'button-del' %>
-  </div>
+<% report = Report.find_by(user: current_user, reportable: reportable) %>
+<% unless report %>
+<%= form_for [reportable, Report.new], remote: true do |f| %>
+<%= f.submit 'Report as fake!', class: 'button-del' %>
 <% end %>
+<% end %>
+

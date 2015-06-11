@@ -1,7 +1,7 @@
 <%= "Number of Reports: " %>
-<% if @reportable.reports.count > 0 %>
-  <%= "#{@reportable.reports.count}" %>
-  <% if logged_in? && @reportable.reports.where(:user_id == current_user.id) %>
+<% if reportable.reports.count > 0 %>
+  <%= "#{reportable.reports.count}" %>
+  <% if logged_in? && reportable.reports.where(:user_id == current_user.id) %>
     <%= '(You reported this)' %>
   <% end %>
 <% else %>

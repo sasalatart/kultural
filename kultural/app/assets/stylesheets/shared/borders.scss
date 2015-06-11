@@ -1,5 +1,6 @@
 @import 'shared/palette';
-@mixin borders {
+
+.borders {
   border: 3px solid $border-color;
   border-radius: 10px;
 }

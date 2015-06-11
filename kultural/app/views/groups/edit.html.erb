@@ -1,9 +1,13 @@
+<h1 class="center-align">Edit <%= link_to @group.name , @group %></h1>
+<%= render 'form' %>
 
-<div class="container_center">
-  <div class="center group-form">
-
-    <h2 class="center-align">Edit <%= link_to @group.name , @group %></h2>
-    <%= render 'form' %>
-    <%= button_to 'Back', groups_path, method: :get, class: 'button-def' %>
-  </div>
+<div class="form center">
+  <fieldset class="borders">
+    <legend>Delete group</legend>
+    <div class="contents">
+      <div class="field">
+        <%= button_to 'Delete group', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: ['button', 'button-del'] %>
+      </div>
+    </div>
+  </fieldset>
 </div>

@@ -1,0 +1,100 @@
+@import 'shared/borders';
+
+.header-footer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1190px;
+}
+
+.big-container {
+  width: 100%;
+  margin: 15px auto;
+  display: table;
+}
+
+.info-container {
+  vertical-align: middle;
+  display: table-cell;
+  padding: 10px;
+}
+
+.description-container {
+  display: block;
+}
+
+.stats-container {
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.map-container-big {
+  height:500px;
+}
+
+.col-2 {
+  width:50%;
+}
+
+.col-3 {
+  width:33%;
+}
+
+.col-3-2{
+  width: 66%;
+}
+
+.col-4{
+  width: 25%;
+}
+
+.col-4-2{
+  width: 50%;
+}
+
+.col-4-3{
+  width: 75%;
+}
+
+.col-5{
+  width: 20%;
+}
+
+.col-5-2{
+  width: 40%;
+}
+
+.col-5-3{
+  width: 60%;
+}
+
+.col-5-4{
+  width: 80%;
+}
+
+.col-6{
+  width: 1/6*100%
+}
+
+.col-6-2{
+  width: 2/6*100%;
+}
+
+.col-6-3{
+  width: 50%;
+}
+
+.col-6-4{
+  width: 4/6*100%;
+}
+
+.col-6-5{
+  width: 5/6*100%;
+}
+
+.floated-left {
+  float: left;
+}
+
+.floated-right {
+  float: right;
+}

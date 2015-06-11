@@ -1,5 +1,7 @@
-
-
+<div class="form center">
+  <fieldset class="borders">
+    <legend>Group</legend>
+    <div class="contents">
     <%= form_for(@group) do |f| %>
       <% if @group.errors.any? %>
         <div id="error_explanation">
@@ -25,3 +27,6 @@
         <%= f.submit 'Ready!', class: 'button-def'%>
       </div>
     <% end %>
+    </div>
+  </fieldset>
+</div>

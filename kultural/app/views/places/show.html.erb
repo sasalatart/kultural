@@ -1,50 +1,73 @@
-<h2>  <%= @place.name %></h2>
-
-<% if owner_of_place? %>
-  <%= button_to 'Edit', edit_place_path(@place),
-                method: 'get', class: 'button-def' %>
-  <%= button_to 'Delete', place_path(@place),
-                method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
-<% end %>
-<div id="place-show-top">
-  <div id="placeDescription">
-      <p>
-        <strong>Description:</strong>
-        <%= @place.description %>
-      </p>
-
-      <p>
-        <strong>Owner:</strong>
-          <%= render @place.owner %>
-      </p>
-
-      <p>
-        <strong>Address:</strong>
-          <%= @place.address %>
-      </p>
-
+<div class="places">
+  <div class="center-align">
+    <h1><%= @place.name %></h1>
+    <div class="stats-container">
+      <span id="avg-rating">
+        <%= render partial: 'ratings/avg_rating', locals: { rateable: @place } %>
+      </span>
+      |
+      <span id="num-reports">
+        <%= render partial: 'reports/num_reports', locals: { reportable: @place } %>
+      </span>
     </div>
-
-  <div id="placeEvents">
-    <h3>Events</h3>
-    <% @place.events.each do |event| %>
-      <p>
-      <%= render event %>
-      </p>
-    <% end %>
   </div>
 
-</div>
 
-<div id="place-show-bottom">
-  <% if logged_in? %>
-    <div class="comment-input">
-      <%= render 'comments/form' %>
-    </div>
+  <% if owner_of_place? %>
+  <div class="floated-left">
+    <%= button_to 'Edit', edit_place_path(@place),
+    method: 'get', class: 'button-def' %>
+  </div>
+  <div class="floated-left">
+    <%= button_to 'Delete', place_path(@place),
+    method: 'delete', class: 'button-del', data: { confirm: 'Are you sure?' } %>
+  </div>
   <% end %>
-  <div id="comments">
-    <%= render 'comments/commentable_comments' %>
+
+  <% if logged_in? %>
+
+  <div class="floated-right">
+    <%= render partial: 'reports/form', locals: { reportable: @place } %>
+  </div>
+
+  <div class="floated-right">
+    <%= render partial: 'ratings/form', locals: { rateable: @place } %>
+  </div>
+  <% end %>
+
+  <div class="big-container clear borders">
+    <div class="info-container col-3">
+      <%= image_tag 'places/default.png', height: 200 %>
+    </div>
+    <div class="info-container mini-map col-3-2">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <div class="big-container borders">
+    <%= render 'place_info' %>
+  </div>
+
+  <div class="big-container borders">
+    <% if logged_in? %>
+    <div class="comment-input">
+      <%= render partial: 'comments/form', locals: { commentable: @place} %>
+    </div>
+    <% end %>
+
+    <div id="comments">
+      <%= render partial: 'comments/commentable_comments', locals: { commentable: @place } %>
+    </div>
   </div>
 </div>
-<!--<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>-->
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  });
+</script>

@@ -1,28 +1,43 @@
 @import 'palette';
 
 .dropdown {
-	font:bold 13px monospace;
-	list-style: none;
-	position: absolute;
-	text-align: center;
+	position: relative;
+	line-height: 35px;
+	display: inline-block;
+	margin-left: 50px;
 
-	left: 0;
-	padding: 10px;
-	border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+	ul {
+		display: none;
+		font: bold 13px monospace;
+		list-style: none;
+		position: absolute;
+		text-align: center;
+		width: 100%;
 
-  li {
-    padding:10px;
-    background-color:$dropdown-color;
-    border-bottom: 2px solid $dropdown-hover-color;
+		left: 0;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 
-    &:hover {
-      background-color:$dropdown-hover-color;
-    }
-    a{
-      color:$light-text-color;
-      font-style: bold;
-      text-decoration: none;
-    }
-  }
+		box-sizing: border-box;
+
+		li {
+			padding: 10px;
+			display: block;
+			background-color: $dropdown-color;
+			border-bottom: 2px solid $dropdown-hover-color;
+			&:hover {
+				background-color: $dropdown-hover-color;
+			}
+
+			a {
+				color: $light-text-color;
+				font-style: bold;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&:hover ul {
+		display: block;
+	}
 }
