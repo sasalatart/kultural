@@ -1,35 +1,32 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  #before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
 
   # GET /comments
   # GET /comments.json
-  def index
-    @comments = Comment.all
-  end
+  #def index
+  #  @comments = Comment.all
+  #end
 
   # GET /comments/1
   # GET /comments/1.json
-  def show
-  end
+  #def show
+  #end
 
   # GET /comments/new
-  def new
-    @comment = Comment.new
-  end
+  #def new
+  #  @comment = Comment.new
+  #end
 
   # GET /comments/1/edit
-  def edit
-  end
+  #def edit
+  #end
 
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.commentable_type == 'Event'
-      @commentable = Event.find(@comment.commentable_id)
-    else
-      @commentable = Place.find(@comment.commentable_id)
-    end
+    @comment = @commentable.comments.new comment_params
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
@@ -75,6 +72,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
+      params.require(:comment).permit(:content)
     end
 end

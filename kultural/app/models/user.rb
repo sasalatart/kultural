@@ -54,7 +54,6 @@ class User < ActiveRecord::Base
 
   validates :birthday, presence: true, date_past_or_today: true
 
-
   # Utility methods for follow system
 
   def follow(foo_user)

@@ -2,9 +2,7 @@
   <%= render place %>
   <ul class="info-window-events">
     <% place.events.each do |event| %>
-      <li class="info-window-event">
-      <%= render event %>
-      </li>
+      <li class="info-window-event"> <%= render event %> </li>
     <hr>
     <% end %>
   </ul>

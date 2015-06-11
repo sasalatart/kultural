@@ -1,2 +1,2 @@
-$('#comments').html("<%= escape_javascript render('commentable_comments') %>");
+$('#comments').html("<%= escape_javascript render partial: 'commentable_comments', locals: { commentable: @commentable } %>");
 $('#content').val("");

@@ -1,26 +1,33 @@
-<%= link_to "kultur.al", root_path, id: "logo" %>
+<div class="header-footer-wrapper">
+  <%= link_to "kultur.al", root_path, id: "logo" %>
 
-<% if logged_in? %>
+  <% if logged_in? %>
   <div id="search-bar">
     <%= render 'search/search_bar' %>
   </div>
 
   <div class="header-right">
-    <div class="header-user-menu">
+    <div class="dropdown">
+      <h3>Get Started!</h3>
+      <ul>
+        <li><%= link_to "New Event", new_event_path %></li>
+        <li><%= link_to "New Place", new_place_path %></li>
+        <li><%= link_to "New Group", new_group_path %></li>
+      </ul>
+    </div>
+    <div class="dropdown">
       <!-- TODO: Change profile placeholder to user's image-->
       <%= image_tag("placeholders/profile.png", id: "profile-img") %>
       <h3 id="username"><%= current_user.name %></h3>
       <ul>
-        <li><%= link_to "Profile", current_user,
-                                   id: "profile" %></li>
+        <li><%= link_to "Profile", current_user, id: "profile" %></li>
 
-        <li><%= link_to "Edit profile", edit_user_path(id: current_user.id),
-                                        id:"edit-profile" %></li>
+        <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
+                                          id:"edit-profile" %></li>
 
-        <li><%= link_to "Logout", logout_path,
-                                  method: "delete",
-                                  id:"logout"%></li>
+        <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
       </ul>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>

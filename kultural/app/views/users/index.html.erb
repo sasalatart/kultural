@@ -1,33 +1,34 @@
-<div class="container_center">
-  <div class="center">
-    <h2 class="center-align"> 
-      <%= @title %> 
-      <% unless @user.nil? %>
-       <%= link_to @user.name, @user %>
-      <% end %>
-    </h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Mail</th>
-          <th>Phone</th>
-          <th>Birth Date</th>
-          <th>Gender</th>
-        </tr>
-      </thead>
+<% @title ||= 'Users' %> 
+<div>
+  <h1 class="center-align"> 
+    <%= @title %> 
+    <% unless @user.nil? %>
+    <%= link_to @user.name, @user %>
+    <% end %>
+  </h1>
+</div>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Phone</th>
+        <th>Birth Date</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
 
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= render user %></td>
-            <td><%= user.mail %></td>
-            <td><%= user.phone %></td>
-            <td><%= user.birthday %></td>
-            <td><%= user.male ? "Male" : "Female" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= render user %></td>
+        <td><%= user.mail %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.birthday %></td>
+        <td><%= user.male ? "Male" : "Female" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

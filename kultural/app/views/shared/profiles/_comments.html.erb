@@ -1,0 +1,17 @@
+<% # Assumes user as parameter %>
+<% if user.comments.count > 0 %>
+<div>
+  <h3>My last comments</h3>
+  <% user.comments.limit(5).each do |com| %>
+    <div class="profile-comment">
+      <div class="profile-comment-head">
+        <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
+        <span class="tiny"> | <%= time_ago_in_words com.created_at %> ago</span>
+      </div>
+      <div class="profile-comment-body">
+        <%= com.content %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>

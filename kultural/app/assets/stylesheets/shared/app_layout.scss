@@ -14,9 +14,20 @@ body {
   font-family: $default-font;
 }
 
+#main{
+  >*{
+    margin: auto;
+  }
+}
+
 .wrapper {
 	min-height: 100%;
-	margin: 75px 25px -75px 25px; /* the bottom margin is the negative value of the footer's height */
+  width: 1190px;
+	margin-top: 75px;
+  margin-bottom: -75px; /* negative value of the footer's height */
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer, .push {
@@ -31,15 +42,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.container_center{
-  display: flex;
-  flex-direction: column;
-
-  .center{
-    margin: auto;
-  }
-}
-
 .center-align {
   text-align: center;
 }
@@ -51,11 +53,22 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
+  color: $dark-text-color;
+
+  &:visited {
+    color: $dark-text-color;
+  }
 
   &:hover {
+    color: $dark-text-hover-color;
     text-decoration: underline;
   }
-  &:visited {
-    color: blue;
-  }
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 25px;
 }

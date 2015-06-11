@@ -1,20 +1,25 @@
 @import 'shared/borders';
 
+.header-footer-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1190px;
+}
+
 .big-container {
   width: 100%;
-  margin: 5px auto;
+  margin: 15px auto;
   display: table;
-
 }
 
 .info-container {
-  height: 200px;
-  vertical-align: top;
+  vertical-align: middle;
   display: table-cell;
+  padding: 10px;
+}
 
-  dt {
-    font-weight: bold;
-  }
+.description-container {
+  display: block;
 }
 
 .stats-container {
@@ -22,24 +27,74 @@
   margin-bottom: 25px;
 }
 
-
-.description {
-  font-size: 0.80em;
-  padding: 5px 10px;
-}
-
-.map-container {
-  width:100%;
-  height:inherit;
-}
-
 .map-container-big {
-  @extend .map-container;
   height:500px;
 }
 
-
+.col-2 {
+  width:50%;
+}
 
 .col-3 {
   width:33%;
+}
+
+.col-3-2{
+  width: 66%;
+}
+
+.col-4{
+  width: 25%;
+}
+
+.col-4-2{
+  width: 50%;
+}
+
+.col-4-3{
+  width: 75%;
+}
+
+.col-5{
+  width: 20%;
+}
+
+.col-5-2{
+  width: 40%;
+}
+
+.col-5-3{
+  width: 60%;
+}
+
+.col-5-4{
+  width: 80%;
+}
+
+.col-6{
+  width: 1/6*100%
+}
+
+.col-6-2{
+  width: 2/6*100%;
+}
+
+.col-6-3{
+  width: 50%;
+}
+
+.col-6-4{
+  width: 4/6*100%;
+}
+
+.col-6-5{
+  width: 5/6*100%;
+}
+
+.floated-left {
+  float: left;
+}
+
+.floated-right {
+  float: right;
 }

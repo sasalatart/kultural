@@ -4,69 +4,75 @@
     <h1><%= @event.name %></h1>
     <div class="stats-container">
       <span id="avg-rating">
-        <%= render 'ratings/avg_rating' %>
+        <%= render partial: 'ratings/avg_rating', locals: { rateable: @event } %>
       </span>
       |
       <span id="num-reports">
-        <%= render 'reports/num_reports' %>
+        <%= render partial: 'reports/num_reports', locals: { reportable: @event } %>
       </span>
     </div>
   </div>
 
   <% if owner_of_event? %>
-  <%= button_to 'Edit', edit_event_path(@event),
-  method: 'get', class: 'button-def floated-left' %>
-  <%= button_to 'Delete', event_path(@event),
-  method: 'delete', class: 'button-del floated-left',
-  data: { confirm: 'Are you sure?' } %>
+  <div class="floated-left">
+    <%= button_to 'Edit', edit_event_path(@event),
+    method: 'get', class: 'button-def floated-left' %>
+  </div>
+  <div class="floated-left">
+    <%= button_to 'Delete', event_path(@event),
+    method: 'delete', class: 'button-del floated-left',
+    data: { confirm: 'Are you sure?' } %>
+  </div>
   <% end %>
 
   <% if logged_in? %>
   <div class="floated-right">
-    <%= render 'reports/form' %>
+    <%= render partial: 'reports/form', locals: { reportable: @event } %>
   </div>
 
   <div class="floated-right">
-    <%= render 'ratings/form' %>
+    <%= render partial: 'ratings/form', locals: { rateable: @event } %>
   </div>
   <% end %>
 
   <div class="big-container clear borders">
     <div class="info-container col-3">
-      EventImage
+      <%= image_tag 'events/default.png', height: 200 %>
     </div>
-
-    <div class="info-container col-3">
-      <%= render 'event_info' %>
-    </div>
-    <div class="info-container col-3">
-      <div class="map-container">
-        <div id="map">
-        </div>
-      </div>
+    <div class="info-container mini-map col-3-2">
+      <div id="map"></div>
     </div>
   </div>
 
   <div class="big-container borders">
-    <div class="description clear">
-      <p><%= @event.description %></p>
-    </div>
+    <%= render 'event_info' %>
   </div>
 
   <div class="big-container borders">
     <% if logged_in? %>
     <div class="comment-input">
-      <%= render 'comments/form' %>
+      <%= render partial: 'comments/form', locals: { commentable: @event } %>
     </div>
     <% end %>
 
     <div id="comments">
-      <%= render 'comments/commentable_comments' %>
+      <%= render partial: 'comments/commentable_comments', locals: { commentable: @event } %>
     </div>
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  });
+</script>
+
+<!-- <script>
 function initialize() {
   var mapOptions = {
     zoom: 17,
@@ -92,4 +98,4 @@ function loadScript() {
 
 window.onload = loadScript;
 google.maps.event.addDomListener(window, 'page:load', initialize);
-</script>
+</script>-->

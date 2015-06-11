@@ -10,8 +10,12 @@
 #
 
 class EventType < ActiveRecord::Base
+
+  has_and_belongs_to_many :events
+
   validates :name, presence: true,
-                   length: { minimum: 3, maximum: 50 }
+                   length: { minimum: 3, maximum: 50 },
+                   uniqueness: true, case_sensitive: false
 
   validates :examples, presence: true,
                        length: { minimum: 3, maximum: 50 }
