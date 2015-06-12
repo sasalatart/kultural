@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       log_in @user
       flash[:notice] = 'Su cuenta se ha creado exitosamente'
       redirect_to @user
