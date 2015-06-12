@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.signup_confirmation(@user).deliver
       log_in @user
-      flash[:notice] = 'Su cuenta se ha creado exitosamente'
+      flash[:notice] = "Welcome tu kultur.al, #{@user.name}"
       redirect_to @user
     else
       render 'new'

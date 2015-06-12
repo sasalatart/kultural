@@ -23,7 +23,7 @@
         <li><%= link_to "Profile", current_user, id: "profile" %></li>
 
         <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
-                                          id:"edit-profile" %></li>
+                                                       id:"edit-profile" %></li>
 
         <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
       </ul>
