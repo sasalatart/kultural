@@ -17,9 +17,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe User do
-
   before do
-
     def user_creator(name: 'Jaime Castro',
                      password: 'asdfgh',
                      password_confirmation: 'asdfgh',
@@ -35,7 +33,6 @@ describe User do
                   phone: phone,
                   birthday: birthday,
                   male: male)
-
     end
 
     @user1 = user_creator(name: 'Esteban Retamal',
@@ -163,9 +160,9 @@ describe User do
   end
 
 
-  describe 'Following people' do 
+  describe 'Following people' do
     # describe 'when a user try to follow himself' do
-    #  it 'should not change' do 
+    #  it 'should not change' do
     #    expect { @user1.follow(@user1) }.not_to change {@user1.following.count}
     #  end
     # end
@@ -177,11 +174,10 @@ describe User do
     end
 
     describe 'when a user try to follow another user twice' do
-      it 'should fail' do 
+      it 'should fail' do
         @user1.follow(@user2)
         expect {@user1.follow(@user2)}.not_to change{@user1.following.count}
       end
     end
   end
-  
 end

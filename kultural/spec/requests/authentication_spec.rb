@@ -1,40 +1,28 @@
-require 'spec_helper'
 require 'rails_helper'
 
 describe 'Authentication' do
-  before do
-    @user = User.create(name: 'Napoleon Bonaparte',
-                        password: 'Austerlitz',
-                        password_confirmation: 'Austerlitz',
-                        mail: 'napoleon@uc.cl',
-                        phone: 17691821,
-                        birthday: Date.strptime('15/08/1769', '%d/%m/%Y'),
-                        male: true)
-  end
+  subject { page }
+  let(:user) { FactoryGirl.create(:user) }
 
   describe 'login' do
-    before { visit login_path }
-
     describe 'with invalid credentials' do
-      it 'should fail' do
-        fill_in 'session_mail',     with: @user.mail
-        fill_in 'session_password', with: 'invalidpassword'
-        click_button 'login-submit'
-
-        expect(page).to have_content('Error')
-        expect(page).to have_content('LOGIN')
+      before do
+        visit login_path
+        login(user.mail, 'invalidpassword')
       end
+
+      it { should have_content('Error') }
+      it { should have_content('LOGIN') }
     end
 
     describe 'with valid credentials' do
-      it 'should succeed' do
-        fill_in 'session_mail',     with: @user.mail
-        fill_in 'session_password', with: @user.password
-        click_button 'login-submit'
-
-        expect(page).to have_content('Welcome')
-        expect(page).to have_content(@username)
+      before do
+        visit login_path
+        login(user.mail, user.password)
       end
+
+      it { should have_content('Welcome') }
+      it { should have_content(user.name) }
     end
   end
 end
