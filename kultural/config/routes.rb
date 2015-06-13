@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'validator/mail'
   root 'pages#main'
 
   resources :comments, only: [:create, :update, :destroy]
