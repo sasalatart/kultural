@@ -1,6 +1,6 @@
-Welcome to kultur.al!
+Welcome to kultural!
 
 Dear <%= @user.name %>:
-  We hereby inform you that on <%= @user.created_at %> you successfuly created
-your account on kultur.al. Thanks for joining our community :)
-  We hope you enjoy this app!
+
+  On <%= @user.created_at.strftime("%A %d/%m/%y at %H:%M") %> you successfuly created your kultural account.
+  Thanks for joining our community, We hope you enjoy this app!

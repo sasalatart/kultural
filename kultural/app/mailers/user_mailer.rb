@@ -14,10 +14,10 @@ class UserMailer < ApplicationMailer
     mail to: @user.mail, subject: 'Your account has been edited'
   end
 
-  def password_edit(user)
+  def password_change(user)
     @user = user
 
-    mail to: @user.mail, subject: 'Your password has been edited'
+    mail to: @user.mail, subject: 'Your password has been changed'
   end
 
   def new_follower(user, follower)
@@ -25,11 +25,9 @@ class UserMailer < ApplicationMailer
     @follower = follower
 
     if @user.followers.count == 1
-      @msg = "We are glad to tell you that you have your first follower, whose
-              name is #{@follower.name}"
+      @msg = "We are glad to tell you that you have your first follower, whose name is #{@follower.name}"
     else
-      @msg = "#{@follower.name} is now following you. You currently have
-              #{@user.followers.count} followers."
+      @msg = "#{@follower.name} is now following you. You currently have #{@user.followers.count} followers."
     end
 
     mail to: @user.mail, subject: "#{@follower.name} is now following you"

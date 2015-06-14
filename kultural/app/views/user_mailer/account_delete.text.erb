@@ -1,4 +1,4 @@
 Dear <%= @user.name %>:
 
-We hereby inform you that on <%= DateTime.now %> your kultur.al account was
-deleted. We hope to see you back soon :(
+We hereby inform you that on <%= DateTime.now.strftime("%A %d/%m/%y at %H:%M") %> your account was deleted.
+We hope to see you back soon :(

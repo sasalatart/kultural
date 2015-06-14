@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
-    UserMailer.new_follower(current_user, @user).deliver
+    UserMailer.new_follower(@user, current_user).deliver
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

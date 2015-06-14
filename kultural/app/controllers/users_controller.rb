@@ -34,8 +34,15 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+
+      password_changed = !(current_user.authenticate(user_params[:password]))
+
       if @user.update(user_params)
-        UserMailer.account_edit(@user).deliver
+        if password_changed
+          UserMailer.password_change(@user).deliver
+        else
+          UserMailer.account_edit(@user).deliver
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
