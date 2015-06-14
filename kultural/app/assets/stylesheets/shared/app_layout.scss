@@ -20,6 +20,25 @@ body {
   }
 }
 
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid red;
+  } 
+}
+
 .wrapper {
 	min-height: 100%;
   width: 1190px;
