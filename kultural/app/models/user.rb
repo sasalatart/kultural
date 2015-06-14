@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
                     storage: :dropbox,
-                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
                     dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
                     styles: {
                       thumb: '100x100>',

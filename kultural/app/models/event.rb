@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
 
   has_attached_file :picture,
                     storage: :dropbox,
-                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
                     dropbox_options: { path: proc { |style| "places/#{id}/#{picture.original_filename}" } },
                     styles: {
                       thumb: '100x100>',
