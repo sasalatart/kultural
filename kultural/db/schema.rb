@@ -155,6 +155,8 @@ ActiveRecord::Schema.define(version: 20150614185304) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "users", ["mail"], name: "index_users_on_mail", unique: true, using: :btree
+
   add_foreign_key "comments", "users"
   add_foreign_key "event_types_events", "event_types"
   add_foreign_key "event_types_events", "events"

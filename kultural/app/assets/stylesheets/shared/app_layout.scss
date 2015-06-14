@@ -18,6 +18,17 @@ body {
   >*{
     margin: auto;
   }
+
+  #sidebar{
+    border-right: 2px solid $dark-text-color;
+    ul{
+      list-style: none;
+
+      li{
+        padding: 5px 0;
+      }
+    }
+  }
 }
 
 .wrapper {
