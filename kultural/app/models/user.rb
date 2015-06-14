@@ -2,19 +2,35 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  password_digest :string
-#  mail            :string
-#  phone           :integer
-#  birthday        :date
-#  male            :boolean
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string
+#  password_digest     :string
+#  mail                :string
+#  phone               :integer
+#  birthday            :date
+#  male                :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
   include PgSearch
+
+  has_attached_file :avatar,
+                    storage: :dropbox,
+                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
+                    styles: {
+                      thumb: '100x100>',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    }
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
@@ -88,5 +104,10 @@ class User < ActiveRecord::Base
 
   def is_group_admin?(group)
     groups_where_is_admin.include?(group)
+  end
+
+  def get_avatar(size)
+    return 'placeholders/profile.png' if avatar.url(size).include? 'missing'
+    avatar.url(size)
   end
 end

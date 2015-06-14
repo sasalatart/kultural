@@ -16,10 +16,18 @@
 
 class Event < ActiveRecord::Base
   include PgSearch
-  #TODO: pg search: maybe add :description.
-  #:if => !:finished? #only search for future events
   pg_search_scope :search, against: :name,
                   using: { tsearch: { prefix: true } }
+
+  has_attached_file :picture,
+                    storage: :dropbox,
+                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_options: { path: proc { |style| "places/#{id}/#{avatar.original_filename}" } },
+                    styles: {
+                      thumb: '100x100>',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    }
 
   belongs_to :owner, polymorphic: true
   belongs_to :place
@@ -35,7 +43,7 @@ class Event < ActiveRecord::Base
                           length: { maximum: 1000 }
 
   validates :date, presence: true
-  validates :price, presence:true
+  validates :price, presence: true
   validates :owner_id, presence: true
   validates :owner_type, presence: true
 end

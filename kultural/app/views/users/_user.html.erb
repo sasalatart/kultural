@@ -1,4 +1,4 @@
 <div class="profile-show">
-    <%= image_tag("placeholders/profile.png") %>
+    <%= image_tag user.get_avatar(:thumb) %>
     <span><%= link_to user.name, user %></span>
 </div>

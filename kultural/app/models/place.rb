@@ -15,10 +15,19 @@
 #
 
 class Place < ActiveRecord::Base
-  # Esto en vez de has_many
   include PgSearch
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
+
+  has_attached_file :picture,
+                    storage: :dropbox,
+                    dropbox_credentials: Rails.root.join('config/dropbox.yml'),
+                    dropbox_options: { path: proc { |style| "places/#{id}/#{avatar.original_filename}" } },
+                    styles: {
+                      thumb: '100x100>',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    }
 
   #Geolocation
   geocoded_by :address, latitude: :lat, longitude: :lon

@@ -2,11 +2,11 @@
   <fieldset class="borders">
     <legend>User</legend>
     <div class="contents">
-      <%= form_for(@user) do |f| %>
+      <%= form_for(@user, multipart: true) do |f| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
             <h2>
-              <%= pluralize(@user.errors.count, "error") %> 
+              <%= pluralize(@user.errors.count, "error") %>
               prohibited this user from being saved:
             </h2>
             <ul>
@@ -47,6 +47,12 @@
           <%= f.radio_button :male, false %>
           <%= f.label "Female" %><br>
         </div>
+
+        <div class="field">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Submit", class: 'button-def'%>
         </div>
