@@ -2,7 +2,7 @@
 var monthToNumber;
 var messageMaker, messageDeleter, messageMgr;
 var dateValidator, mailValidator, lengthValidator, passValidator, regexValidator;
-var dateHandler, mailHandler, lengthHandler, passHandler, regexHandler, validateAll;
+var dateHandler, mailHandler, lengthHandler, passHandler, regexHandler;
 
 var mailRegex = /^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/;
 var uniqueMail;
@@ -134,65 +134,3 @@ dateHandler = function(event){
 
   dateValidator.call($(this), day, month, year, from, to, message);
 }
-
-validateAll = function(event){
-  mailValidator.call($("#user_mail"));
-};
-
-$(document).ready(function(){
-
-
-  /*var rules = {
-    "#user_name": {params: {min: 5, max: 50, message: 'Your name should contain between 5 and 50 characters'}, method: lengthHandler},
-    "#user_mail": {method: mailHandler},
-    "#user_password": {params: {min: 6, message: 'Password too short'}, method: lengthHandler},
-    "#user_password_confirmation": {params: {passField: '#user_password'}, method: passHandler}, 
-    "#user_phone": {params: {regex: /^\d{5,15}$/, message: 'Phone number should contain between 5 and 15 numbers'}, method: passHandler},
-    "#user_birthday_3i, #user_birthday_2i, #user_birthday_1i": {trigger: 'click',
-      params:
-        {
-          day: '#user_birthday_3i',
-          month: '#user_birthday_2i',
-          year: '#user_birthday_1i',
-          from: new Date(1900, 1, 1),
-          to: new Date(),
-          message: 'Your birthday should not be in the future'
-        },
-      method: dateHandler
-      }
-    };*/
-
-
-    $("#user_name").bind('focusout', {min: 5, max: 50, message: 'Your name should contain between 5 and 50 characters'}, lengthHandler);
-    $("#user_mail").bind('focusout', mailHandler);
-    $("#user_password").bind('focusout', {min: 6, message: 'Password too short'}, lengthHandler);
-    $("#user_password_confirmation").bind('focusout', {passField: '#user_password'}, passHandler);
-    $("#user_phone").bind('focusout', {regex: /^\d{5,15}$/, message: 'Phone number should contain between 5 and 15 numbers'}, regexHandler);
-    $("#user_birthday_3i, #user_birthday_2i, #user_birthday_1i").bind('click', 
-      {day: '#user_birthday_3i',
-      month: '#user_birthday_2i',
-      year: '#user_birthday_1i',
-      from: new Date(1900, 1, 1),
-      to: new Date(),
-      message: 'Your birthday should not be in the future'
-    }, dateHandler);
-
-    $(".actions input").bindFirst('click', function(event){
-      var valid = true;
-      var ajax = mailValidator.call($("#user_mail"));
-      valid = valid && ajax;
-      valid = valid && lengthValidator.call($("#user_mail"), 5, 50, 'Your name should contain between 5 and 50 characters');
-      valid = valid && lengthValidator.call($("#user_password"), 6, undefined, 'Password too short');
-      valid = valid && passValidator.call($("#user_password_confirmation"), '#user_password');
-      valid = valid && regexValidator.call($("#user_phone"), /^\d{5,15}$/, 'Phone number should contain between 5 and 15 numbers');
-      valid = valid && dateValidator.call($("#user_birthday_3i"), '#user_birthday_3i', '#user_birthday_2i', '#user_birthday_1i', new Date(1900, 1, 1), new Date(), 'Your birthday should not be in the future');
-
-      valid = valid && uniqueMail;
-      if(!valid){
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    });
-  });
-
-
