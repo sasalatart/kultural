@@ -1,6 +1,6 @@
 <% # Assumes owner as parameter %>
 <% if owner.events.count > 0%>
-<div>
+<div class="borders normal-container">
   <h3>My events</h3>
   <% owner.events.order(date: :desc).each do |event| %>
     <div> <%= link_to event.name, event %> <span class="tiny"> | <%= event.date %></span></div>

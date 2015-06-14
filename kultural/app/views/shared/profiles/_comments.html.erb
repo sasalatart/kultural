@@ -1,6 +1,6 @@
 <% # Assumes user as parameter %>
 <% if user.comments.count > 0 %>
-<div>
+<div class="borders normal-container">
   <h3>My last comments</h3>
   <% user.comments.limit(5).each do |com| %>
     <div class="profile-comment">
