@@ -1,0 +1,27 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% places.each do |place| %>
+      <tr>
+        <td><%= render place %></td>
+        <td><%= place.description %></td>
+        <td><%= place.address %></td>
+        <td><%= place.lat %></td>
+        <td><%= place.lon %></td>
+        <td><%= render place.owner %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

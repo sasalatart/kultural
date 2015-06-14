@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519205838) do
+ActiveRecord::Schema.define(version: 20150614185304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,12 @@ ActiveRecord::Schema.define(version: 20150519205838) do
     t.integer  "place_id"
     t.integer  "owner_id"
     t.string   "owner_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "events", ["owner_type", "owner_id"], name: "index_events_on_owner_type_and_owner_id", using: :btree
@@ -83,9 +87,13 @@ ActiveRecord::Schema.define(version: 20150519205838) do
     t.float    "lon"
     t.integer  "owner_id"
     t.string   "owner_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "address"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "places", ["owner_type", "owner_id"], name: "index_places_on_owner_type_and_owner_id", using: :btree
@@ -139,9 +147,15 @@ ActiveRecord::Schema.define(version: 20150519205838) do
     t.integer  "phone"
     t.date     "birthday"
     t.boolean  "male"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
+
+  add_index "users", ["mail"], name: "index_users_on_mail", unique: true, using: :btree
 
   add_foreign_key "comments", "users"
   add_foreign_key "event_types_events", "event_types"

@@ -18,6 +18,15 @@
   padding: 10px;
 }
 
+.cell-container{
+  padding: 10px;
+  display: table-cell;
+}
+
+.normal-container{
+  padding: 10px;
+}
+
 .description-container {
   display: block;
 }
@@ -28,7 +37,7 @@
 }
 
 .map-container-big {
-  height:500px;
+  height:550px;
 }
 
 .col-2 {

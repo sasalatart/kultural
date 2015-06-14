@@ -16,9 +16,8 @@ class EventsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@event.place) do |place, marker|
       marker.lat place.lat
       marker.lng place.lon
-      marker.infowindow render_to_string partial: 'events/list_events', locals: {place: place}
+      marker.infowindow render_to_string partial: 'events/list_events', locals: { place: place }
     end
-
   end
 
   # GET /events/new
@@ -83,6 +82,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :date, :price, :place_id)
+      params.require(:event).permit(:name, :description, :date, :price, :place_id, :picture)
     end
 end

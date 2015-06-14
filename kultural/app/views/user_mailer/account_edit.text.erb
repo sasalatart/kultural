@@ -1,0 +1,12 @@
+Dear <%= @user.name %>:
+
+  Your account was edited on <%= DateTime.now.strftime("%A %d/%m/%y at %H:%M") %>.
+
+  Your current user data is:
+    - Name: <%= @user.name %>
+    - Mail: <%= @user.mail %>
+    - Phone: <%= @user.phone %>
+    - Birth Date: <%= @user.birthday %>
+    - Gender: <%= @gender %>
+
+  If you did not request this, then please contact the kultural team as soon as possible.

@@ -13,9 +13,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe Group do
-
   before do
-
     def user_creator(name: 'Jaime Castro',
                      password: 'asdfgh',
                      password_confirmation: 'asdfgh',
@@ -23,7 +21,7 @@ describe Group do
                      phone: 12345678,
                      birthday: Date.today,
                      male: true)
-      
+
       User.create(name: name,
                   password: password,
                   password_confirmation: password_confirmation,
@@ -31,7 +29,6 @@ describe Group do
                   phone: phone,
                   birthday: birthday,
                   male: male)
-
     end
 
     @user1 = user_creator(name: 'Esteban Retamal',
@@ -87,18 +84,11 @@ describe Group do
 
   end
 
-
   describe 'when a user creates a group' do
     it 'should be admin' do
       expect(@user1.is_group_admin?(@group1)).to be_truthy
     end
   end
-
-  # describe 'when a admin leaves a group' do
-  #  it 'should not change' do
-  #    expect {@user1.leave_group(@group1)}.not_to change{@user1.groups_where_is_admin.count}
-  #  end
-  # end
 
   describe 'when a user join another group' do
     it 'should change groups.count' do
@@ -107,5 +97,4 @@ describe Group do
       expect {user2.join_group(@group1)}.to change{user2.groups.count}.by(1)
     end
   end
-
 end

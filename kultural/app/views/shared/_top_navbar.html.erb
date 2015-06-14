@@ -16,14 +16,13 @@
       </ul>
     </div>
     <div class="dropdown">
-      <!-- TODO: Change profile placeholder to user's image-->
-      <%= image_tag("placeholders/profile.png", id: "profile-img") %>
+      <%= image_tag(current_user.get_avatar(:medium), id: "profile-img") %>
       <h3 id="username"><%= current_user.name %></h3>
       <ul>
         <li><%= link_to "Profile", current_user, id: "profile" %></li>
 
         <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
-                                          id:"edit-profile" %></li>
+                                                       id:"edit-profile" %></li>
 
         <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
       </ul>

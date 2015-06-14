@@ -1,7 +1,9 @@
 <% # Assumes owner as parameter %>
 <div class="profile-presentation">
   <div class="profile-name-image">
-    <%= image_tag("placeholders/profile.png", class: "profile-img") %>
+    <div>
+      <%= image_tag(owner.get_avatar(:medium), class: "profile-img") %>
+    </div>
     <div class="profile-name-container">
       <%= link_to owner.name, owner %>
     </div>

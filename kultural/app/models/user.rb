@@ -2,19 +2,33 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  password_digest :string
-#  mail            :string
-#  phone           :integer
-#  birthday        :date
-#  male            :boolean
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string
+#  password_digest     :string
+#  mail                :string
+#  phone               :integer
+#  birthday            :date
+#  male                :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
   include PgSearch
+
+  has_attached_file :avatar,
+                    storage: :dropbox,
+                    dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
+                    dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
+                    styles: {
+                      thumb: '100x100>',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    }
 
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
@@ -30,7 +44,7 @@ class User < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
 
   # Follow people
-  has_many :active_relationships, class_name: 'Relationship',foreign_key: 'follower_id', dependent: :destroy
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
@@ -53,6 +67,7 @@ class User < ActiveRecord::Base
                     length: { minimum: 5, maximum: 15 }
 
   validates :birthday, presence: true, date_past_or_today: true
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   # Utility methods for follow system
 
@@ -88,5 +103,10 @@ class User < ActiveRecord::Base
 
   def is_group_admin?(group)
     groups_where_is_admin.include?(group)
+  end
+
+  def get_avatar(size)
+    return 'placeholders/profile.png' if avatar.url(size).include? 'missing'
+    avatar.url(size)
   end
 end

@@ -19,4 +19,4 @@
 </div>
 
 <% @events = @event_type.events %>
-<%= render '/events/listing' %>
+<%= render partial: 'events/listing', locals: {events: @events} %>

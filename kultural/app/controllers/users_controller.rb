@@ -23,8 +23,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       log_in @user
-      flash[:notice] = 'Su cuenta se ha creado exitosamente'
+      flash[:notice] = "Welcome tu kultur.al, #{@user.name}"
       redirect_to @user
     else
       render 'new'
@@ -33,7 +34,15 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+
+      password_changed = !(current_user.authenticate(user_params[:password]))
+
       if @user.update(user_params)
+        if password_changed
+          UserMailer.password_change(@user).deliver
+        else
+          UserMailer.account_edit(@user).deliver
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -44,6 +53,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    UserMailer.account_delete(@user).deliver
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -71,12 +81,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name,
-                                   :password,
-                                   :password_confirmation,
-                                   :mail,
-                                   :phone,
-                                   :birthday,
-                                   :male)
+      params.require(:user).permit(:name, :password, :password_confirmation,
+                                   :mail, :phone, :birthday, :male, :avatar)
     end
 end
