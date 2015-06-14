@@ -1,12 +1,26 @@
-<h1>Results:</h1>
 <div>
-  <% @search_events.each do |event| %>
-    <%= render event %>
-  <% end %>
-  <% @search_users.each do |user| %>
-    <%= render user %>
-  <% end %>
-  <% @search_places.each do |place| %>
-    <%= render place %>
-  <% end %>
+  <h1 class="center-align"> 
+    Results searching by '<%= params[:search_string] %>'
+  </h1>
 </div>
+
+<% if @search_events.length > 0 %>
+<div>
+  <h2>Events [<%= link_to 'All', events_path %>]</h2>
+  <%= render partial: 'events/listing', locals: {events: @search_events} %>
+</div>
+<% end %>
+
+<% if @search_places.length > 0%>
+<div>
+  <h2>Places [<%= link_to 'All', places_path %>]</h2>
+  <%= render partial: 'places/listing', locals: {places: @search_places} %>
+</div>
+<% end %>
+
+<% if @search_users.length > 0 %>
+<div>
+  <h2>Users [<%= link_to 'All', users_path %>]</h2>
+  <%= render partial: 'users/listing', locals: {users: @search_users} %>
+</div>
+<% end %>

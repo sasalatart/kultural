@@ -11,7 +11,7 @@
     </thead>
 
     <tbody>
-      <% @events.each do |event| %>
+      <% events.each do |event| %>
       <tr>
         <td><%= link_to event.name, event %></td>
         <td><%= truncate event.description, length: 140, separator: ' ' %></td>
