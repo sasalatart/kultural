@@ -30,8 +30,6 @@ class User < ActiveRecord::Base
                       medium: '300x300>'
                     }
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
   pg_search_scope :search, against: :name,
                   using: {tsearch: {prefix: true}}
 
@@ -69,6 +67,7 @@ class User < ActiveRecord::Base
                     length: { minimum: 5, maximum: 15 }
 
   validates :birthday, presence: true, date_past_or_today: true
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   # Utility methods for follow system
 

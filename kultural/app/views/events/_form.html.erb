@@ -48,6 +48,11 @@
         <% end %>
       </div>
 
+      <div class="field">
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
+      </div>
+
       <div class="actions">
         <%= f.submit 'Ready!', class: 'button-def' %>
       </div>

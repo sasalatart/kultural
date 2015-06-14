@@ -22,11 +22,10 @@ class Place < ActiveRecord::Base
   has_attached_file :picture,
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/dropbox.yml'),
-                    dropbox_options: { path: proc { |style| "places/#{id}/#{avatar.original_filename}" } },
+                    dropbox_options: { path: proc { |style| "places/#{id}/#{picture.original_filename}" } },
                     styles: {
                       thumb: '100x100>',
-                      square: '200x200#',
-                      medium: '300x300>'
+                      normal: '300x200>'
                     }
 
   #Geolocation
@@ -49,4 +48,10 @@ class Place < ActiveRecord::Base
   validates :address, presence: true
   validates :owner_id, presence: true
   validates :owner_type, presence: true
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
+
+  def get_picture(size)
+    return 'places/default.png' if picture.url(size).include? 'missing'
+    picture.url(size)
+  end
 end

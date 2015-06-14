@@ -37,7 +37,7 @@
 
   <div class="big-container clear borders">
     <div class="info-container col-3">
-      <%= image_tag 'places/default.png', height: 200 %>
+      <%= image_tag @place.get_picture(:normal), height: 200 %>
     </div>
     <div class="info-container mini-map col-3-2">
       <div id="map"></div>
