@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   include PgSearch
 
   has_attached_file :avatar,
+                    default_url: 'placeholders/profile.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
                     dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
@@ -106,7 +107,6 @@ class User < ActiveRecord::Base
   end
 
   def get_avatar(size)
-    return 'placeholders/profile.png' if avatar.url(size).include? 'missing'
     avatar.url(size)
   end
 end
