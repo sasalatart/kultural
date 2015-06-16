@@ -13,7 +13,7 @@
     <dt>Place:</dt>
     <dd><%= link_to @event.place.name, @event.place %></dd>
     <dt>Date:</dt>
-    <dd><%= @event.date %></dd>
+    <dd><%= @event.date %> <div id="weather" class="loading"><%= image_tag("events/ajax-loader.gif", class: "loading_gif") %>Cargando información del clima...</div></dd>
     <dt>Price:</dt>
     <dd><%= number_to_currency @event.price, precision: 0 %></dd>
     <dt>Categories:</dt>

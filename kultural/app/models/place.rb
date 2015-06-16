@@ -20,6 +20,7 @@ class Place < ActiveRecord::Base
                   using: {tsearch: {prefix: true}}
 
   has_attached_file :picture,
+                    default_url: 'places/default.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
                     dropbox_options: { path: proc { |style| "places/#{id}/#{picture.original_filename}" } },
@@ -51,7 +52,6 @@ class Place < ActiveRecord::Base
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
   def get_picture(size)
-    return 'places/default.png' if picture.url(size).include? 'missing'
     picture.url(size)
   end
 end
