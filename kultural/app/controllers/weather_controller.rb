@@ -8,11 +8,11 @@ class WeatherController < ApplicationController
     @uri = "http://www.weather.com/wx/10day?locid=" << lat << "," << lon << "&locale=es_US"
     b = Watir::Browser.new :phantomjs
     b.goto @uri
-    card = Nokogiri::HTML(b.html).xpath('//span[text()="17 jun"]/../..')
+    card = Nokogiri::HTML(b.html).xpath('//span[text()="'<< params[:date] <<'"]/../..')
 
+    @img = "http://www.weather.com" << card.xpath('following-sibling::div[1]//img/@src').to_s
     @temp_max = card.xpath('following-sibling::p[1]//text()').to_s
     @temp_min = card.xpath('following-sibling::p[2]//text()').to_s
-
 
     respond_to do |format|
       format.js

@@ -72,7 +72,7 @@
 
     lat = <%= @event.place.lat %>;
     lon = <%= @event.place.lon %>;
-    date = "<%= @event.date.strftime('%b %e')%>";
+    date = "<%= @event.date.strftime('%e %b').downcase%>";
     uri = "/weather.js?lat=" + lat + "&lon=" + lon + "&date=" + date;
     $.get(uri);
   });
