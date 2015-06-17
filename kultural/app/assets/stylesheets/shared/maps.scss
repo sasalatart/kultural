@@ -1,0 +1,14 @@
+@import 'palette';
+.info-window{
+  a{
+    color: $dark-text-color;
+
+    &:visited {
+      color: $dark-text-color;
+    }
+
+    &:hover {
+      color: $dark-text-hover-color;
+    }
+  }
+}
