@@ -17,14 +17,14 @@
 		left: 0;
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
-
 		box-sizing: border-box;
 
 		li {
-			padding: 10px;
 			display: block;
 			background-color: $dropdown-color;
 			border-bottom: 2px solid $dropdown-hover-color;
+			padding: 10px;
+
 			&:hover {
 				background-color: $dropdown-hover-color;
 			}
