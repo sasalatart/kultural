@@ -40,6 +40,7 @@ module Foursquare
       if venue.code == 200
         data = venue['response']['venue']
         return {
+          name: data['name'],
           address: data['location']['formattedAddress'].join(", "),
           categories: data['categories'].map {|o| o['name']}.join(", "),
           checkins: data['stats']['checkinsCount'],
