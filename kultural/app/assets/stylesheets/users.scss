@@ -7,8 +7,9 @@
 // TO-DO(PROFILE FORMS)
 .follow-form{
   text-align: center;
-
   form{
+    color: $light-text-color;
+
     display: inline;
   }
 }
@@ -16,7 +17,7 @@
 // TO-DO (JOIN STATS)
 .stats{
   text-align: center;
-
+  color: $light-text-color;
   a{
     padding: 0 0.5em;
     text-decoration: none;
@@ -30,8 +31,8 @@
 .user-about {
   padding-top: 10px;
   padding-bottom: 10px;
-
+  color: $light-text-color;
   table {
-    color: $dark-text-color;
+
   }
 }
