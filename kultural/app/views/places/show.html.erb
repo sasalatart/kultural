@@ -84,9 +84,7 @@
     });
 
     var callback = function(response){
-      $("#foursquare-tooltip").tooltip({
-        content: response
-      });
+      $("#foursquare-tooltip").tooltip("option", "content", response);
     }
 
     $.get("<%= j foursquare_place_path %>", callback);
