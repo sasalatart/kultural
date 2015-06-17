@@ -2,12 +2,8 @@
 @import 'shared/fonts';
 
 .sessions {
-  background-image: image-url("login/background1.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-
   #login-form {
-    background: rgba(21, 21, 21, 0.7);
+    background: $dark-alpha-color;
 
     text-align: center;
     padding: 50px 0 0 0px;
@@ -98,7 +94,7 @@
   }
 
   #sign-up {
-    color:$dark-text-color;
+    color:$light-text-color;
     text-decoration:none;
     font-weight:bold;
     font-family:$default-font;

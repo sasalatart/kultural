@@ -10,8 +10,12 @@ html, body {
 }
 
 body {
-  background-color: $body-color;
+  background-image: image-url("shared/background1.jpg");
   font-family: $default-font;
+}
+
+h1 {
+  color: $light-text-color;
 }
 
 #main{
@@ -64,7 +68,7 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: $dark-text-color;
+  color: $light-text-color;
 
   &:visited {
     color: $dark-text-color;
@@ -74,12 +78,4 @@ a {
     color: $dark-text-hover-color;
     text-decoration: underline;
   }
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 25px;
 }

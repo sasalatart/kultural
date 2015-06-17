@@ -1,4 +1,5 @@
 @import 'shared/borders';
+@import 'palette';
 
 .header-footer-wrapper {
   margin-left: auto;
@@ -6,10 +7,23 @@
   width: 1190px;
 }
 
+.container {
+  color: $light-text-color;
+  background-color: $dark-alpha-color;
+
+  a, a:visited {
+    color: $light-text-color;
+  }
+}
+
 .big-container {
   width: 100%;
   margin: 15px auto;
   display: table;
+}
+
+.normal-container{
+  padding: 10px;
 }
 
 .info-container {
@@ -21,10 +35,6 @@
 .cell-container{
   padding: 10px;
   display: table-cell;
-}
-
-.normal-container{
-  padding: 10px;
 }
 
 .description-container {

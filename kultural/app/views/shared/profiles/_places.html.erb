@@ -1,6 +1,6 @@
 <% # Assumes owner as parameter %>
 <% if owner.places.count > 0%>
-<div class="borders normal-container">
+<div class="borders container normal-container">
   <h3>My places</h3>
     <% owner.places.each do |place| %>
       <div><%= link_to place.name, place %></div>

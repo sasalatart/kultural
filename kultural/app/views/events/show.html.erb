@@ -35,7 +35,7 @@
   </div>
   <% end %>
 
-  <div class="big-container clear borders">
+  <div class="container big-container clear borders">
     <div class="info-container col-3">
       <%= image_tag @event.get_picture(:normal), height: 200 %>
     </div>
@@ -44,11 +44,11 @@
     </div>
   </div>
 
-  <div class="big-container borders">
+  <div class="container big-container borders">
     <%= render 'event_info' %>
   </div>
 
-  <div class="big-container borders">
+  <div class="container big-container borders">
     <% if logged_in? %>
     <div class="comment-input">
       <%= render partial: 'comments/form', locals: { commentable: @event } %>
