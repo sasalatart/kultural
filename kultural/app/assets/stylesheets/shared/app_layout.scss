@@ -33,6 +33,7 @@ h1 {
     }
   }
 }
+
 .wrapper {
 	min-height: 100%;
   width: 1190px;
@@ -69,7 +70,7 @@ a {
   color: $light-text-color;
 
   &:visited {
-    color: $dark-text-color;
+    color: $light-text-color;
   }
 
   &:hover {
