@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
+  include Foursquare
+  before_action :set_place, only: [:show, :foursquare, :edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
@@ -16,6 +17,14 @@ class PlacesController < ApplicationController
       marker.lat place.lat
       marker.lng place.lon
       marker.infowindow render_to_string partial: 'events/list_events', locals: {place: place}
+    end
+  end
+
+  def foursquare
+    response = get_place_info(@place.lat, @place.lon, @place.name)
+
+    respond_to do |format|
+      format.json { render json: response }
     end
   end
 

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :event_types, only: [:index, :show]
 
   resources :places do
+    member do
+      get :foursquare
+    end
+
     resources :comments, module: :places, only: [:index, :create, :update, :destroy]
     resources :reports, module: :places, only: [:create]
     resources :ratings, module: :places, only: [:create]
