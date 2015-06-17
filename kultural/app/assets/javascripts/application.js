@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery.turbolinks
 //= require jquery-ui/tooltip
-//= require turbolinks
+//= require jquery.turbolinks
+//= require jquery_ujs
 //= require underscore-min
 //= require gmaps/google
 //= require_tree .
+//= require turbolinks
