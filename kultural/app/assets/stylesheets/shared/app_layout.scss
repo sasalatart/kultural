@@ -35,6 +35,25 @@ h1 {
   }
 }
 
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid yellow;
+  } 
+}
+
 .wrapper {
 	min-height: 100%;
   width: 1190px;
@@ -78,4 +97,17 @@ a {
     color: $dark-text-hover-color;
     text-decoration: underline;
   }
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 25px;
+}
+
+div.field div.form-error{
+  font-size: $small;
+  color: yellow;
 }
