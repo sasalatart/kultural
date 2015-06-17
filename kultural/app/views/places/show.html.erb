@@ -35,7 +35,14 @@
   </div>
   <% end %>
 
-  <div class="big-container clear borders">
+  <div class="floated-right">
+    <%= image_tag 'places/foursquare-logomark.png',
+      id: 'foursquare-tooltip', 
+      height: 30, 
+      title: 'Foursquare info' %> &nbsp;  &nbsp;
+  </div>
+
+  <div class="container big-container clear borders">
     <div class="info-container col-3">
       <%= image_tag @place.get_picture(:normal), height: 200 %>
     </div>
@@ -44,11 +51,11 @@
     </div>
   </div>
 
-  <div class="big-container borders">
+  <div class="container big-container borders">
     <%= render 'place_info' %>
   </div>
 
-  <div class="big-container borders">
+  <div class="container big-container borders">
     <% if logged_in? %>
     <div class="comment-input">
       <%= render partial: 'comments/form', locals: { commentable: @place} %>
@@ -69,5 +76,17 @@
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
     });
+  });
+
+  jQuery(document).ready(function(){
+    $("#foursquare-tooltip").tooltip({
+      content: 'Loading info from Foursquare...'
+    });
+
+    var callback = function(response){
+      $("#foursquare-tooltip").tooltip("option", "content", response);
+    }
+
+    $.get("<%= j foursquare_place_path %>", callback);
   });
 </script>

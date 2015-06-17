@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -36,6 +37,10 @@ gem 'gmaps4rails'
 
 # Geocoder
 gem 'geocoder'
+
+#HTTParty
+
+gem 'httparty'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

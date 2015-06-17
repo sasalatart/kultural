@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'shared/palette';
+
 // TO-DO(PROFILE FORMS)
 .follow-form{
   text-align: center;
@@ -25,11 +27,11 @@
   }
 }
 
-// TO-DO (GENERAL LISTS)
-.user-groups{
-  margin-top: 1em;
+.user-about {
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  >*{
-    margin-bottom: 0.3em;
+  table {
+    color: $dark-text-color;
   }
 }

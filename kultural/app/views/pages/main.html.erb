@@ -1,9 +1,7 @@
-<div class="big-container">
-  <div class="cell-container col-5" id="sidebar">
+<div class="container big-container">
+  <div class="cell-container col-6" id="sidebar">
     <ul>
-      <li><%= link_to current_user.name, current_user %></li>
-      <li><h3>Links</h3></li>
-      <li><%= link_to 'Event categories', event_types_path %></li>
+      <li><%= link_to 'Event Categories', event_types_path %></li>
       <li><%= link_to 'Events', events_path %></li>
       <li><%= link_to 'Groups', groups_path %></li>
       <li><%= link_to 'Places', places_path %></li>
@@ -15,7 +13,6 @@
   </div>
 </div>
 
-
 <script type="text/javascript">
   jQuery(document).ready(function(){
     handler = Gmaps.build('Google');
@@ -25,6 +22,5 @@
       handler.fitMapToBounds();
     });
   });
-
 
 </script>

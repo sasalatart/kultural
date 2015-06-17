@@ -10,8 +10,12 @@ html, body {
 }
 
 body {
-  background-color: $body-color;
+  background-image: image-url("shared/background1.jpg");
   font-family: $default-font;
+}
+
+h1 {
+  color: $light-text-color;
 }
 
 #main{
@@ -29,6 +33,25 @@ body {
       }
     }
   }
+}
+
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid yellow;
+  } 
 }
 
 .wrapper {
@@ -64,7 +87,7 @@ body {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: $dark-text-color;
+  color: $light-text-color;
 
   &:visited {
     color: $dark-text-color;
@@ -82,4 +105,9 @@ dt {
 
 dd {
   margin-left: 25px;
+}
+
+div.field div.form-error{
+  font-size: $small;
+  color: yellow;
 }

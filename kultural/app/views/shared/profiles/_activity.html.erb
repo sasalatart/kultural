@@ -1,11 +1,7 @@
-<% # Assumes owner as parameter %>
-
 <div id="profile-activity">
-  
   <%= render 'shared/profiles/events.html', owner: owner %>
   <%= render 'shared/profiles/places.html', owner: owner %>
   <% if owner.is_a? User %>
   <%= render 'shared/profiles/comments.html', user: owner %>
   <% end %>
-
 </div>
