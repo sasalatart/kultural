@@ -55,7 +55,7 @@ module Foursquare
 
   def get_photo_url(photo)
     unless photo.nil?
-      "#{photo['prefix']}original#{photo['suffix']}"
+      "#{photo['prefix']}300x300#{photo['suffix']}"
     end
   end
 end

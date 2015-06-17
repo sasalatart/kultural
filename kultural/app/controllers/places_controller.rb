@@ -24,6 +24,7 @@ class PlacesController < ApplicationController
     response = get_place_info(@place.lat, @place.lon, @place.name)
 
     respond_to do |format|
+      format.html { render partial: 'foursquare', locals: response}
       format.json { render json: response }
     end
   end
