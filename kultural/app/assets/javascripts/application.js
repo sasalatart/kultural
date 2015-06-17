@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery-ui/tooltip
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require underscore-min
 //= require gmaps/google
 //= require_tree .
-//= require turbolinks
