@@ -23,4 +23,8 @@ class Group < ActiveRecord::Base
   validates :description, presence: true,
                           length: { maximum: 1000 }
 
+  def get_avatar(size)
+    return 'placeholders/profile.png'
+  end
+
 end
