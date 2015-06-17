@@ -24,7 +24,6 @@ h1 {
   }
 
   #sidebar{
-    border-right: 2px solid $dark-text-color;
     ul{
       list-style: none;
 
@@ -71,11 +70,43 @@ a {
   color: $light-text-color;
 
   &:visited {
-    color: $dark-text-color;
+    color: $light-text-color;
   }
 
   &:hover {
     color: $dark-text-hover-color;
     text-decoration: underline;
   }
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 25px;
+}
+
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid yellow;
+  } 
+}
+
+div.field div.form-error{
+  font-size: $small;
+  color: yellow;
 }

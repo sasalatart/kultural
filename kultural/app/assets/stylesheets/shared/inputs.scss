@@ -1,13 +1,12 @@
 @import 'palette';
-
+@import 'fonts';
 .button {
   display: inline-block;
   border: 0px;
   border-radius: 5px;
-  font: bold 15px monospace;
-  text-transform: uppercase;
+  font: bold 15px $button-font;
   padding: 2px 10px;
-  color: white;
+  color: $light-text-color;
 }
 
 .button-def {

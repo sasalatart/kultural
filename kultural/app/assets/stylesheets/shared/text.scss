@@ -1,0 +1,18 @@
+@import 'fonts';
+@import 'palette';
+
+#logo {
+  text-shadow: 2px 2px 4px black;
+  
+}
+
+h1 {
+  text-shadow: 2px 2px 4px black;
+  font-family: $title-font;
+}
+
+legend {
+  column-rule-color: red;
+  text-shadow: 2px 2px 2px $dark-alpha-color;
+  font-family: $title-font;
+}
