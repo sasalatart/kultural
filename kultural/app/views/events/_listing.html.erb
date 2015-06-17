@@ -1,4 +1,7 @@
 <div class="table-container">
+  <div class="flickr_pagination">
+    <%= will_paginate events %>
+  </div>
   <table>
     <thead>
       <tr>
@@ -22,4 +25,7 @@
       <% end %>
     </tbody>
   </table>
+  <div class="flickr_pagination">
+    <%= will_paginate events %>
+  </div>
 </div>

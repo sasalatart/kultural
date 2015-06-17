@@ -1,17 +1,15 @@
-<% @title ||= 'Events' %> 
+<% @title ||= 'Events' %>
 <div>
-  <h1 class="center-align"> 
-    <%= @title %> 
+  <h1 class="center-align">
+    <%= @title %>
     <% unless @event.nil? %>
     <%= link_to @event.name, @event %>
     <% end %>
   </h1>
 
   <% if logged_in? %>
-  <%= button_to 'New event', new_event_path,
-  method: :get, class: 'button-def' %>
+    <%= button_to 'New event', new_event_path, method: :get, class: 'button-def' %>
   <% end %>
-
 </div>
 
 <%= render partial: 'listing', locals: {events: @events} %>

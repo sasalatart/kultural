@@ -1,17 +1,19 @@
 <% @title ||= 'Groups' %>
-<div> 
-  <h1 class="center-align"> 
-    <%= @title %> 
+<div>
+  <h1 class="center-align">
+    <%= @title %>
     <% unless @group.nil? %>
     <%= link_to @group.name, @group %>
     <% end %>
   </h1>
   <% if logged_in? %>
-  <%= button_to 'New group', new_group_path,
-  method: :get, class: 'button-def' %>
+    <%= button_to 'New group', new_group_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
 <div class="table-container">
+  <div class="flickr_pagination">
+    <%= will_paginate @groups %>
+  </div>
   <table>
     <thead>
       <tr>
@@ -28,4 +30,7 @@
       <% end %>
     </tbody>
   </table>
+  <div class="flickr_pagination">
+    <%= will_paginate @groups %>
+  </div>
 </div>
