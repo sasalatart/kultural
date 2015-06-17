@@ -27,8 +27,8 @@ module Foursquare
   def get_place_info(lat, long, name)
     api = FoursquareVenueAPI.new
     params = {
-      'll': "#{lat},#{long}",
-      'query': name
+      ll: "#{lat},#{long}",
+      query: name
     }
 
     search = api.search params

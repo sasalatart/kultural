@@ -24,7 +24,6 @@ h1 {
   }
 
   #sidebar{
-    border-right: 2px solid $dark-text-color;
     ul{
       list-style: none;
 
@@ -34,26 +33,6 @@ h1 {
     }
   }
 }
-
-div.contents{
-  #error_explanation{
-    margin: auto;
-
-    ul{
-      list-style-type: none;
-    }
-  }
-
-  .field_with_errors{
-    display: block;
-    background-color: initial;
-    padding: 4px;
-
-    border-radius: 4px;
-    border: 2px solid yellow;
-  } 
-}
-
 .wrapper {
 	min-height: 100%;
   width: 1190px;
@@ -105,6 +84,25 @@ dt {
 
 dd {
   margin-left: 25px;
+}
+
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid yellow;
+  } 
 }
 
 div.field div.form-error{
