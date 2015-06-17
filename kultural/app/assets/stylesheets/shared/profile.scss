@@ -1,3 +1,5 @@
+@import 'shared/palette';
+
 div.profile-show{
   height: 4em;
   line-height: 4em;
@@ -26,6 +28,7 @@ div.profile-forms{
 }
 
 #profile-info{
+  background-color: $dark-alpha-color;
   display: block;
   float: left;
   width: 28%;

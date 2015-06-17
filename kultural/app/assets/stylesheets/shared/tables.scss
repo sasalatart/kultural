@@ -11,19 +11,23 @@ div.table-container{
 }
 
 table {
+  color: $light-text-color;
   padding: 0;
   margin: auto;
   border-collapse: collapse;
-
+  background-color: $dark-alpha-color;
   a, a:visited {
-    color: $dark-text-color;
+    color: $light-text-color;
   }
+}
+
+table.info-table {
+  background-color:rgba(0,0,0,0);
 }
 
 table thead th{
   color: $light-text-color;
   background-color: $header-color;
-  border-top: 1px solid $light-text-color;
 
   font-weight: bold;
   text-align: center;
@@ -32,17 +36,12 @@ table thead th{
 }
 
 table tr {
-  background-color: white;
   margin: 0;
   padding: 0;
 }
 
-table tr:nth-child(2n) {
-  background-color: $light-text-color;
-}
-
 table tr td {
-  border: 1px solid $header-color;
+  border-top: 1px solid $header-color;
   text-align: left;
   margin: 0;
   padding: $padding-table;

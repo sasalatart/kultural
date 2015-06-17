@@ -51,7 +51,7 @@ div.contents{
 
     border-radius: 4px;
     border: 2px solid yellow;
-  } 
+  }
 }
 
 .wrapper {
@@ -90,7 +90,7 @@ a {
   color: $light-text-color;
 
   &:visited {
-    color: $dark-text-color;
+    color: $light-text-color;
   }
 
   &:hover {

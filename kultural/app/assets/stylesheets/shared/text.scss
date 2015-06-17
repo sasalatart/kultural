@@ -1,0 +1,12 @@
+@import 'fonts';
+@import 'palette';
+h1 {
+  text-shadow: 2px 2px 2px $dark-alpha-color;
+  font-family: $title-font;
+}
+
+legend {
+  column-rule-color: red;
+  text-shadow: 2px 2px 2px $dark-alpha-color;
+  font-family: $title-font;
+}
