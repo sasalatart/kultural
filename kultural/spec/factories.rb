@@ -8,4 +8,10 @@ FactoryGirl.define do
     password 'Austerlitz'
     password_confirmation 'Austerlitz'
   end
+
+  factory :group do
+    name 'Illuminatis'
+    description 'Uníos'
+    user
+  end
 end
