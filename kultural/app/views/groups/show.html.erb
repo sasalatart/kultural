@@ -10,19 +10,23 @@
     <% end %>
   </div>
 
-  <div class="group-about">
-    <div>
-        <div><strong>Description</strong></div>
-        <%= @group.description %>
-    </div>
-    <div>
-      <strong>Created at</strong> <%= @group.created_at %>
-    </div>
-    <div>
-      <div><strong>Admins</strong></div>
-      <%= render @group.admins.limit(5) %>
-    </div>
-    <div><%= link_to 'See all members', members_group_path %></div>
+  <div class="profile-about">
+    <table>
+      <tr>
+        <td><strong>Description: </strong></td>
+        <td><%= @group.description %></td>
+      </tr>
+      <tr>
+        <td><strong>Created at: </strong></td>
+        <td><%= @group.created_at %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="normal-container">
+    <div><strong>Admins: </strong></div>
+    <%= render @group.admins.limit(5) %>
+      <div><%= link_to 'See all members', members_group_path %></div>
   </div>
 </div>
 

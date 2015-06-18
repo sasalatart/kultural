@@ -8,8 +8,14 @@
   </h1>
 
   <% if logged_in? %>
-    <%= button_to 'New event', new_event_path, method: :get, class: 'button-def' %>
+  <%= button_to 'New event', new_event_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
 
+<div class="flickr_pagination">
+  <%= will_paginate @events %>
+</div>
 <%= render partial: 'listing', locals: {events: @events} %>
+<div class="flickr_pagination">
+  <%= will_paginate @events %>
+</div>

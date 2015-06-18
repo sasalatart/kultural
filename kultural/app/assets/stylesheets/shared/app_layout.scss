@@ -13,6 +13,7 @@ html, body {
 body {
   background-image: image-url("shared/background1.jpg");
   font-family: $default-font;
+  color: $light-text-color;
 }
 
 h1 {
@@ -75,7 +76,7 @@ a {
   }
 
   &:hover {
-    color: $dark-text-hover-color;
+    color: $light-text-color;
     text-decoration: underline;
   }
 }
@@ -87,6 +88,8 @@ dt {
 dd {
   margin-left: 25px;
 }
+
+// IMPROVE
 
 div.contents{
   #error_explanation{

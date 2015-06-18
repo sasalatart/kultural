@@ -1,5 +1,6 @@
 @import 'palette';
 .info-window{
+  color: black;
   a{
     color: $dark-text-color;
 
@@ -11,4 +12,13 @@
       color: $dark-text-hover-color;
     }
   }
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.mini-map {
+  height: 200px;
 }

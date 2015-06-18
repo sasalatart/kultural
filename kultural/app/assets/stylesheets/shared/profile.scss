@@ -34,17 +34,32 @@ div.profile-forms{
   width: 28%;
   margin: 0 1%;
 
-  .profile-presentation{
-    margin-bottom: 1em;
-    >div{
-      margin-bottom: 0.5em;
+
+  .profile-about{
+    padding: 10px 0;
+
+    table{
+
+      table-layout: fixed;
+      width: 100%;
+      background-color:rgba(0,0,0,0);
+
+      td:first-child{
+        width: 33%;
+      }
+
+      td{
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
+  }
+
+  .profile-presentation{
+    margin: 10px 0;
 
     .profile-name-image{
       overflow: auto;
-      margin-top: 0;
-      padding: 0;
-      position: relative;
 
       .profile-img {
         display: block;
@@ -55,20 +70,6 @@ div.profile-forms{
 
       .profile-name-container{
         text-align: center;
-      }
-    }
-
-    // TO-DO (JOIN STATS)
-    .stats{
-      text-align: center;
-
-      a{
-        padding: 0 0.5em;
-        text-decoration: none;
-
-        &:first-child{
-          padding-left: 0;
-        }
       }
     }
   }

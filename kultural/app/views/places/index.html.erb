@@ -7,8 +7,14 @@
     <% end %>
   </h1>
   <% if logged_in? %>
-    <%= button_to 'New place', new_place_path, method: :get, class: 'button-def' %>
+  <%= button_to 'New place', new_place_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
 
+<div class="flickr_pagination">
+  <%= will_paginate @places %>
+</div>
 <%= render partial: 'listing', locals: {places: @places} %>
+<div class="flickr_pagination">
+  <%= will_paginate @places %>
+</div>
