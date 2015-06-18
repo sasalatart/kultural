@@ -23,7 +23,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      UserMailer.signup_confirmation(@user).deliver
+      
+      background do
+        UserMailer.signup_confirmation(@user).deliver
+      end
+
       log_in @user
       flash[:notice] = "Welcome tu kultur.al, #{@user.name}"
       redirect_to @user
@@ -38,11 +42,15 @@ class UsersController < ApplicationController
       password_changed = !(current_user.authenticate(user_params[:password]))
 
       if @user.update(user_params)
-        if password_changed
-          UserMailer.password_change(@user).deliver
-        else
-          UserMailer.account_edit(@user).deliver
+        
+        background do
+          if password_changed
+            UserMailer.password_change(@user).deliver
+          else
+            UserMailer.account_edit(@user).deliver
+          end
         end
+
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -53,7 +61,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    UserMailer.account_delete(@user).deliver
+    
+    background do
+      UserMailer.account_delete(@user).deliver
+    end
+
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

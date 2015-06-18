@@ -1,3 +1,6 @@
+@import 'palette';
+@import 'fonts';
+
 .field_with_errors {
   padding: 2px;
   background-color: red;
@@ -21,4 +24,30 @@
     background-color: #c00;
     color: #fff;
   }
+}
+
+// IMPROVE
+
+div.contents{
+  #error_explanation{
+    margin: auto;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+
+  .field_with_errors{
+    display: block;
+    background-color: initial;
+    padding: 4px;
+
+    border-radius: 4px;
+    border: 2px solid yellow;
+  }
+}
+
+div.field div.form-error{
+  font-size: $small;
+  color: yellow;
 }

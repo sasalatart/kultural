@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// TO-DO (GENERAL LISTS)
 div.group-member{
   display: table;
 
@@ -14,34 +13,4 @@ div.group-member{
       padding: 0.5em;
     }
   }  
-}
-
-// TO-DO (JOIN STATS)
-.stats{
-  text-align: center;
-
-  a{
-    padding: 0 0.5em;
-    text-decoration: none;
-
-    &:first-child{
-      padding-left: 0;
-    }
-  }
-}
-
-
-.group-about{
-  >div{
-    margin-bottom: 1em;
-  }
-}
-
-// TO-DO (GENERAL LISTS)
-.group-admins{
-  margin-top: 1em;
-
-  >*{
-    margin-bottom: 0.3em;
-  }
 }
