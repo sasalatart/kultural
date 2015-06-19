@@ -31,12 +31,11 @@ class User < ActiveRecord::Base
                       medium: '300x300>'
                     }
 
-  pg_search_scope :search, against: :name,
-                  using: {tsearch: {prefix: true}}
+  pg_search_scope :search, against: :name, using: { tsearch: { prefix: true } }
 
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
-  has_many :groups_where_is_admin, ->{where memberships: { is_admin: true} }, through: :memberships, class_name: 'Group', source: 'group'
+  has_many :groups_where_is_admin, ->{ where memberships: { is_admin: true} }, through: :memberships, class_name: 'Group', source: 'group'
   has_many :events, as: :owner, dependent: :destroy
   has_many :places, as: :owner, dependent: :destroy
   has_and_belongs_to_many :favourite_places, class_name: 'Place'

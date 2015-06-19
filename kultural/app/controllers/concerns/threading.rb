@@ -7,5 +7,4 @@ module Threading
       ActiveRecord::Base.connection.close
     end
   end
-
 end

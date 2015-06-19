@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      
       background do
         UserMailer.signup_confirmation(@user).deliver
       end
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
       password_changed = !(current_user.authenticate(user_params[:password]))
 
       if @user.update(user_params)
-        
+
         background do
           if password_changed
             UserMailer.password_change(@user).deliver
@@ -61,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+
     background do
       UserMailer.account_delete(@user).deliver
     end
