@@ -12,6 +12,9 @@ html, body {
 
 body {
   background-image: image-url("shared/background1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
   font-family: $default-font;
   color: $light-text-color;
 }
