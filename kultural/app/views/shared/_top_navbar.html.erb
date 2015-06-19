@@ -10,9 +10,18 @@
     <div class="dropdown">
       <h3>Get Started!</h3>
       <ul>
-        <li><%= link_to "New Event", new_event_path %></li>
-        <li><%= link_to "New Place", new_place_path %></li>
-        <li><%= link_to "New Group", new_group_path %></li>
+        <li>
+          <%= fa_icon 'calendar-o' %>
+          <%= link_to "New Event", new_event_path %>
+        </li>
+        <li>
+          <%= fa_icon 'map-marker' %>
+          <%= link_to "New Place", new_place_path %>
+        </li>
+        <li>
+          <%= fa_icon 'users' %>
+          <%= link_to "New Group", new_group_path %>
+        </li>
       </ul>
     </div>
     <div class="dropdown">

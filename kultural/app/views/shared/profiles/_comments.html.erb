@@ -5,7 +5,7 @@
   <% user.comments.limit(5).each do |com| %>
     <div class="profile-comment">
       <div class="profile-comment-head">
-        <%= link_to com.commentable.name, com.commentable %>@<%= com.commentable.class.to_s %>
+        <%= render com.commentable %>
         <span class="tiny"> | <%= time_ago_in_words com.created_at %> ago</span>
       </div>
       <div class="profile-comment-body">
