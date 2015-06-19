@@ -41,9 +41,9 @@ class Event < ActiveRecord::Base
 
   validates :description, presence: true,
                           length: { maximum: 1000 }
-
   validates :date, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :place, presence: true
   validates :owner_id, presence: true
   validates :owner_type, presence: true
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
