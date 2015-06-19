@@ -5,8 +5,6 @@
         <th>Name</th>
         <th>Description</th>
         <th>Address</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
         <th>Owner</th>
       </tr>
     </thead>
@@ -17,8 +15,6 @@
         <td><%= render place %></td>
         <td><%= place.description %></td>
         <td><%= place.address %></td>
-        <td><%= place.lat %></td>
-        <td><%= place.lon %></td>
         <td><%= render place.owner %></td>
       </tr>
       <% end %>
