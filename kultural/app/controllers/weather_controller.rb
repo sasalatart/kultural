@@ -14,6 +14,8 @@ class WeatherController < ApplicationController
     @temp_max = card.xpath('following-sibling::p[1]//text()').to_s
     @temp_min = card.xpath('following-sibling::p[2]//text()').to_s
 
+    b.close
+
     respond_to do |format|
       format.js
     end
