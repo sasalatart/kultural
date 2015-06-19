@@ -2,55 +2,52 @@
   <fieldset class="borders">
     <legend>User</legend>
     <div class="contents">
-      <%= form_for(@user, multipart: true) do |f| %>
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= pluralize(@user.errors.count, "error") %>
-              prohibited this user from being saved:
-            </h2>
-            <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
+      <%= form_for(@user, multipart: true, builder: BetterForms) do |f| %>
+        
+        <%= f.title_errors %>
 
         <div class="field">
           <%= f.label "Name" %><br>
           <%= f.text_field :name%>
+          <%= f.errors :name %>
         </div>
         <div class="field">
           <%= f.label "Mail" %><br>
           <%= f.text_field :mail %>
+          <%= f.errors :mail %>
         </div>
         <div class="field">
           <%= f.label "Password" %><br>
           <%= f.password_field :password %>
+          <%= f.errors :password %>
         </div>
         <div class="field">
           <%= f.label "Confirm your password" %><br>
           <%= f.password_field :password_confirmation %>
+          <%= f.errors :password_confirmation %>
         </div>
         <div class="field">
           <%= f.label "Phone" %><br>
           <%= f.text_field :phone %>
+          <%= f.errors :phone %>
         </div>
         <div class="field">
           <%= f.label "Birth Date" %><br>
           <%= f.date_select :birthday, start_year: 1900, end_year: Time.now.year %>
+          <%= f.errors :birthday %>
         </div>
         <div class="field">
           <%= f.radio_button :male, true %>
           <%= f.label "Male" %>
           <%= f.radio_button :male, false %>
           <%= f.label "Female" %><br>
+          <%= f.errors :male %>
         </div>
 
         <div class="field">
           <%= f.label :avatar %>
           <%= f.file_field :avatar %>
+          <%= f.errors :avatar %>
         </div>
 
         <div class="actions">

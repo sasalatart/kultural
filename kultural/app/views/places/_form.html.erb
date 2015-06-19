@@ -2,35 +2,29 @@
   <fieldset class="borders">
     <legend>Place</legend>
     <div class="contents">
-      <%= form_for(@place) do |f| %>
-        <% if @place.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
-
-            <ul>
-            <% @place.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
+      <%= form_for(@place, builder: BetterForms) do |f| %>
+        <%= f.title_errors %>
 
         <div class="field">
           <%= f.label :name %><br>
           <%= f.text_field :name %>
+          <%= f.errors :name %>
         </div>
         <div class="field">
           <%= f.label :description %><br>
           <%= f.text_area :description %>
+          <%= f.errors :description %>
         </div>
         <div class="field">
           <%= f.label :address %><br>
           <%= f.text_field :address %>
+          <%= f.errors :address %>
         </div>
 
         <div class="field">
           <%= f.label :picture %>
           <%= f.file_field :picture %>
+          <%= f.errors :picture %>
         </div>
 
         <div class="actions">
