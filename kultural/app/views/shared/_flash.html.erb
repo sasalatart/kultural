@@ -1,13 +1,13 @@
 <% if !flash[:notice].nil? %>
   <div id="notice">
     <%= flash[:notice] %>
-    <a href="" class="hide-button">X</a>
+    <a class="hide-button"><%= fa_icon 'times-circle' %></a>
   </div>
 <% end %>
 
 <% if !flash[:alert].nil? %>
   <div id="alert">
     <%= flash[:alert] %>
-    <a href="" class="hide-button">X</a>
+    <a class="hide-button"><%= fa_icon 'times-circle' %></a>
   </div>
 <% end %>
