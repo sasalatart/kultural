@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :followers]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :followers, :get_ajax_avatar]
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -60,7 +60,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
     background do
       UserMailer.account_delete(@user).deliver
     end
@@ -82,6 +81,12 @@ class UsersController < ApplicationController
     @title = 'Followers of'
     @users = @user.followers
     render 'index'
+  end
+
+  def get_ajax_avatar
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

@@ -1,4 +1,9 @@
 <div class="profile-show">
-    <%= image_tag user.get_avatar(:thumb) %>
+    <%= image_tag 'shared/ajax-loader.gif', class: "user#{user.id}" %>
     <span><%= link_to user.name, user %></span>
 </div>
+
+<script>
+  user_id = <%= user.id %>
+  $.get("/ajax_avatar?id=" + user_id)
+</script>

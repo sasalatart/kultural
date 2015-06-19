@@ -37,8 +37,8 @@
 
   <div class="floated-right">
     <%= image_tag 'places/foursquare-logomark.png',
-      id: 'foursquare-tooltip', 
-      height: 30, 
+      id: 'foursquare-tooltip',
+      height: 30,
       title: 'Foursquare info' %> &nbsp;  &nbsp;
   </div>
 
@@ -85,7 +85,7 @@
 
     var callback = function(response){
       $("#foursquare-tooltip").tooltip("option", "content", response);
-    }
+    };
 
     $.get("<%= j foursquare_place_path %>", callback);
   });

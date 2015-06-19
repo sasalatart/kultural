@@ -47,7 +47,8 @@ Rails.application.routes.draw do
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
 
-  get '/signup', to: 'users#new'
+  get '/signup',      to: 'users#new'
+  get '/ajax_avatar', to: 'users#get_ajax_avatar'
 
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
