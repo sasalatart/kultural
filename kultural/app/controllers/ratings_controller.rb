@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
-
+  before_action :set_rating, only: [:update]
+  
   def create
     @rating = Rating.find_by(rateable: @rateable, user: current_user)
     if @rating
@@ -17,6 +18,15 @@ class RatingsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def update
+    respond_to do |format|
+      if @rating.update(rating_params)
+        format.js {render 'create'}
       end
     end
   end

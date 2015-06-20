@@ -12,7 +12,8 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @comment = Comment.new
-
+    @rating = @place.ratings.find_by(user: current_user) || Rating.new
+    
     @hash = Gmaps4rails.build_markers(@place) do |place, marker|
       marker.lat place.lat
       marker.lng place.lon

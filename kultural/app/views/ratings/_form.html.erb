@@ -1,10 +1,55 @@
-<%= form_for [rateable, Rating.new], remote: true do |f| %>
-  <div class="field floated-left">
-    <%= f.label 'Rate it! (0 - 10): '%>
-    <%= f.number_field :value %>
-  </div>
+<div id="user-rating">
+  Rate it:
+  <% if @rating.value.nil? %>
+  <% 10.times do %>
+  <%= fa_icon 'star-o' %>
+  <% end %>
+  <% else %>
+  <% @rating.value.times do %>
+  <%= fa_icon 'star' %>
+  <% end %>
+  <% (10 - @rating.value).times do %>
+  <%= fa_icon 'star-o' %>
+  <% end %>
+  <% end %>
+  <script type="text/javascript">
+   $(document).ready(function(){
+    
+    var paint_stars = function(index){
+      $("#user-rating").children().each(function(key, val){
+        if(key <= index){
+          $(val).removeClass('fa-star-o');
+          $(val).addClass('fa-star');
+        }
+        else{
+          $(val).removeClass('fa-star');
+          $(val).addClass('fa-star-o');
+        }
+      });
+    };
 
-  <div class="actions floated-left">
-    <%= f.submit 'Submit rating', class: 'button-def' %>
-  </div>
-<% end %>
+    var star_value = <%= @rating.value || 'undefined' %>;
+
+    $("#user-rating").children().bind('mouseenter', function(){
+      var index = $("#user-rating").children().index(this);
+      paint_stars(index);
+    });
+
+     $("#user-rating").children().bind('mouseleave', function(){
+      paint_stars(star_value - 1);
+    });
+
+
+    $("#user-rating").children().bind('click', function(){
+      var index = $("#user-rating").children().index(this);
+      star_value = index + 1;
+      $.ajax({
+        method: "<%= @rating.value ? 'PATCH' : 'POST' %>",
+        url: "<%= j url_for([rateable, @rating]) %>",
+        data: {rating: { value: star_value } } ,
+        dataType: "script"
+      });
+    });
+  });
+  </script>
+</div>

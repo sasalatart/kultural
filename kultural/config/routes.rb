@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :update, :destroy]
   resources :reports, only: [:create]
-  resources :ratings, only: [:create]
+  resources :ratings, only: [:create, :update]
   resources :event_types, only: [:index, :show]
 
   resources :places do
@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
     resources :comments, module: :places, only: [:index, :create, :update, :destroy]
     resources :reports, module: :places, only: [:create]
-    resources :ratings, module: :places, only: [:create]
+    resources :ratings, module: :places, only: [:create, :update]
   end
 
   resources :events do
     resources :comments, module: :events, only: [:index, :create, :update, :destroy]
     resources :reports, module: :events, only: [:create]
-    resources :ratings, module: :events, only: [:create]
+    resources :ratings, module: :events, only: [:create, :update]
   end
 
   resources :groups
