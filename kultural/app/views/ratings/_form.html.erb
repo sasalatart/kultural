@@ -1,5 +1,10 @@
-<div id="user-rating">
+<%= content_tag "div", id: "user-rating", data: {
+    url: url_for([rateable, @rating]),
+    method: @rating.value ? 'PATCH' : 'POST',
+    stars: @rating.value || 0 } do %>
+  
   Rate it:
+
   <% if @rating.value.nil? %>
   <% 10.times do %>
   <%= fa_icon 'star-o' %>
@@ -12,44 +17,4 @@
   <%= fa_icon 'star-o' %>
   <% end %>
   <% end %>
-  <script type="text/javascript">
-   $(document).ready(function(){
-    
-    var paint_stars = function(index){
-      $("#user-rating").children().each(function(key, val){
-        if(key <= index){
-          $(val).removeClass('fa-star-o');
-          $(val).addClass('fa-star');
-        }
-        else{
-          $(val).removeClass('fa-star');
-          $(val).addClass('fa-star-o');
-        }
-      });
-    };
-
-    var star_value = <%= @rating.value || 'undefined' %>;
-
-    $("#user-rating").children().bind('mouseenter', function(){
-      var index = $("#user-rating").children().index(this);
-      paint_stars(index);
-    });
-
-     $("#user-rating").children().bind('mouseleave', function(){
-      paint_stars(star_value - 1);
-    });
-
-
-    $("#user-rating").children().bind('click', function(){
-      var index = $("#user-rating").children().index(this);
-      star_value = index + 1;
-      $.ajax({
-        method: "<%= @rating.value ? 'PATCH' : 'POST' %>",
-        url: "<%= j url_for([rateable, @rating]) %>",
-        data: {rating: { value: star_value } } ,
-        dataType: "script"
-      });
-    });
-  });
-  </script>
-</div>
+<% end %>
