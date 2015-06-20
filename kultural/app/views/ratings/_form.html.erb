@@ -1,10 +1,20 @@
-<%= form_for [rateable, Rating.new], remote: true do |f| %>
-  <div class="field floated-left">
-    <%= f.label 'Rate it! (0 - 10): '%>
-    <%= f.number_field :value %>
-  </div>
+<%= content_tag "div", id: "user-rating", data: {
+    url: url_for([rateable, @rating]),
+    method: @rating.value ? 'PATCH' : 'POST',
+    stars: @rating.value || 0 } do %>
+  
+  Rate it:
 
-  <div class="actions floated-left">
-    <%= f.submit 'Submit rating', class: 'button-def' %>
-  </div>
+  <% if @rating.value.nil? %>
+  <% 10.times do %>
+  <%= fa_icon 'star-o' %>
+  <% end %>
+  <% else %>
+  <% @rating.value.times do %>
+  <%= fa_icon 'star' %>
+  <% end %>
+  <% (10 - @rating.value).times do %>
+  <%= fa_icon 'star-o' %>
+  <% end %>
+  <% end %>
 <% end %>

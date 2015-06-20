@@ -1,9 +1,6 @@
-<%= "Number of Reports: " %>
+<span id="num-reports">
 <% if reportable.reports.count > 0 %>
-  <%= "#{reportable.reports.count}" %>
-  <% if logged_in? && reportable.reports.where(:user_id == current_user.id) %>
-    <%= '(You reported this)' %>
-  <% end %>
-<% else %>
-  <%= 'NONE' %>
+  <%= fa_icon 'flag' %> 
+  <%= pluralize(reportable.reports.count, "report") %>
 <% end %>
+</span>

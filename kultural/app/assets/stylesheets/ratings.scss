@@ -1,3 +1,29 @@
 // Place all the styles related to the Ratings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'shared/fonts';
+@import 'shared/palette';
+
+@mixin rating{
+  i{
+    color: orange;
+  }
+  font-weight: bold;
+  text-shadow: 2px 2px 2px black;
+}
+
+span#avg-rating{
+  @include rating;
+  font-size: 1.5em;
+}
+
+div#user-rating{
+  @include rating;
+  background: $dark-alpha-color;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1.15em;
+  i{
+    cursor: pointer;
+  }
+}
