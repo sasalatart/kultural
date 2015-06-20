@@ -9,9 +9,9 @@
 
 span#num-reports{
   @include reports;
-  padding-left: 1.25em;
 
   i{
+    padding-left: 1.25em;
     color: red;
   }
 }
