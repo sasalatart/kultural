@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   end
 
   resources :groups
-  resources :users
+
+  resources :users do
+    get '/ajax_avatar', to: 'users#get_ajax_avatar'
+  end
 
   # Allow user/id/followers and user/id/following urls
   resources :users do
@@ -48,7 +51,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
 
   get '/signup',      to: 'users#new'
-  get '/ajax_avatar', to: 'users#get_ajax_avatar'
 
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
