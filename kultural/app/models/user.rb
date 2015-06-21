@@ -6,7 +6,7 @@
 #  name                :string
 #  password_digest     :string
 #  mail                :string
-#  phone               :integer
+#  phone               :string
 #  birthday            :date
 #  male                :boolean
 #  created_at          :datetime         not null

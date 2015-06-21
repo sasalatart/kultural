@@ -2,16 +2,20 @@
 #
 # Table name: places
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :text
-#  lat         :float
-#  lon         :float
-#  owner_id    :integer
-#  owner_type  :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  address     :string
+#  id                   :integer          not null, primary key
+#  name                 :string
+#  description          :text
+#  lat                  :float
+#  lon                  :float
+#  owner_id             :integer
+#  owner_type           :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  address              :string
+#  picture_file_name    :string
+#  picture_content_type :string
+#  picture_file_size    :integer
+#  picture_updated_at   :datetime
 #
 
 class Place < ActiveRecord::Base
