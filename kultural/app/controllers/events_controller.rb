@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @comment = Comment.new
+    @rating = @event.ratings.find_by(user: current_user) || Rating.new
 
     @hash = Gmaps4rails.build_markers(@event.place) do |place, marker|
       marker.lat place.lat

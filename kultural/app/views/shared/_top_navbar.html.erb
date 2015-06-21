@@ -10,24 +10,43 @@
     <div class="dropdown">
       <h3>Get Started!</h3>
       <ul>
-        <li><%= link_to "New Event", new_event_path %></li>
-        <li><%= link_to "New Place", new_place_path %></li>
-        <li><%= link_to "New Group", new_group_path %></li>
+        <li>
+          <%= fa_icon 'calendar-o' %>
+          <%= link_to "New Event", new_event_path %>
+        </li>
+        <li>
+          <%= fa_icon 'map-marker' %>
+          <%= link_to "New Place", new_place_path %>
+        </li>
+        <li>
+          <%= fa_icon 'users' %>
+          <%= link_to "New Group", new_group_path %>
+        </li>
       </ul>
     </div>
     <div class="dropdown">
       <%= image_tag(current_user.get_avatar(:medium), id: "profile-img") %>
       <h3 id="username"><%= current_user.name %></h3>
       <ul>
-        <li><%= link_to "Profile", current_user, id: "profile" %></li>
+        <li>
+          <%= fa_icon 'user' %>
+          <%= link_to "Profile", current_user, id: "profile" %>
+        </li>
 
-        <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
-                                                       id:"edit-profile" %></li>
-
-        <li><%= link_to "Change My Password", edit_password_user_path(id: current_user.id),
-                                                                      id:"edit-password" %></li>
-
-        <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
+        <li>
+          <%= fa_icon 'cogs' %>
+          <%= link_to "Edit Profile", edit_user_path(id: current_user.id),
+                                                       id:"edit-profile" %>
+        </li>
+        <li>
+          <%= fa_icon 'cogs' %>
+          <%= link_to "Change My Password", edit_password_user_path(id: current_user.id),
+                                                                    id:"edit-password" %>
+        </li>
+        <li>
+          <%= fa_icon 'sign-out' %>
+          <%= link_to "Logout", logout_path, method: "delete", id:"logout"%>
+        </li>
       </ul>
     </div>
   </div>

@@ -13,9 +13,11 @@
     <tbody>
       <% events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, event %></td>
+        <td><%= fa_icon 'calendar-o' %>
+          <%= link_to event.name, event %>
+        </td>
         <td><%= truncate event.description, length: 140, separator: ' ' %></td>
-        <td class="center-align"><%= event.date.strftime("%d/%m/%Y %l:%M%p") %></td>
+        <td class="center-align"><%= date_hour event.date %></td>
         <td class="center-align"><%= number_to_currency event.price, precision: 0 %></td>
         <td><%= render event.owner %></td>
       </tr>
