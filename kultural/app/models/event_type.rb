@@ -18,6 +18,6 @@ class EventType < ActiveRecord::Base
                    uniqueness: true, case_sensitive: false
 
   validates :examples, presence: true,
-                       length: { minimum: 3, maximum: 50 }
+                       length: { minimum: 5, maximum: 500 }
 
 end

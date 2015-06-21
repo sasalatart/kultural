@@ -1,6 +1,6 @@
 <div>
-  <h1 class="center-align"> 
-    <%= 'Events of category ' %> 
+  <h1 class="center-align">
+    <%= 'Events of category ' %>
     <% unless @event_type.nil? %>
     <%= link_to @event_type.name, @event_type %>
     <% end %>
@@ -9,14 +9,13 @@
 
 <div>
   <div class="floated-left">
-  <strong>Examples:</strong>
-  <%= @event_type.examples %>
+    <strong>Examples:</strong>
+    <%= @event_type.examples %>
   </div>
   <div class="floated-right">
-  <%= button_to "All event types", event_types_path, 
-  class: 'button-def', method: :get %>
+    <%= button_to "All event types", event_types_path, class: 'button-def', method: :get %>
   </div>
 </div>
 
 <% @events = @event_type.events %>
-<%= render partial: 'events/listing', locals: {events: @events} %>
+<%= render partial: 'events/listing', locals: { events: @events } %>
