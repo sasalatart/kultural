@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :followers, :get_ajax_avatar]
+  before_action :set_user, only: [:show, :edit, :change_password, :update,
+                                  :destroy, :following, :followers,
+                                  :ajax_avatar]
+
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -17,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def change_password
   end
 
   def create
@@ -37,11 +43,9 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-
       password_changed = !(current_user.authenticate(user_params[:password]))
 
       if @user.update(user_params)
-
         background do
           if password_changed
             UserMailer.password_change(@user).deliver
@@ -53,7 +57,11 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        if password_changed
+          format.html { render :change_password }
+        else
+          format.html { render :edit }
+        end
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -83,7 +91,7 @@ class UsersController < ApplicationController
     render 'index'
   end
 
-  def get_ajax_avatar
+  def ajax_avatar
     respond_to do |format|
       format.js
     end

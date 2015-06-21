@@ -25,14 +25,10 @@ Rails.application.routes.draw do
 
   resources :groups
 
-  resources :users do
-    get '/ajax_avatar', to: 'users#get_ajax_avatar'
-  end
-
   # Allow user/id/followers and user/id/following urls
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :change_password, :ajax_avatar
     end
   end
 
@@ -50,16 +46,17 @@ Rails.application.routes.draw do
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
 
-  get '/signup',      to: 'users#new'
+  get '/signup',    to: 'users#new'
 
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/search', to: 'search#search'
+  get '/search',       to: 'search#search'
   get '/autocomplete', to: 'search#autocomplete'
 
   get '/weather', to: 'weather#get_weather'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

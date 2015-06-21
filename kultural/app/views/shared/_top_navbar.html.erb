@@ -24,6 +24,9 @@
         <li><%= link_to "Edit Profile", edit_user_path(id: current_user.id),
                                                        id:"edit-profile" %></li>
 
+        <li><%= link_to "Change My Password", change_password_user_path(id: current_user.id),
+                                                                        id:"change-password" %></li>
+
         <li><%= link_to "Logout", logout_path, method: "delete", id:"logout"%></li>
       </ul>
     </div>
