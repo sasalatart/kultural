@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   # Allow user/id/followers and user/id/following urls
   resources :users do
     member do
-      get :following, :followers, :change_password, :ajax_avatar
+      get :following, :followers, :edit_password, :ajax_avatar
+      put :update_password
     end
   end
 

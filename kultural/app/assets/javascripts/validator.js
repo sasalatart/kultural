@@ -1,3 +1,4 @@
+/*
 // FUNCTIONS
 var monthToNumber;
 var messageMaker, messageDeleter, messageMgr;
@@ -135,7 +136,7 @@ dateHandler = function(event){
   dateValidator.call($(this), day, month, year, from, to, message);
 }
 
-/*$(document).ready(function(){
+$(document).ready(function(){
   $("#user_name").bind('focusout', {min: 5, max: 50, message: 'Your name should contain between 5 and 50 characters'}, lengthHandler);
   $("#user_mail").bind('focusout', mailHandler);
   $("#user_password").bind('focusout', {min: 6, message: 'Password too short'}, lengthHandler);

@@ -15,9 +15,9 @@
       <tr>
         <td><%= render user %></td>
         <td class="center-align"><%= user.mail %></td>
-        <td class="center-align"><%= user.phone %></td>
-        <td class="center-align"><%= user.birthday %></td>
-        <td class="center-align"><%= user.male ? "Male" : "Female" %></td>
+        <td class="center-align"><%= user.get_phone %></td>
+        <td class="center-align"><%= user.get_birthday %></td>
+        <td class="center-align"><%= user.get_gender %></td>
       </tr>
       <% end %>
     </tbody>

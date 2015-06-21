@@ -51,11 +51,11 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.mail = user.mail.downcase }
 
-  validates :name,  presence: true,
-                    length: { minimum: 5, maximum: 50 }
+  validates :name, presence: true,
+                   length: { minimum: 5, maximum: 50 }
 
   has_secure_password
-  validates :password,  length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: :password_changed?
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
   validates :mail,  presence: true,
@@ -63,10 +63,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  validates :phone, presence: true,
-                    length: { minimum: 5, maximum: 15 }
-
-  validates :birthday, presence: true, date_past_or_today: true
+  validates :birthday, date_past_or_today: true
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   # Utility methods for follow system
@@ -82,8 +79,6 @@ class User < ActiveRecord::Base
   def following?(foo_user)
     following.include?(foo_user)
   end
-
-  # Utility methods for groups
 
   def create_group(group_params)
     groups_where_is_admin.create(group_params)
@@ -107,5 +102,27 @@ class User < ActiveRecord::Base
 
   def get_avatar(size)
     avatar.url(size)
+  end
+
+  def get_phone
+    return 'Not yet set' if phone.nil?
+    return phone
+  end
+
+  def get_birthday
+    return 'Not yet set' if birthday.nil?
+    return birthday
+  end
+
+  def get_gender
+    if male.nil?
+      'Not yet set'
+    else
+      male ? 'Male' : 'Female'
+    end
+  end
+
+  def password_changed?
+    !@password.blank?
   end
 end

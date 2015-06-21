@@ -6,20 +6,20 @@
   <div class="profile-about">
     <table>
       <tr>
-        <td><strong>Gender: </strong></td>
-        <td><%= gender @user %></td>
-      </tr>
-      <tr>
-        <td><strong>Birth Date: </strong></td>
-        <td><%= @user.birthday %></td>
-      </tr>
-      <tr>
         <td><strong>Mail: </strong></td>
         <td><%= @user.mail %></td>
       </tr>
       <tr>
         <td><strong>Phone: </strong></td>
-        <td><%= @user.phone %></td>
+        <td><%= @user.get_phone %></td>
+      </tr>
+      <tr>
+        <td><strong>Birthday: </strong></td>
+        <td><%= @user.get_birthday %></td>
+      </tr>
+      <tr>
+        <td><strong>Gender: </strong></td>
+        <td><%= @user.get_gender %></td>
       </tr>
     </table>
   </div>
