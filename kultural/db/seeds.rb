@@ -17,97 +17,94 @@ end
 
 puts('Creating users')
 
-jaime = User.create(name:                 'Jaime Castro R',
-                    password:              'macoy123',
-                    password_confirmation: 'macoy123',
-                    mail:                  'jecastro1@uc.cl',
-                    phone:                 Faker::PhoneNumber.cell_phone,
-                    birthday:              Date.strptime('31/12/1994', '%d/%m/%Y'),
-                    male:                  true)
+jaime = User.create!(name:                 'Jaime Castro R',
+                     password:              'macoy123',
+                     password_confirmation: 'macoy123',
+                     mail:                  'jecastro1@uc.cl',
+                     phone:                 Faker::PhoneNumber.cell_phone,
+                     birthday:              Date.strptime('31/12/1994', '%d/%m/%Y'),
+                     male:                  true)
 
-sebas = User.create(name:                  'Sebastian Salata R-T',
-                    password:              'napoleon',
-                    password_confirmation: 'napoleon',
-                    mail:                  'sasalata@uc.cl',
-                    phone:                 Faker::PhoneNumber.cell_phone,
-                    birthday:              Date.strptime('16/04/1992', '%d/%m/%Y'),
-                    male:                  true)
+sebas = User.create!(name:                  'Sebastian Salata R-T',
+                     password:              'napoleon',
+                     password_confirmation: 'napoleon',
+                     mail:                  'sasalata@uc.cl',
+                     phone:                 Faker::PhoneNumber.cell_phone,
+                     birthday:              Date.strptime('16/04/1992', '%d/%m/%Y'),
+                     male:                  true)
 
-vicen = User.create(name:                  'Vicente Dragicevic H',
-                    password:              'ilovethiscompany',
-                    password_confirmation: 'ilovethiscompany',
-                    mail:                  'vrdragicevic@uc.cl',
-                    phone:                 Faker::PhoneNumber.cell_phone,
-                    birthday:              Date.strptime('11/11/1993', '%d/%m/%Y'),
-                    male:                  true)
+vicen = User.create!(name:                  'Vicente Dragicevic H',
+                     password:              'ilovethiscompany',
+                     password_confirmation: 'ilovethiscompany',
+                     mail:                  'vrdragicevic@uc.cl',
+                     phone:                 Faker::PhoneNumber.cell_phone,
+                     birthday:              Date.strptime('11/11/1993', '%d/%m/%Y'),
+                     male:                  true)
 
 64.times do
-  name = Faker::Name.name
-  password = Faker::Internet.password(10, 20)
+  name      = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
+  password  = Faker::Internet.password(10, 20)
 
-  User.create(name:                  name,
-              mail:                  Faker::Internet.safe_email,
-              password:              password,
-              password_confirmation: password,
-              phone:                 Faker::PhoneNumber.cell_phone,
-              birthday:              Faker::Date.between(100.years.ago, 10.years.ago))
+  User.create!(name:                  name,
+               mail:                  "#{name.gsub(/[^A-Za-z]/, '')}@example.com",
+               password:              password,
+               password_confirmation: password,
+               phone:                 Faker::PhoneNumber.cell_phone,
+               birthday:              Faker::Date.between(100.years.ago, 10.years.ago))
 end
 
 puts('Creating groups')
 
 32.times do
-  Group.create(name:        Faker::App.name,
-               description: Faker::Lorem.paragraph)
+  Group.create!(name:        Faker::App.name,
+                description: Faker::Lorem.paragraph)
 end
 
 puts('Filling groups')
 
-32.times do |i|
-  Membership.create(user:     User.order('RANDOM()').first,
-                    group:    Group.find_by(id: i),
-                    is_admin: true)
+Group.all.each do |group|
+  Membership.create!(user: User.order('RANDOM()').first, group: group, is_admin: true)
 end
 
 100.times do
-  Membership.create(user:     User.order('RANDOM()').first,
-                    group:    Group.order('RANDOM()').first,
-                    is_admin: false)
+  user = User.order('RANDOM()').first
+  group = Group.order('RANDOM()').first
+
+  Membership.create!(user: user, group: group, is_admin: false) unless group.users.include?(user)
 end
 
 puts('Creating places')
 
-jaime.places.create(name: 'Sala Javier Pinto',
-                    address: 'Vicuña Mackenna 4860',
-                    description: Faker::Lorem.paragraph)
+jaime.places.create!(name:         'Sala Javier Pinto',
+                     address:      'Vicuña Mackenna 4860',
+                     description:  Faker::Lorem.paragraph)
 
-jaime.places.create(name: 'Pontificia Universidad Católica de Chile',
-                    address: 'Avenida Libertador Bernardo O Higgins 340',
-                    description: Faker::Lorem.paragraph)
+jaime.places.create!(name:         'Pontificia Universidad Católica de Chile',
+                     address:      'Avenida Libertador Bernardo O Higgins 340',
+                     description:  Faker::Lorem.paragraph)
 
-sebas.places.create(name: 'Estadio San Carlos de Apoquindo',
-                    address: 'Av. Las Flores 13000',
-                    description: Faker::Lorem.paragraph)
+sebas.places.create!(name:         'Estadio San Carlos de Apoquindo',
+                     address:      'Av. Las Flores 13000',
+                     description:  Faker::Lorem.paragraph)
 
-vicen.places.create(name: 'Chuck E. Cheese´s',
-                    address: 'Presidente Riesco 5711 Of. 1403',
-                    description: Faker::Lorem.paragraph,
-                    owner: User.order('RANDOM()').first)
+vicen.places.create!(name:         'Chuck E. Cheese´s',
+                     address:      'Presidente Riesco 5711 Of. 1403',
+                     description:  Faker::Lorem.paragraph)
 
-vicen.places.create(name: 'Plaza Baquedano',
-             address: 'Avenida Libertador Bernardo O Higgins',
-             description: Faker::Lorem.paragraph,
-             owner: vicen)
+vicen.places.create!(name:         'Plaza Baquedano',
+                     address:      'Avenida Libertador Bernardo O Higgins',
+                     description:  Faker::Lorem.paragraph)
 
 puts('Creating events')
 
 32.times do
-  Event.create!(owner:      User.order('RANDOM()').first,
-               place:       Place.order('RANDOM()').first,
-               name:        Faker::Lorem.words(rand(2..4)).map(&:capitalize).join(' '),
-               description: Faker::Lorem.paragraph,
-               date:        Faker::Date.between(Date.today, 15.days.from_now),
-               price:       Random.new.rand(500..5000),
-               event_types: [EventType.order('RANDOM()').first])
+  Event.create!(owner:       User.order('RANDOM()').first,
+                place:       Place.order('RANDOM()').first,
+                name:        Faker::Lorem.words(rand(2..4)).map(&:capitalize).join(' '),
+                description: Faker::Lorem.paragraph,
+                date:        Faker::Date.between(Date.today, 15.days.from_now),
+                price:       (Random.new.rand(500..5000) / 10.0).ceil * 10,
+                event_types: [EventType.order('RANDOM()').first])
 end
 
 puts('Creating comments')
@@ -116,8 +113,8 @@ Event.all.each do |event|
   number_of_comments = Random.new.rand(0..10)
 
   number_of_comments.times do
-    event.comments.create(user: User.order('RANDOM()').first,
-                          content: Faker::Lorem.paragraph)
+    event.comments.create!(user:    User.order('RANDOM()').first,
+                           content: Faker::Lorem.paragraph)
   end
 end
 
@@ -125,7 +122,9 @@ Place.all.each do |place|
   number_of_comments = Random.new.rand(0..10)
 
   number_of_comments.times do
-    place.comments.create(user: User.order('RANDOM()').first,
-                          content: Faker::Lorem.paragraph)
+    place.comments.create!(user:    User.order('RANDOM()').first,
+                           content: Faker::Lorem.paragraph)
   end
 end
+
+puts('Finished seeding')
