@@ -63,14 +63,13 @@ end
 puts('Filling groups')
 
 Group.all.each do |group|
-  Membership.create!(user: User.order('RANDOM()').first, group: group, is_admin: true)
-end
+  user_list = User.order('RANDOM()')
+  number_of_members = Random.new.rand(2..8)
 
-100.times do
-  user = User.order('RANDOM()').first
-  group = Group.order('RANDOM()').first
-
-  Membership.create!(user: user, group: group, is_admin: false) unless group.users.include?(user)
+  number_of_members.times do |i|
+    Membership.create!(user: user_list[i], group: group, is_admin: true) if i == 0
+    Membership.create!(user: user_list[i], group: group, is_admin: false) if i != 0
+  end
 end
 
 puts('Creating places')
@@ -102,28 +101,66 @@ puts('Creating events')
                 place:       Place.order('RANDOM()').first,
                 name:        Faker::Lorem.words(rand(2..4)).map(&:capitalize).join(' '),
                 description: Faker::Lorem.paragraph,
-                date:        Faker::Date.between(Date.today, 15.days.from_now),
+                date:        Faker::Date.between(Date.today, 7.days.from_now),
                 price:       (Random.new.rand(500..5000) / 10.0).ceil * 10,
                 event_types: [EventType.order('RANDOM()').first])
 end
 
-puts('Creating comments')
+puts('Creating comments, ratings and reports')
+
+Place.all.each do |place|
+  user_list_1 = User.order('RANDOM()')
+  user_list_2 = User.order('RANDOM()')
+  number_of_comments  = Random.new.rand(0..10)
+  number_of_ratings   = Random.new.rand(0..10)
+  number_of_reports   = Random.new.rand(0..10)
+
+  number_of_comments.times do
+    place.comments.create!(user:    User.order('RANDOM()').first,
+                           content: Faker::Lorem.paragraph)
+  end
+
+  number_of_ratings.times do |i|
+    place.ratings.create!(user: user_list_1[i],
+                          value: Random.new.rand(0..10))
+  end
+
+  number_of_reports.times do |i|
+    place.reports.create!(user: user_list_2[i])
+  end
+end
 
 Event.all.each do |event|
-  number_of_comments = Random.new.rand(0..10)
+  user_list_1 = User.order('RANDOM()')
+  user_list_2 = User.order('RANDOM()')
+  number_of_comments  = Random.new.rand(0..10)
+  number_of_ratings   = Random.new.rand(0..10)
+  number_of_reports   = Random.new.rand(0..10)
 
   number_of_comments.times do
     event.comments.create!(user:    User.order('RANDOM()').first,
                            content: Faker::Lorem.paragraph)
   end
+
+  number_of_ratings.times do |i|
+    event.ratings.create!(user: user_list_1[i],
+                          value: Random.new.rand(0..10))
+  end
+
+  number_of_reports.times do |i|
+    event.reports.create!(user: user_list_2[i])
+  end
 end
 
-Place.all.each do |place|
-  number_of_comments = Random.new.rand(0..10)
+puts('Creating relationships')
 
-  number_of_comments.times do
-    place.comments.create!(user:    User.order('RANDOM()').first,
-                           content: Faker::Lorem.paragraph)
+User.all.each do |followed|
+  number_of_followers = Random.new.rand(0..10)
+
+  number_of_followers.times do
+    follower = User.order('RANDOM()').first
+    follower = User.order('RANDOM()').first while follower == followed || follower.following?(followed)
+    Relationship.create!(follower: follower, followed: followed)
   end
 end
 
