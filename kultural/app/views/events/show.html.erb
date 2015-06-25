@@ -2,6 +2,9 @@
 
   <div class="center-align">
     <h1><%= @event.name %></h1>
+    <div id="attendance-button">
+      <%= render partial: 'attendances/button', locals: { event: @event} %>
+    </div>
     <div class="stats-container">
         <%= render partial: 'ratings/avg_rating', locals: { rateable: @event } %>
         <%= render partial: 'reports/num_reports', locals: { reportable: @event } %>

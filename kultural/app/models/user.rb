@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   # Attendance
   has_many :attendances, dependent: :destroy
-  has_many :events_to_attend, class_name: 'Event', through: :attendances
+  has_many :events_to_attend, class_name: 'Event', through: :attendances, source: 'event'
 
   # Follow people
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy

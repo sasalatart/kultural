@@ -54,7 +54,7 @@ class Event < ActiveRecord::Base
 
   # Attendance
   has_many :attendances, dependent: :destroy
-  has_many :attendants, class_name: 'User', through: :attendances
+  has_many :attendants, class_name: 'User', through: :attendances, source: 'user'
   def get_picture(size)
     picture.url(size)
   end
