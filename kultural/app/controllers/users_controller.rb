@@ -94,13 +94,13 @@ class UsersController < ApplicationController
 
   def following
     @title = 'Following to'
-    @users = @user.following
+    @users = @user.following.paginate(page: params[:page], per_page: 8)
     render 'index'
   end
 
   def followers
     @title = 'Followers of'
-    @users = @user.followers
+    @users = @user.followers.paginate(page: params[:page], per_page: 8)
     render 'index'
   end
 
