@@ -5,22 +5,22 @@
   border: 0px;
   border-radius: 5px;
   font: bold 15px $button-font;
-  padding: 2px 10px;
+  padding: 7.5px 10px;
   color: $light-text-color;
 }
 
 .button-def {
   @extend .button;
-  background-color: $button-color;
+  background: $button-color;
   &:hover {
-    background-color: $button-hover-color;
+    background: $button-hover-color;
   }
 }
 
 .button-del {
   @extend .button;
-  background-color: $button-del-color;
+  background: $button-del-color;
   &:hover {
-    background-color: $button-del-hover-color;
+    background: $button-del-hover-color;
   }
 }
