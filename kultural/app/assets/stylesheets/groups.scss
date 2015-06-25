@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.group-member{
+.group-member {
   display: table;
-
-  div.user-as-member{
+  margin: auto;
+  .user-as-member {
     display: table-row;
 
-    >div{
+    >div {
       display: table-cell;
       padding: 0.5em;
     }
-  }  
+  }
 }

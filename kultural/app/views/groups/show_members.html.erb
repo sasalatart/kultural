@@ -1,17 +1,17 @@
 <div class="borders container normal-container">
-  <div class="center">
-    <h2>Members of <%= link_to @group.name, @group %></h2>
+  <h2 class="center-align">Members of <%= link_to @group.name, @group %></h2>
 
-    <div class="group-member">
-      <% @members.each do |member| %>
-        <div class="user-as-member">
-          <% if !current_user.nil? && current_user.is_group_admin?(@group) %>
-            <div class="toggle-form"><%= render 'toggle_form', member: member %></div>
-            <div><%= render 'kick_form', member: member %></div>
-          <% end %>
-          <div><%= render member %></div>
-        </div>
-      <% end %>
-    </div>
+  <%= render 'shared/pagination', resource: @members %>
+  <div class="group-member">
+    <% @members.each do |member| %>
+      <div class="user-as-member">
+        <% if !current_user.nil? && current_user.is_group_admin?(@group) %>
+          <div><%= render 'toggle_form', member: member %></div>
+          <div><%= render 'kick_form', member: member %></div>
+        <% end %>
+        <div><%= render member %></div>
+      </div>
+    <% end %>
   </div>
+  <%= render 'shared/pagination', resource: @members %>
 </div>

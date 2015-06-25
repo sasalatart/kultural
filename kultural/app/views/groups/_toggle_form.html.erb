@@ -1,7 +1,7 @@
 <% # Assumes member as parameter %>
 <% unless current_user == member %>
   <%= form_for(member.memberships.find_by(user_id: member.id, group_id: @group.id), html: {method: :put}, remote: false) do |f| %>
-    <div><%= hidden_field_tag :member_id, member.id %></div>
+    <%= hidden_field_tag :member_id, member.id %>
     <% if member.is_group_admin? @group %>
     <%= f.submit "Remove admin", class: ['button', 'button-del'] %>
     <% else %>
