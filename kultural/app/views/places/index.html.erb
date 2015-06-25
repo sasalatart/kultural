@@ -11,10 +11,10 @@
   <% end %>
 </div>
 
-<div class="flickr_pagination">
+<div class="flickr-pagination">
   <%= will_paginate @places %>
 </div>
 <%= render partial: 'listing', locals: { places: @places } %>
-<div class="flickr_pagination">
+<div class="flickr-pagination">
   <%= will_paginate @places %>
 </div>
