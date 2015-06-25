@@ -10,7 +10,7 @@ $bar-width: 350px;
   font: bold 13px monospace;
   list-style: none;
   position: absolute;
-  text-align: center;
+  text-align: left;
 
   left: 0;
   padding: 10px;
@@ -20,7 +20,6 @@ $bar-width: 350px;
   li {
     padding: 10px;
     background-color: $dark-alpha-color;
-    border-bottom: 2px solid $dropdown-hover-color;
 
     &:hover {
       background-color: $dropdown-hover-color;
