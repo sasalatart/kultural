@@ -6,6 +6,13 @@
         <%= f.title_errors %>
 
         <div class="field">
+          <%= f.label 'Owner'%>
+          <% owners = [current_user].push(*current_user.groups_where_is_admin) %>
+          <% owners = owners.map {|o| [o.name, o.class.to_s + ':' + o.id.to_s]} %>
+
+          <%= select_tag :owner_info, options_for_select(owners) %>
+        </div>
+        <div class="field">
           <%= f.label :name %><br>
           <%= f.text_field :name %>
           <%= f.errors :name %>

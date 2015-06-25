@@ -34,7 +34,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    @event.owner = current_user
+    owner_info = params[:owner_info].split(':')
+    @event.owner_type = owner_info[0]
+    @event.owner_id = owner_info[1].to_i
     @event.event_type_ids = params[:event][:event_type_ids]
 
     respond_to do |format|
@@ -53,7 +55,9 @@ class EventsController < ApplicationController
   def update
     params[:event][:event_type_ids] ||= []
     @event.event_type_ids = params[:event][:event_type_ids]
-
+    owner_info = params[:owner_info].split(':')
+    @event.owner_type = owner_info[0]
+    @event.owner_id = owner_info[1].to_i
     respond_to do |format|
       if @event.update_attributes(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
