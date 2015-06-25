@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
     following.include?(foo_user)
   end
 
+  def followed?(foo_user)
+    followers.include?(foo_user)
+  end
+
   def create_group(group_params)
     groups_where_is_admin.create(group_params)
   end
@@ -127,5 +131,19 @@ class User < ActiveRecord::Base
 
   def password_changed?
     !@password.blank?
+  end
+
+  def attending?(event)
+    events_to_attend.include? event
+  end
+
+  def followed_attending_to(event)
+    f = []
+    User.all.each do |u|
+      if u.attending?(event) and self.following.include? u
+        f.push(u)
+      end
+    end
+    return f
   end
 end
