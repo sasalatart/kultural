@@ -7,9 +7,9 @@ $footer-color: rgba(204, 204, 204, 0.8);
 $dark-alpha-color: rgba(21, 21, 21, 0.7);
 $border-color: #008584;
 
-$button-color: #006666;
+$button-color: -webkit-linear-gradient(90deg, #006666 40%, #008584 70%);
 $button-hover-color: #008584;
-$button-del-color: #990100;
+$button-del-color: -webkit-linear-gradient(90deg, #990100 40%, #B90504 70%);
 $button-del-hover-color: #B90504;
 
 $dropdown-color: $dark-alpha-color;
@@ -20,3 +20,4 @@ $dark-text-color: #006666;
 $dark-text-hover-color: #008584;
 
 $light-text-color: #F5F5F5;
+$medium-text-color: #37A5A5;
