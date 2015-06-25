@@ -2,14 +2,19 @@
 //# All this logic will automatically be available in application.js.
 //# You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function(){
-  var visitedUrls = {};
+var ajaxImages = {};
+var fetchAjaxImages = function(){
   $("[data-image-ajax-url]").each(function(key,value){
     var url = $(value).data('image-ajax-url');
-    if(visitedUrls[url] === undefined){
+    if(ajaxImages[url] === undefined){
       $.get(url);
-      visitedUrls[url] = true;
+      ajaxImages[url] = true;
+    }
+    else if(ajaxImages[url] !== true){
+      $(value).replaceWith(ajaxImages[url]);
     }
   });
-});
+};
+
+$(document).ready(fetchAjaxImages);
 
