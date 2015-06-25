@@ -12,5 +12,5 @@
 </div>
 
 <%= render 'shared/pagination', resource: @places %>
-<%= render partial: 'listing', places: @places %>
+<%= render partial: 'listing', locals: { places: @places } %>
 <%= render 'shared/pagination', resource: @places %>

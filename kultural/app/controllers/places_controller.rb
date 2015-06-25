@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   include Foursquare
   before_action :set_place, only: [:show, :foursquare, :edit, :update, :destroy]
+  before_action :owner_of_place?, only: [:edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
