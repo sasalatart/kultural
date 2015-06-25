@@ -9,9 +9,9 @@ class SearchController < ApplicationController
     render 'index'
   end
   def autocomplete
-    @autocomplete_users = User.search(params[:search_string])
-    @autocomplete_events = Event.search(params[:search_string])
-    @autocomplete_places = Place.search(params[:search_string])
+    @autocomplete_users = User.search(params[:search_string]).limit(3)
+    @autocomplete_events = Event.search(params[:search_string]).limit(3)
+    @autocomplete_places = Place.search(params[:search_string]).limit(3)
 
     respond_to do |format|
       format.js

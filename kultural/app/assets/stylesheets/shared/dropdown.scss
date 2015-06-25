@@ -11,7 +11,7 @@
 		font: bold 13px monospace;
 		list-style: none;
 		position: absolute;
-		text-align: center;
+		text-align: left;
 		width: 100%;
 
 		left: 0;
@@ -20,9 +20,9 @@
 		box-sizing: border-box;
 
 		li {
+			min-width: 93px;
 			display: block;
 			background-color: $dropdown-color;
-			border-bottom: 2px solid $dropdown-hover-color;
 			padding: 10px;
 
 			&:hover {
@@ -35,9 +35,5 @@
 				text-decoration: none;
 			}
 		}
-	}
-
-	&:hover ul {
-		display: block;
 	}
 }
