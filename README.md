@@ -1,5 +1,7 @@
 # Grupo 7
 
+**Heroku en** [https://kultural.herokuapp.com](https://kultural.herokuapp.com)
+
 * Proyecto a trabajar: [Central de Eventos](https://github.com/IIC2513-2015-1/syllabus/blob/master/Proyectos/Central-de-eventos.md)
 * Ayudante: **Patricio López** - [@mrpatiwi](https://github.com/mrpatiwi) - pelopez2@uc.cl
 
@@ -48,4 +50,5 @@ Asegúrense de llenar lo siguiente:
 
 # Deployment
 
-Cuando sea solicitado, aquí se deberá indicar la URL de la aplicación corriendo en un servidor externo.
+* [Servidor en Heroku](https://kultural.herokuapp.com)
+* Para almacenar las diferentes claves de las API, se ocuparon **variables de entorno**.
