@@ -4,3 +4,9 @@
   border: 3px solid $border-color;
   border-radius: 10px;
 }
+
+.footer-border {
+  @extend .borders;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+}
