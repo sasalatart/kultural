@@ -5,6 +5,7 @@ div.profile-show{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding: 10px 0px;
 
   img{
     background-color: #000;
@@ -71,6 +72,7 @@ div.profile-forms{
 
       .profile-name-container{
         text-align: center;
+        padding: 10px 0;
       }
     }
   }
@@ -84,7 +86,10 @@ div.profile-forms{
   h3, >*{
     margin-bottom: 0.6em;
   }
-
+  h3 {
+    color: $light-text-color;
+    text-shadow: 2px 2px 2px $dark-alpha-color;
+  }
   >**{
     margin-bottom: 0.3em;
   }
@@ -93,11 +98,12 @@ div.profile-forms{
 
     margin-bottom: 1em;
 
-    .profile-comment-head{
-
+    .profile-comment-head span{
+      color: $medium-text-color;
     }
 
     .profile-comment-body{
+      color: $light-text-color;
       margin-left: 50px;
     }
 
