@@ -1,13 +1,75 @@
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <h1 class="center-align">Editing <%= link_to "my profile", @user %></h1>
 
-<%= render 'form' %>
+<div class="form center" id="user-form">
+  <fieldset class="borders">
+    <legend>User</legend>
+    <div class="contents">
+      <%= form_for(@user, multipart: true, builder: BetterForms) do |f| %>
+
+        <%= f.title_errors %>
+
+        <div class="field">
+          <%= f.label "Name" %><br>
+          <%= f.text_field :name%>
+          <%= f.errors :name %>
+        </div>
+        <div class="field">
+          <%= f.label "Mail" %><br>
+          <%= f.text_field :mail %>
+          <%= f.errors :mail %>
+        </div>
+        <div class="field">
+          <%= f.label "Phone" %><br>
+          <%= f.text_field :phone %>
+          <%= f.errors :phone %>
+        </div>
+        <div class="field">
+          <%= f.label "Birth Date" %><br>
+          <%= f.date_select :birthday, start_year: 1900, end_year: Time.now.year %>
+          <%= f.errors :birthday %>
+        </div>
+        <div class="field">
+          <%= f.radio_button :male, true %>
+          <%= f.label "Male" %>
+          <%= f.radio_button :male, false %>
+          <%= f.label "Female" %><br>
+          <%= f.errors :male %>
+        </div>
+        <div class="field">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+          <%= f.errors :avatar %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Submit", class: 'button-def'%>
+        </div>
+      <% end %>
+    </div>
+  </fieldset>
+</div>
 
 <div class="form center">
   <fieldset class="borders">
     <legend>Delete account</legend>
     <div class="contents">
       <div class="field">
-        <%= button_to 'Delete my profile', @user, method: :delete, data: { confirm: 'Are you sure? All your groups, events, places, comments, and ratings will be deleted' }, class: ['button', 'button-del'] %>
+        <%= button_to 'Delete my profile', @user, method: :delete,
+        data: { confirm: 'Are you sure? All your groups, events, places,
+                          comments, and ratings will be deleted' },
+        class: ['button', 'button-del'] %>
       </div>
     </div>
   </fieldset>

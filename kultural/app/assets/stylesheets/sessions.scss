@@ -2,6 +2,14 @@
 @import 'shared/fonts';
 
 .sessions {
+  #main{
+    margin-top: 0px;
+
+    &:after {
+      margin-bottom: 0px;
+    }
+  }
+
   #login-form {
     background: $dark-alpha-color;
 
@@ -50,7 +58,6 @@
     display:block;
     width:276px;
     height:45px;
-    //background:transparent;
     border: 2px solid $border-color;
 
     font-family: $default-font;

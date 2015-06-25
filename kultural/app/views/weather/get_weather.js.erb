@@ -5,5 +5,5 @@ w.addClass("loaded");
 w.html("<%= j render partial: 'weather/weather', locals: {temp_max: @temp_max, temp_min: @temp_min, weather_uri: @uri, weather_img: @img} %>");
 <% else %>
 w.addClass("not_found");
-w.html("No se encontró información del clima para esta fecha.");
+w.html('No weather info found for this date');
 <% end %>

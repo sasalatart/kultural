@@ -1,4 +1,6 @@
 class RatingsController < ApplicationController
+  before_action :logged_in_user
+  before_action :set_rating, only: [:update]
 
   def create
     @rating = Rating.find_by(rateable: @rateable, user: current_user)
@@ -21,10 +23,29 @@ class RatingsController < ApplicationController
     end
   end
 
+
+  def update
+    if owner_rating?
+      respond_to do |format|
+        if @rating.update(rating_params)
+          format.js {render 'create'}
+        end
+      end
+    else
+      respond_to do |format|
+        format.js {render js: "alert('You are a bad guy...');"}
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rating
       @rating = Rating.find(params[:id])
+    end
+
+    def owner_rating?
+      @rating.user == current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

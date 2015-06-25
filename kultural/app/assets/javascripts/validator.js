@@ -1,3 +1,4 @@
+/*
 // FUNCTIONS
 var monthToNumber;
 var messageMaker, messageDeleter, messageMgr;
@@ -64,7 +65,7 @@ mailValidator = function(){
 
   if(regexValidator.call($(this), mailRegex, 'Not valid') && lengthValidator.call($(this), 1, 50, 'Mail is too long (max: 50 characters)')){
     return $.getJSON('/validator/mail', {mail: $(this).val()}, callback);
-  } 
+  }
 
   return false;
 }
@@ -135,14 +136,13 @@ dateHandler = function(event){
   dateValidator.call($(this), day, month, year, from, to, message);
 }
 
-
 $(document).ready(function(){
   $("#user_name").bind('focusout', {min: 5, max: 50, message: 'Your name should contain between 5 and 50 characters'}, lengthHandler);
   $("#user_mail").bind('focusout', mailHandler);
   $("#user_password").bind('focusout', {min: 6, message: 'Password too short'}, lengthHandler);
   $("#user_password_confirmation").bind('focusout', {passField: '#user_password'}, passHandler);
   $("#user_phone").bind('focusout', {regex: /^\d{5,15}$/, message: 'Phone number should contain between 5 and 15 numbers'}, regexHandler);
-  $("#user_birthday_3i, #user_birthday_2i, #user_birthday_1i").bind('click', 
+  $("#user_birthday_3i, #user_birthday_2i, #user_birthday_1i").bind('click',
     {day: '#user_birthday_3i',
     month: '#user_birthday_2i',
     year: '#user_birthday_1i',
@@ -167,4 +167,4 @@ $(document).ready(function(){
       event.stopPropagation();
     }
   });
-});
+});*/

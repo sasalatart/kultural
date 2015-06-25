@@ -3,7 +3,7 @@
 <div class="borders container normal-container">
   <h3>My events</h3>
   <% owner.events.order(date: :desc).each do |event| %>
-    <div> <%= link_to event.name, event %> <span class="tiny"> | <%= event.date %></span></div>
+    <div> <%= render event %></div>
   <% end %>
 </div>
 <% end %>

@@ -10,13 +10,16 @@
 
 <div class="info-container col-3">
   <dl>
-    <dt>Place:</dt>
+    <dt><%= fa_icon 'map-marker'%> Place:</dt>
     <dd><%= link_to @event.place.name, @event.place %></dd>
-    <dt>Date:</dt>
-    <dd><%= @event.date %> <div id="weather" class="loading"><%= image_tag("events/ajax-loader.gif", class: "loading_gif") %>Cargando información del clima...</div></dd>
-    <dt>Price:</dt>
+    <dt><%= fa_icon 'calendar'%> Date:</dt>
+    <dd>
+      <%= date_hour @event.date %>
+      <div id="weather" class="loading"><%= image_tag("shared/ajax-loader.gif", class: "loading_gif") %>Cargando información del clima...</div>
+    </dd>
+    <dt><%= fa_icon 'usd'%> Price:</dt>
     <dd><%= number_to_currency @event.price, precision: 0 %></dd>
-    <dt>Categories:</dt>
+    <dt><%= fa_icon 'tags'%> Categories:</dt>
     <dd>
       <%= render @event.event_types %>
     </dd>

@@ -1,10 +1,13 @@
-<% @title ||= 'Users' %> 
+<% @title ||= 'Users' %>
 <div>
-  <h1 class="center-align"> 
-    <%= @title %> 
+  <h1 class="center-align">
+    <%= @title %>
     <% unless @user.nil? %>
     <%= link_to @user.name, @user %>
     <% end %>
   </h1>
 </div>
-<%= render partial:'listing', locals:{users: @users} %>
+
+<%= render 'shared/pagination', resource: @places %>
+<%= render 'listing', users: @users %>
+<%= render 'shared/pagination', resource: @places %>

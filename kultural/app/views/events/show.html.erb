@@ -3,13 +3,8 @@
   <div class="center-align">
     <h1><%= @event.name %></h1>
     <div class="stats-container">
-      <span id="avg-rating">
         <%= render partial: 'ratings/avg_rating', locals: { rateable: @event } %>
-      </span>
-      |
-      <span id="num-reports">
         <%= render partial: 'reports/num_reports', locals: { reportable: @event } %>
-      </span>
     </div>
   </div>
 
@@ -36,8 +31,8 @@
   <% end %>
 
   <div class="container big-container clear borders">
-    <div class="info-container col-3">
-      <%= image_tag @event.get_picture(:normal), height: 200 %>
+    <div class="info-container col-3 mini-image">
+      <%= image_tag @event.get_picture(:normal) %>
     </div>
     <div class="info-container mini-map col-3-2">
       <div id="map"></div>

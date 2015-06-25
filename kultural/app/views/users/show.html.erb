@@ -1,31 +1,31 @@
-<div id="profile-info">
+<div id="profile-info" class="borders">
   <%= render 'shared/profiles/presentation', owner: @user %>
   <%= render 'follow_form' if logged_in? %>
   <%= render 'stats' %>
 
-  <div class="user-about">
-    <table class="info-table">
-      <tr>
-        <td><strong>Gender: </strong></td>
-        <td><%= gender @user %></td>
-      </tr>
-      <tr>
-        <td><strong>Birth Date: </strong></td>
-        <td><%= @user.birthday %></td>
-      </tr>
+  <div class="profile-about">
+    <table>
       <tr>
         <td><strong>Mail: </strong></td>
         <td><%= @user.mail %></td>
       </tr>
       <tr>
         <td><strong>Phone: </strong></td>
-        <td><%= @user.phone %></td>
+        <td><%= @user.get_phone %></td>
+      </tr>
+      <tr>
+        <td><strong>Birthday: </strong></td>
+        <td><%= @user.get_birthday %></td>
+      </tr>
+      <tr>
+        <td><strong>Gender: </strong></td>
+        <td><%= @user.get_gender %></td>
       </tr>
     </table>
   </div>
 
   <% if @user.groups.count > 0 %>
-  <div class="container normal-container">
+  <div class="normal-container">
     <div><strong>My groups:</strong></div>
     <%= render @user.groups %>
   </div>

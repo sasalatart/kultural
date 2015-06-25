@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :update, :destroy]
   resources :reports, only: [:create]
-  resources :ratings, only: [:create]
+  resources :ratings, only: [:create, :update]
   resources :event_types, only: [:index, :show]
 
   resources :places do
@@ -14,22 +14,22 @@ Rails.application.routes.draw do
 
     resources :comments, module: :places, only: [:index, :create, :update, :destroy]
     resources :reports, module: :places, only: [:create]
-    resources :ratings, module: :places, only: [:create]
+    resources :ratings, module: :places, only: [:create, :update]
   end
 
   resources :events do
     resources :comments, module: :events, only: [:index, :create, :update, :destroy]
     resources :reports, module: :events, only: [:create]
-    resources :ratings, module: :events, only: [:create]
+    resources :ratings, module: :events, only: [:create, :update]
   end
 
   resources :groups
-  resources :users
 
   # Allow user/id/followers and user/id/following urls
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :edit_password, :ajax_avatar
+      put :update_password
     end
   end
 
@@ -47,16 +47,17 @@ Rails.application.routes.draw do
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
 
-  get '/signup', to: 'users#new'
+  get '/signup',    to: 'users#new'
 
   get '/login',     to: 'sessions#new'
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/search', to: 'search#search'
+  get '/search',       to: 'search#search'
   get '/autocomplete', to: 'search#autocomplete'
 
   get '/weather', to: 'weather#get_weather'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -21,7 +20,6 @@ gem 'watir'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,8 +37,11 @@ gem 'gmaps4rails'
 gem 'geocoder'
 
 #HTTParty
-
 gem 'httparty'
+
+# FontAwesome
+
+gem "font-awesome-rails"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -54,6 +55,12 @@ end
 # Paperclip
 gem 'paperclip'
 gem 'paperclip-dropbox'
+
+# Paginations
+gem 'will_paginate', '~> 3.0.6'
+
+# Faker
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,6 +1,7 @@
 @import 'palette';
 
-$padding-table: 6px 12px;
+$padding-table: 30px 12px;
+$padding-table-head: 6px 12px;
 
 div.table-container{
   padding: 10px 0;
@@ -21,10 +22,6 @@ table {
   }
 }
 
-table.info-table {
-  background-color:rgba(0,0,0,0);
-}
-
 table thead th{
   color: $light-text-color;
   background-color: $header-color;
@@ -32,7 +29,7 @@ table thead th{
   font-weight: bold;
   text-align: center;
   margin: 0;
-  padding: $padding-table;
+  padding: $padding-table-head;
 }
 
 table tr {

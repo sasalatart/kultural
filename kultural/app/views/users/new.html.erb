@@ -1,3 +1,38 @@
 <h1 class="center-align">New user</h1>
 
-<%= render 'form' %>
+<div class="form center" id="user-form">
+  <fieldset class="borders">
+    <legend>User</legend>
+    <div class="contents">
+      <%= form_for(@user, multipart: true, builder: BetterForms) do |f| %>
+
+        <%= f.title_errors %>
+
+        <div class="field">
+          <%= f.label "Name" %><br>
+          <%= f.text_field :name%>
+          <%= f.errors :name %>
+        </div>
+        <div class="field">
+          <%= f.label "Mail" %><br>
+          <%= f.text_field :mail %>
+          <%= f.errors :mail %>
+        </div>
+        <div class="field">
+          <%= f.label "Password" %><br>
+          <%= f.password_field :password %>
+          <%= f.errors :password %>
+        </div>
+        <div class="field">
+          <%= f.label "Confirm your password" %><br>
+          <%= f.password_field :password_confirmation %>
+          <%= f.errors :password_confirmation %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Submit", class: 'button-def'%>
+        </div>
+      <% end %>
+    </div>
+  </fieldset>
+</div>

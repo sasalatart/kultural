@@ -14,10 +14,10 @@
       <% users.each do |user| %>
       <tr>
         <td><%= render user %></td>
-        <td><%= user.mail %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.birthday %></td>
-        <td><%= user.male ? "Male" : "Female" %></td>
+        <td class="center-align"><%= user.mail %></td>
+        <td class="center-align"><%= user.get_phone %></td>
+        <td class="center-align"><%= user.get_birthday %></td>
+        <td class="center-align"><%= user.get_gender %></td>
       </tr>
       <% end %>
     </tbody>

@@ -1,30 +1,42 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-* {
-  margin:0px;
-  padding:0px;
-}
 
-#map {
-  width: 100%;
-  height: 100%;
-}
+.pages {
+  h1 {
+    text-align: center;
+  }
 
-.mini-map {
-  height: 200px;
-}
-
-.info-window {
-
-  color: black;
-  .info-window-events {
-    list-style-type: none;
+  .info-window {
     color: black;
 
-    .info-window-event {
+    .info-window-events {
+      list-style-type: none;
       color: black;
 
+      .info-window-event {
+        color: black;
+      }
+    }
+  }
+
+  #sidebar {
+    ul{
+      
+      list-style: none;
+
+      li{
+        padding: 5px 0;
+        font-size: 1.5em;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .container {
+
+    ul {
+      padding-top: 25px;
     }
   }
 }

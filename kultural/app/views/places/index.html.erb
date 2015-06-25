@@ -1,15 +1,16 @@
 <% @title ||= 'Places' %>
-<div> 
-  <h1 class="center-align"> 
-    <%= @title %> 
+<div>
+  <h1 class="center-align">
+    <%= @title %>
     <% unless @place.nil? %>
     <%= link_to @place.name, @place %>
     <% end %>
   </h1>
   <% if logged_in? %>
-  <%= button_to 'New place', new_place_path,
-  method: :get, class: 'button-def' %>
+  <%= button_to 'New place', new_place_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
 
-<%= render partial: 'listing', locals: {places: @places} %>
+<%= render 'shared/pagination', resource: @places %>
+<%= render partial: 'listing', places: @places %>
+<%= render 'shared/pagination', resource: @places %>

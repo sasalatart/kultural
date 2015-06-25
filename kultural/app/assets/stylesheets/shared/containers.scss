@@ -10,14 +10,11 @@
 .container {
   color: $light-text-color;
   background-color: $dark-alpha-color;
-
-  a, a:visited {
-    color: $light-text-color;
-  }
 }
 
 .big-container {
-  width: 100%;
+  width: 97%;
+  padding: 1.5%;
   margin: 15px auto;
   display: table;
 }
@@ -33,6 +30,7 @@
 }
 
 .cell-container{
+  font-size:11px;
   padding: 10px;
   display: table-cell;
 }
@@ -58,55 +56,55 @@
   width:33%;
 }
 
-.col-3-2{
+.col-3-2 {
   width: 66%;
 }
 
-.col-4{
+.col-4 {
   width: 25%;
 }
 
-.col-4-2{
+.col-4-2 {
   width: 50%;
 }
 
-.col-4-3{
+.col-4-3 {
   width: 75%;
 }
 
-.col-5{
+.col-5 {
   width: 20%;
 }
 
-.col-5-2{
+.col-5-2 {
   width: 40%;
 }
 
-.col-5-3{
+.col-5-3 {
   width: 60%;
 }
 
-.col-5-4{
+.col-5-4 {
   width: 80%;
 }
 
-.col-6{
+.col-6 {
   width: 1/6*100%
 }
 
-.col-6-2{
+.col-6-2 {
   width: 2/6*100%;
 }
 
-.col-6-3{
+.col-6-3 {
   width: 50%;
 }
 
-.col-6-4{
+.col-6-4 {
   width: 4/6*100%;
 }
 
-.col-6-5{
+.col-6-5 {
   width: 5/6*100%;
 }
 

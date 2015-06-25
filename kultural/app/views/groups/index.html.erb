@@ -1,17 +1,10 @@
-<% @title ||= 'Groups' %>
-<div> 
-  <h1 class="center-align"> 
-    <%= @title %> 
-    <% unless @group.nil? %>
-    <%= link_to @group.name, @group %>
-    <% end %>
-  </h1>
-  <% if logged_in? %>
-  <%= button_to 'New group', new_group_path,
-  method: :get, class: 'button-def' %>
-  <% end %>
-</div>
+<h1 class="center-align"> Groups </h1>
+<% if logged_in? %>
+  <%= button_to 'New group', new_group_path, method: :get, class: 'button-def' %>
+<% end %>
+
 <div class="table-container">
+  <%= render 'shared/pagination', resource: @groups %>
   <table>
     <thead>
       <tr>
@@ -21,11 +14,12 @@
     </thead>
     <tbody>
       <% @groups.each do |group| %>
-      <tr>
-        <td><%= render group %></td>
-        <td><%= group.description %></td>
-      </tr>
+        <tr>
+          <td><%= render group %></td>
+          <td><%= group.description %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
+  <%= render 'shared/pagination', resource: @groups %>
 </div>

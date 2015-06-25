@@ -1,0 +1,24 @@
+@import 'palette';
+.info-window{
+  color: black;
+  a{
+    color: $dark-text-color;
+
+    &:visited {
+      color: $dark-text-color;
+    }
+
+    &:hover {
+      color: $dark-text-hover-color;
+    }
+  }
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.mini-map {
+  height: 200px;
+}

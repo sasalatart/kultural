@@ -2,13 +2,8 @@
   <div class="center-align">
     <h1><%= @place.name %></h1>
     <div class="stats-container">
-      <span id="avg-rating">
         <%= render partial: 'ratings/avg_rating', locals: { rateable: @place } %>
-      </span>
-      |
-      <span id="num-reports">
         <%= render partial: 'reports/num_reports', locals: { reportable: @place } %>
-      </span>
     </div>
   </div>
 
@@ -37,14 +32,14 @@
 
   <div class="floated-right">
     <%= image_tag 'places/foursquare-logomark.png',
-      id: 'foursquare-tooltip', 
-      height: 30, 
+      id: 'foursquare-tooltip',
+      height: 30,
       title: 'Foursquare info' %> &nbsp;  &nbsp;
   </div>
 
   <div class="container big-container clear borders">
-    <div class="info-container col-3">
-      <%= image_tag @place.get_picture(:normal), height: 200 %>
+    <div class="info-container col-3 mini-image">
+      <%= image_tag @place.get_picture(:normal)%>
     </div>
     <div class="info-container mini-map col-3-2">
       <div id="map"></div>
@@ -85,7 +80,7 @@
 
     var callback = function(response){
       $("#foursquare-tooltip").tooltip("option", "content", response);
-    }
+    };
 
     $.get("<%= j foursquare_place_path %>", callback);
   });

@@ -4,21 +4,21 @@
   </h1>
 </div>
 
-<% if @search_events.length > 0 %>
+<% if @search_events.any? %>
 <div>
   <h2>Events [<%= link_to 'All', events_path %>]</h2>
   <%= render partial: 'events/listing', locals: {events: @search_events} %>
 </div>
 <% end %>
 
-<% if @search_places.length > 0%>
+<% if @search_places.any? %>
 <div>
   <h2>Places [<%= link_to 'All', places_path %>]</h2>
   <%= render partial: 'places/listing', locals: {places: @search_places} %>
 </div>
 <% end %>
 
-<% if @search_users.length > 0 %>
+<% if @search_users.any? %>
 <div>
   <h2>Users [<%= link_to 'All', users_path %>]</h2>
   <%= render partial: 'users/listing', locals: {users: @search_users} %>

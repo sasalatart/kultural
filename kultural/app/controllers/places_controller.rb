@@ -5,14 +5,15 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.paginate(page: params[:page], per_page: 8)
   end
 
   # GET /places/1
   # GET /places/1.json
   def show
     @comment = Comment.new
-
+    @rating = @place.ratings.find_by(user: current_user) || Rating.new
+    
     @hash = Gmaps4rails.build_markers(@place) do |place, marker|
       marker.lat place.lat
       marker.lng place.lon

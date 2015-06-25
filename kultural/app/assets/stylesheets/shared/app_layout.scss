@@ -3,6 +3,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -10,43 +11,40 @@ html, body {
 }
 
 body {
+  height: 100%;
   background-image: image-url("shared/background1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
   font-family: $default-font;
-}
-
-h1 {
   color: $light-text-color;
+  margin: 0;
+  padding: 0;
 }
 
 #main{
+  margin-top: 75px;
+
   >*{
     margin: auto;
   }
 
-  #sidebar{
-    ul{
-      list-style: none;
+  padding-bottom: 75px;
 
-      li{
-        padding: 5px 0;
-      }
-    }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+    margin-bottom: 25px;
   }
 }
 
 .wrapper {
+  position: relative;
 	min-height: 100%;
   width: 1190px;
-	margin-top: 75px;
-  margin-bottom: -75px; /* negative value of the footer's height */
-
   margin-left: auto;
   margin-right: auto;
-}
-
-.footer, .push {
-	height: 75px; /* .push must be the same height as .footer */
-  bottom: 0;
 }
 
 .centered {
@@ -74,8 +72,12 @@ a {
   }
 
   &:hover {
-    color: $dark-text-hover-color;
+    color: $light-text-color;
     text-decoration: underline;
+  }
+
+  &.hide-button{
+    cursor: pointer;
   }
 }
 
@@ -85,28 +87,4 @@ dt {
 
 dd {
   margin-left: 25px;
-}
-
-div.contents{
-  #error_explanation{
-    margin: auto;
-
-    ul{
-      list-style-type: none;
-    }
-  }
-
-  .field_with_errors{
-    display: block;
-    background-color: initial;
-    padding: 4px;
-
-    border-radius: 4px;
-    border: 2px solid yellow;
-  } 
-}
-
-div.field div.form-error{
-  font-size: $small;
-  color: yellow;
 }

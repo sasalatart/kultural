@@ -2,26 +2,18 @@
   <fieldset class="borders">
     <legend>Group</legend>
     <div class="contents">
-    <%= form_for(@group) do |f| %>
-      <% if @group.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
-
-          <ul>
-          <% @group.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+    <%= form_for(@group, builder: BetterForms) do |f| %>
+      <%= f.title_errors %>
 
       <div class="field">
         <%= f.label :name %><br>
         <%= f.text_field :name %>
+        <%= f.errors :name %>
       </div>
       <div class="field">
         <%= f.label :description %><br>
         <%= f.text_area :description %>
+        <%= f.errors :description %>
       </div>
       <div class="actions">
         <%= f.submit 'Ready!', class: 'button-def'%>
