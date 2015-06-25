@@ -1,6 +1,6 @@
 <% if current_user.events_to_attend.include? event %>
   <%= button_to 'UnAttend',
-                attendance_path(current_user.attendances.where(event_id: event.id).first()),
+                attendance_path(current_user.attendances.where(event_id: event.id).first(), event_id: event.id),
                 method: :delete,
                 class: 'button-del',
                 remote: true %>
