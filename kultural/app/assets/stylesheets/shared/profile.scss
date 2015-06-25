@@ -1,8 +1,6 @@
 @import 'shared/palette';
 
 div.profile-show{
-  height: 4em;
-  line-height: 4em;
   vertical-align: middle;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -65,7 +63,6 @@ div.profile-forms{
         display: block;
         border-radius: 5px;
         background-color: #000;
-        margin: auto;
       }
 
       .profile-name-container{

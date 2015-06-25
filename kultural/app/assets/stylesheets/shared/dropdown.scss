@@ -20,7 +20,7 @@
 		box-sizing: border-box;
 
 		li {
-			min-width: 100px;
+			min-width: 93px;
 			display: block;
 			background-color: $dropdown-color;
 			padding: 10px;
@@ -35,9 +35,5 @@
 				text-decoration: none;
 			}
 		}
-	}
-
-	&:hover ul {
-		display: block;
 	}
 }
