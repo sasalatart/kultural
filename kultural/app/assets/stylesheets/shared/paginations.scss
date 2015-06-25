@@ -7,6 +7,15 @@
   cursor: default;
   color: white;
 
+  .disabled {
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .current {
+    border-color: #003366;
+    background: $button-hover-color;
+  }
+
   a, span, em {
     padding: 0.2em 0.5em;
   }
