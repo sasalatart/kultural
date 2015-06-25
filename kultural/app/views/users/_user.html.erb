@@ -1,9 +1,6 @@
 <div class="profile-show">
-    <%= image_tag 'shared/ajax-loader.gif', class: "user#{user.id}" %>
+    <%= image_tag 'shared/ajax-loader.gif',
+    data:{'image-ajax-url': ajax_avatar_user_path(user), 
+      'image-ajax-user': user.id } %>
     <span><%= link_to user.name, user %></span>
 </div>
-
-<script>
-  user_id = <%= user.id %>;
-  $.get("/users/" + user_id + "/ajax_avatar");
-</script>

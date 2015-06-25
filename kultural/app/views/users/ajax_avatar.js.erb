@@ -1,2 +1,2 @@
-var u = $(".user<%= @user.id %>");
-u.replaceWith("<%= j image_tag @user.get_avatar(:thumb) %>")
+var imagesToReplace = $('[data-image-ajax-user="<%= @user.id %>"]');
+imagesToReplace.replaceWith("<%= j image_tag @user.get_avatar(:thumb) %>");
