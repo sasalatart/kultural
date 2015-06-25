@@ -12,10 +12,6 @@
   <% end %>
 </div>
 
-<div class="flickr-pagination">
-  <%= will_paginate @events %>
-</div>
-<%= render partial: 'listing', locals: {events: @events} %>
-<div class="flickr-pagination">
-  <%= will_paginate @events %>
-</div>
+<%= render 'shared/pagination', resource: @events %>
+<%= render 'listing', events: @events %>
+<%= render 'shared/pagination', resource: @events %>

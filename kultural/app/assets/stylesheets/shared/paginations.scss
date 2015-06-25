@@ -23,4 +23,9 @@
       color: white;
     }
   }
+
+  .disabled, .current {
+    color: $light-text-color;
+    background-color: $dark-alpha-color;
+  }
 }

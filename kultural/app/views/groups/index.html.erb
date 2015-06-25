@@ -4,9 +4,7 @@
 <% end %>
 
 <div class="table-container">
-  <div class="flickr-pagination">
-    <%= will_paginate @groups %>
-  </div>
+  <%= render 'shared/pagination', resource: @groups %>
   <table>
     <thead>
       <tr>
@@ -23,7 +21,5 @@
       <% end %>
     </tbody>
   </table>
-  <div class="flickr-pagination">
-    <%= will_paginate @groups %>
-  </div>
+  <%= render 'shared/pagination', resource: @groups %>
 </div>
