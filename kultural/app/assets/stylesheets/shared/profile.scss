@@ -49,7 +49,10 @@ div.profile-forms{
       td{
         text-overflow: ellipsis;
         overflow: hidden;
+        padding: 6px 12px;
+
       }
+
     }
   }
 
@@ -63,6 +66,7 @@ div.profile-forms{
         display: block;
         border-radius: 5px;
         background-color: #000;
+        margin:0 auto;
       }
 
       .profile-name-container{
