@@ -1,6 +1,11 @@
 <div class="info-container col-3">
-  <strong>Owner:</strong>
-  <%= render @event.owner %>
+  <strong>Creator:</strong>
+  <%= render @event.owner %> <br>
+  <% followed_attending = current_user.followed_attending_to(@event)%>
+  <% if followed_attending.any? %>
+    <strong>Users you follow that are attending this event:</strong>
+    <%= render followed_attending %>
+  <% end %>
 </div>
 
 <div class="info-container col-3">

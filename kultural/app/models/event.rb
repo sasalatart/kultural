@@ -52,6 +52,9 @@ class Event < ActiveRecord::Base
   validates :owner_type, presence: true
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
+  # Attendance
+  has_many :attendances, dependent: :destroy
+  has_many :attendants, class_name: 'User', through: :attendances, source: 'user'
   def get_picture(size)
     picture.url(size)
   end

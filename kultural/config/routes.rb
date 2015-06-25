@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :memberships, only: [:create, :destroy, :update]
 
+  resources :attendances, only: [:create, :destroy]
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
