@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'validator/mail'
   root 'pages#main'
 
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create]
   resources :reports, only: [:create]
   resources :ratings, only: [:create, :update]
   resources :event_types, only: [:index, :show]
@@ -12,20 +12,18 @@ Rails.application.routes.draw do
       get :foursquare
     end
 
-    resources :comments, module: :places, only: [:index, :create, :update, :destroy]
+    resources :comments, module: :places, only: [:index, :create]
     resources :reports, module: :places, only: [:create]
     resources :ratings, module: :places, only: [:create, :update]
   end
 
   resources :events do
-    resources :comments, module: :events, only: [:index, :create, :update, :destroy]
+    resources :comments, module: :events, only: [:index, :create]
     resources :reports, module: :events, only: [:create]
     resources :ratings, module: :events, only: [:create, :update]
   end
 
-  resources :groups
-
-  # Allow user/id/followers and user/id/following urls
+  # Allow user/id/followers, user/id/following, etc. urls
   resources :users do
     member do
       get :following, :followers, :edit_password, :ajax_avatar
@@ -33,16 +31,17 @@ Rails.application.routes.draw do
     end
   end
 
-  # Allow group/id/members urls
+  # Allow group/id/members, etc. urls
   resources :groups do
     member do
-      get :members
+      get :members, :ajax_avatar
     end
   end
 
   resources :relationships, only: [:create, :destroy]
   resources :memberships, only: [:create, :destroy, :update]
 
+  resources :attendances, only: [:create, :destroy]
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'

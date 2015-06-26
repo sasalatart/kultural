@@ -1,5 +1,6 @@
 <div class="profile-show">
-    <%= image_tag 'shared/ajax-loader.gif',
-    data:{'image-ajax-url' => ajax_avatar_user_path(user), 'image-ajax-user' => user.id } %>
-    <span><%= link_to user.name, user %></span>
+  <%= image_tag 'shared/ajax-loader.gif',
+  data: { 'image-ajax-url' => ajax_avatar_user_path(user) } %>
+
+  <span><%= link_to user.name, user %></span>
 </div>

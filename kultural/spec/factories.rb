@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :attendance do
+    user nil
+event nil
+  end
+
   factory :user do
     name 'Napoleon Bonaparte'
     mail 'napoleon@bonaparte.fr'

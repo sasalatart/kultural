@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
                     default_url: 'placeholders/profile.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
-                    dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
+                    dropbox_options: { path: proc { |style| "users/#{id}/#{avatar.original_filename}" } },
                     styles: {
-                      thumb: '100x100>',
+                      thumb: '100x100#',
                       square: '200x200#',
                       medium: '300x300>'
                     }
@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :ratings, dependent: :destroy
+
+  # Attendance
+  has_many :attendances, dependent: :destroy
+  has_many :events_to_attend, class_name: 'Event', through: :attendances, source: 'event'
 
   # Follow people
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
@@ -80,6 +84,10 @@ class User < ActiveRecord::Base
     following.include?(foo_user)
   end
 
+  def followed?(foo_user)
+    followers.include?(foo_user)
+  end
+
   def create_group(group_params)
     groups_where_is_admin.create(group_params)
   end
@@ -105,17 +113,17 @@ class User < ActiveRecord::Base
   end
 
   def get_phone
-    return 'Not yet set' if phone.nil?
+    return 'Not yet set' if phone.nil? or phone.blank?
     return phone
   end
 
   def get_birthday
-    return 'Not yet set' if birthday.nil?
+    return 'Not yet set' if birthday.nil? or birthday.blank?
     return birthday
   end
 
   def get_gender
-    if male.nil?
+    if male.nil?  
       'Not yet set'
     else
       male ? 'Male' : 'Female'
@@ -124,5 +132,19 @@ class User < ActiveRecord::Base
 
   def password_changed?
     !@password.blank?
+  end
+
+  def attending?(event)
+    events_to_attend.include? event
+  end
+
+  def followed_attending_to(event)
+    f = []
+    User.all.each do |u|
+      if u.attending?(event) and self.following.include? u
+        f.push(u)
+      end
+    end
+    return f
   end
 end

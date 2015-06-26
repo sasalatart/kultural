@@ -27,9 +27,9 @@ class Event < ActiveRecord::Base
                     default_url: 'events/default.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
-                    dropbox_options: { path: proc { |style| "places/#{id}/#{picture.original_filename}" } },
+                    dropbox_options: { path: proc { |style| "events/#{id}/#{picture.original_filename}" } },
                     styles: {
-                      thumb: '100x100>',
+                      thumb: '100x100#',
                       normal: '300x200>'
                     }
 
@@ -52,6 +52,9 @@ class Event < ActiveRecord::Base
   validates :owner_type, presence: true
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
+  # Attendance
+  has_many :attendances, dependent: :destroy
+  has_many :attendants, class_name: 'User', through: :attendances, source: 'user'
   def get_picture(size)
     picture.url(size)
   end

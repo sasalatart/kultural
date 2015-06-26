@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :members]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :members, :ajax_avatar]
   before_action :is_group_admin, only: [:edit, :update, :destroy]
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, except: [:index, :show, :members]
 
   # GET /groups
   # GET /groups.json
@@ -70,6 +70,12 @@ class GroupsController < ApplicationController
     render 'show_members'
   end
 
+  def ajax_avatar
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
@@ -78,6 +84,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :description)
+      params.require(:group).permit(:name, :description, :avatar)
     end
 end

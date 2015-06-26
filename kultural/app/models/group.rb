@@ -10,6 +10,18 @@
 #
 
 class Group < ActiveRecord::Base
+
+  has_attached_file :avatar,
+                    default_url: 'placeholders/profile.png',
+                    storage: :dropbox,
+                    dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
+                    dropbox_options: { path: proc { |style| "groups/#{id}/#{avatar.original_filename}" } },
+                    styles: {
+                      thumb: '100x100#',
+                      square: '200x200#',
+                      medium: '300x300>'
+                    }
+
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :admins, ->{ where memberships: { is_admin: true } }, through: :memberships, class_name: 'User', source: 'user'
@@ -23,8 +35,9 @@ class Group < ActiveRecord::Base
   validates :description, presence: true,
                           length: { maximum: 1000 }
 
-  def get_avatar(size)
-    return 'placeholders/profile.png'
-  end
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  def get_avatar(size)
+    avatar.url(size)
+  end
 end

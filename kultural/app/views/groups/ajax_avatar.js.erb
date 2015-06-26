@@ -1,0 +1,3 @@
+<% url = @group.get_avatar(:thumb) %>
+ajaxImages["<%= j ajax_avatar_group_path(@group) %>"] = "<%= j image_tag url %>"
+$('[data-image-ajax-url="<%= ajax_avatar_group_path(@group) %>"]').replaceWith("<%= j image_tag url %>");

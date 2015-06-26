@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
   include Foursquare
+  before_action :logged_in_user, except: [:index, :show, :foursquare]
   before_action :set_place, only: [:show, :foursquare, :edit, :update, :destroy]
+  before_action :owner_of_place?, only: [:edit, :update, :destroy]
 
   # GET /places
   # GET /places.json
@@ -13,7 +15,7 @@ class PlacesController < ApplicationController
   def show
     @comment = Comment.new
     @rating = @place.ratings.find_by(user: current_user) || Rating.new
-    
+
     @hash = Gmaps4rails.build_markers(@place) do |place, marker|
       marker.lat place.lat
       marker.lng place.lon
@@ -43,7 +45,9 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
-    @place.owner = current_user
+    owner_info = params[:owner_info].split(':')
+    @place.owner_type = owner_info[0]
+    @place.owner_id = owner_info[1].to_i
 
     respond_to do |format|
       if @place.save
@@ -60,6 +64,9 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1.json
   def update
     respond_to do |format|
+      owner_info = params[:owner_info].split(':')
+      @place.owner_type = owner_info[0]
+      @place.owner_id = owner_info[1].to_i
       if @place.update(place_params)
         format.html { redirect_to @place, notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }

@@ -99,11 +99,23 @@ puts('Creating events')
 32.times do
   Event.create!(owner:       User.order('RANDOM()').first,
                 place:       Place.order('RANDOM()').first,
-                name:        Faker::Lorem.words(rand(2..4)).map(&:capitalize).join(' '),
+                name:        Faker::Lorem.words(rand(2..3)).map(&:capitalize).join(' '),
                 description: Faker::Lorem.paragraph,
                 date:        Faker::Date.between(Date.today, 7.days.from_now),
                 price:       (Random.new.rand(500..5000) / 10.0).ceil * 10,
                 event_types: [EventType.order('RANDOM()').first])
+end
+
+puts('Creating attendances')
+
+Event.all.each do |event|
+  number_of_attendances = Random.new.rand(0..15)
+
+  number_of_attendances.times do
+    user = User.order('RANDOM()').first
+    user = User.order('RANDOM()').first while user.attending?(event)
+    Attendance.create!(event: event, user: user)
+  end
 end
 
 puts('Creating comments, ratings and reports')
