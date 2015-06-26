@@ -7,9 +7,11 @@
     <strong>Users attending this event:</strong>
     <%= render followed_attending %>
     <% if followed_attending.count < all_attending_count %>
-      <% att_dif = followed_attending.count - all_attending_count %>
-      <p> And <%= att_dif %> more. </p>
+      <% att_dif =  all_attending_count - followed_attending.count %><br>
+      <p> And <%= att_dif %> more </p>
     <% end %>
+  <% else %>
+    <p> <%= all_attending_count %> users will attend this event </p>
   <% end %>
 </div>
 
