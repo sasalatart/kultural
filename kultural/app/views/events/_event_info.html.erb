@@ -8,10 +8,10 @@
     <%= render followed_attending %>
     <% if followed_attending.count < all_attending_count %>
       <% att_dif =  all_attending_count - followed_attending.count %><br>
-      <p> And <%= att_dif %> more </p>
+      <p> And <%= link_to "#{att_dif.to_s} more", attendants_event_path(@event) %> </p>
     <% end %>
   <% else %>
-    <p> <%= all_attending_count %> users will attend this event </p>
+    <p><%= link_to "#{all_attending_count.to_s} users", attendants_event_path(@event) %> will attend this event </p>
   <% end %>
 </div>
 

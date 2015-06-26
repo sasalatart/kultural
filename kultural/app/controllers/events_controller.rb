@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :attendants]
   before_action :owner_of_event?, only: [:edit, :update, :destroy]
 
   # GET /events
@@ -78,6 +78,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def attendants
+    @users = @event.attendants.paginate(page: params[:page], per_page: 8)
+    render 'users/index'
   end
 
   private

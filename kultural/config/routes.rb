@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     resources :comments, module: :events, only: [:index, :create]
     resources :reports, module: :events, only: [:create]
     resources :ratings, module: :events, only: [:create, :update]
+    member do
+      get :attendants
+    end
   end
 
   # Allow user/id/followers, user/id/following, etc. urls
