@@ -10,7 +10,7 @@
     <% end %>
   </h1>
 
-  <% if logged_in? %>
+  <% if logged_in? && @user.nil? %>
     <%= button_to 'New event', new_event_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
