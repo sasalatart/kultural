@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'validator/mail'
   root 'pages#main'
 
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create]
   resources :reports, only: [:create]
   resources :ratings, only: [:create, :update]
   resources :event_types, only: [:index, :show]
@@ -12,13 +12,13 @@ Rails.application.routes.draw do
       get :foursquare
     end
 
-    resources :comments, module: :places, only: [:index, :create, :update, :destroy]
+    resources :comments, module: :places, only: [:index, :create]
     resources :reports, module: :places, only: [:create]
     resources :ratings, module: :places, only: [:create, :update]
   end
 
   resources :events do
-    resources :comments, module: :events, only: [:index, :create, :update, :destroy]
+    resources :comments, module: :events, only: [:index, :create]
     resources :reports, module: :events, only: [:create]
     resources :ratings, module: :events, only: [:create, :update]
   end
