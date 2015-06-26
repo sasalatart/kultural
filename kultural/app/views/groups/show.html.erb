@@ -13,11 +13,10 @@
   <div class="profile-about">
     <table>
       <tr>
-        <td><strong>Description: </strong></td>
-        <td><%= @group.description %></td>
+        <td colspan="2" class="text"><%= @group.description %></td>
       </tr>
       <tr>
-        <td><strong>Created at: </strong></td>
+        <td>Created at: </td>
         <td><%= date_hour @group.created_at %></td>
       </tr>
     </table>
