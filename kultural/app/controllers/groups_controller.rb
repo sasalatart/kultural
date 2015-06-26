@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :members, :ajax_avatar]
   before_action :is_group_admin, only: [:edit, :update, :destroy]
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, except: [:index, :show, :members]
 
   # GET /groups
   # GET /groups.json
