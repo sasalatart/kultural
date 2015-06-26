@@ -94,9 +94,10 @@
     text-transform:uppercase;
 
     color: white;
-    background-color: $button-color;
+    background: $button-color-webkit;
+    background: $button-color-moz;
     &:hover {
-      background-color: $button-hover-color;
+      background: $button-hover-color;
     }
   }
 

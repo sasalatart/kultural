@@ -5,7 +5,6 @@ div.profile-show{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  padding: 10px 0px;
 
   img{
     background-color: #000;
@@ -16,6 +15,11 @@ div.profile-show{
     margin-right: 1em;
     border-radius: 5px;
   }
+}
+
+div.profile-groups{
+  @extend .profile-show;
+  padding: 10px 0px;
 }
 
 div.profile-forms{

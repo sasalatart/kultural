@@ -1,10 +1,14 @@
 <div class="info-container col-3">
   <strong>Creator:</strong>
   <%= render @event.owner %> <br>
-  <% followed_attending = current_user.followed_attending_to(@event)%>
+  <% followed_attending = current_user.followed_attending_to(@event).take(5)%>
+  <% all_attending_count = @event.attendants.count %>
   <% if followed_attending.any? %>
-    <strong>Users you follow that are attending this event:</strong>
+    <strong>Users attending this event:</strong>
     <%= render followed_attending %>
+    <% if followed_attending.count > 5 %>
+      <p> And <%= followed_attending.count - all_attending_count %> more. </p>
+    <% end %>
   <% end %>
 </div>
 
