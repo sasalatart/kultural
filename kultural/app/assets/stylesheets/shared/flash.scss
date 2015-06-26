@@ -10,8 +10,8 @@
 
 #notice {
   @include flash-box;
-  border: 3px solid green;
-  color: green;
+  border: 3px solid $border-color;
+  color: $light-text-color;
 }
 
 #alert {
