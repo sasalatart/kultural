@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :edit_password,
                                   :update, :update_password, :destroy,
-                                  :following, :followers, :ajax_avatar]
+                                  :following, :followers, :ajax_avatar,
+                                  :attendances]
 
   before_action :logged_in_user, only: [:edit, :edit_password,
                                         :update, :update_password, :destroy]
@@ -102,6 +103,12 @@ class UsersController < ApplicationController
     @title = 'Followers of'
     @users = @user.followers.paginate(page: params[:page], per_page: 8)
     render 'index'
+  end
+
+  def attendances
+    @title = 'Attendances of'
+    @events = @user.events_to_attend.paginate(page: params[:page], per_page: 8)
+    render 'events/index'
   end
 
   def ajax_avatar

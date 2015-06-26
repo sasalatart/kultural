@@ -2,16 +2,19 @@
 <div>
   <h1 class="center-align">
     <%= @title %>
+    <% unless @user.nil? %>
+    <%= link_to @user.name, @user %>
+    <% end %>
     <% unless @event.nil? %>
     <%= link_to @event.name, @event %>
     <% end %>
   </h1>
 
-  <% if logged_in? %>
+  <% if logged_in? && @user.nil? %>
     <%= button_to 'New event', new_event_path, method: :get, class: 'button-def' %>
   <% end %>
 </div>
 
 <%= render 'shared/pagination', resource: @events %>
-<%= render 'listing', events: @events %>
+<%= render 'events/listing', events: @events %>
 <%= render 'shared/pagination', resource: @events %>
