@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   include Foursquare
+  before_action :logged_in_user, except: [:index, :show, :foursquare]
   before_action :set_place, only: [:show, :foursquare, :edit, :update, :destroy]
   before_action :owner_of_place?, only: [:edit, :update, :destroy]
 

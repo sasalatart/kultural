@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :logged_in_user, except: [:index, :show]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :owner_of_event?, only: [:edit, :update, :destroy]
 

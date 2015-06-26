@@ -14,19 +14,15 @@ module Authorizable
 
   def owner_of_event?
     owner = Event.find(params[:id]).owner
-    if owner.is_a? User
-      current_user == owner
-    else
-      current_user.groups_where_is_admin.include? owner
+    unless current_user == owner || (owner.is_a?(Group) && current_user.is_group_admin?(owner))
+      not_available_forwarding
     end
   end
 
   def owner_of_place?
     owner = Place.find(params[:id]).owner
-    if owner.is_a? User
-      current_user == owner
-    else
-      current_user.groups_where_is_admin.include? owner
+    unless current_user == owner || (owner.is_a?(Group) && current_user.is_group_admin?(owner))
+      not_available_forwarding
     end
   end
 
