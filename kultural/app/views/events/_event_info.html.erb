@@ -6,8 +6,9 @@
   <% if followed_attending.any? %>
     <strong>Users attending this event:</strong>
     <%= render followed_attending %>
-    <% if followed_attending.count > 5 %>
-      <p> And <%= followed_attending.count - all_attending_count %> more. </p>
+    <% if followed_attending.count < all_attending_count %>
+      <% att_dif = followed_attending.count - all_attending_count %>
+      <p> And <%= att_dif %> more. </p>
     <% end %>
   <% end %>
 </div>
