@@ -105,17 +105,17 @@ class User < ActiveRecord::Base
   end
 
   def get_phone
-    return 'Not yet set' if phone.nil?
+    return 'Not yet set' if phone.nil? or phone.blank?
     return phone
   end
 
   def get_birthday
-    return 'Not yet set' if birthday.nil?
+    return 'Not yet set' if birthday.nil? or birthday.blank?
     return birthday
   end
 
   def get_gender
-    if male.nil?
+    if male.nil?  
       'Not yet set'
     else
       male ? 'Male' : 'Female'
