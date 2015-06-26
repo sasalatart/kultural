@@ -102,8 +102,11 @@ div.profile-forms{
 
     margin-bottom: 1em;
 
-    .profile-comment-head span{
-      color: $medium-text-color;
+    .profile-comment-head {
+      display:inline;
+      span{
+        color: $medium-text-color;
+      }
     }
 
     .profile-comment-body{

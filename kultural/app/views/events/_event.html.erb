@@ -1,5 +1,7 @@
 <p class="mini-event">
 <%= fa_icon 'calendar-o' %>
 <%= link_to event.name, event %>
-<span class="tiny"><%= date_hour event.date %></span>
+<% if local_assigns[:created_at] %>
+<span class="tiny"><%= date_hour event.date %> | <%= time_ago_in_words created_at %> ago </span>
+<% end %>
 </p>

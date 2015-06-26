@@ -1,2 +1,5 @@
-<%= fa_icon 'map-marker' %> 
+<%= fa_icon 'map-marker' %>
 <%= link_to place.name, place %>
+<% if local_assigns[:created_at] %>
+<span class="tiny"> <%= time_ago_in_words created_at %> ago </span>
+<% end %>
