@@ -23,7 +23,8 @@
   a {
     color: white;
     text-decoration: none;
-    background: $button-color;
+    background: $button-color-webkit;
+    background: $button-color-moz;
 
     &:hover, &:focus {
       border-color: #003366;

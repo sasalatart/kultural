@@ -11,7 +11,8 @@
 
 .button-def {
   @extend .button;
-  background: $button-color;
+  background: $button-color-webkit;
+  background: $button-color-moz;
   &:hover {
     background: $button-hover-color;
   }
@@ -19,7 +20,9 @@
 
 .button-del {
   @extend .button;
-  background: $button-del-color;
+  background: $button-del-color-webkit;
+  background: $button-del-color-moz;
+
   &:hover {
     background: $button-del-hover-color;
   }

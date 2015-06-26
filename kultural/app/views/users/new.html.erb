@@ -36,3 +36,13 @@
     </div>
   </fieldset>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#new_user").validate({
+      "user_name": {required: true, length: {min: 5, max: 50, message: 'Your name should contain between 5 and 50 characters'}},
+      "user_mail": {required: true, mail: true, remote: {uri: '/validator/mail', message: 'Mail already exists'}},
+      "user_password": {required: true, length: {min: 6, message: 'Your password is too short'}},
+      "user_password_confirmation": {equals: {field: 'user_password', message: 'Passwords don\'t match'}}
+    });
+  });
+</script>
