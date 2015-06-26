@@ -2,6 +2,9 @@
 <div>
   <h1 class="center-align">
     <%= @title %>
+    <% unless @user.nil? %>
+    <%= link_to @user.name, @user %>
+    <% end %>
     <% unless @event.nil? %>
     <%= link_to @event.name, @event %>
     <% end %>
@@ -13,5 +16,5 @@
 </div>
 
 <%= render 'shared/pagination', resource: @events %>
-<%= render 'listing', events: @events %>
+<%= render 'events/listing', events: @events %>
 <%= render 'shared/pagination', resource: @events %>

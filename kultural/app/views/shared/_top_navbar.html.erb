@@ -34,6 +34,11 @@
         </li>
 
         <li>
+          <%= fa_icon 'calendar-o' %>
+          <%= link_to "My attendances", attendances_user_path(current_user) %>
+        </li>
+
+        <li>
           <%= fa_icon 'cogs' %>
           <%= link_to "Edit Profile", edit_user_path(id: current_user.id),
                                                        id:"edit-profile" %>
