@@ -7,9 +7,11 @@ $footer-color: rgba(204, 204, 204, 0.8);
 $dark-alpha-color: rgba(21, 21, 21, 0.7);
 $border-color: #008584;
 
-$button-color: -webkit-linear-gradient(90deg, #006666 40%, #008584 70%);
+$button-color-webkit: -webkit-linear-gradient(90deg, #006666 40%, #008584 70%);
+$button-color-moz: -moz-linear-gradient(90deg, #006666 40%, #008584 70%);
 $button-hover-color: #008584;
-$button-del-color: -webkit-linear-gradient(90deg, #990100 40%, #B90504 70%);
+$button-del-color-webkit: -webkit-linear-gradient(90deg, #990100 40%, #B90504 70%);
+$button-del-color-moz: -moz-linear-gradient(90deg, #990100 40%, #B90504 70%);
 $button-del-hover-color: #B90504;
 
 $dropdown-color: $dark-alpha-color;
