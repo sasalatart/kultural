@@ -38,6 +38,6 @@ class Group < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def get_avatar(size)
-    return 'placeholders/profile.png'
+    avatar.url(size)
   end
 end
