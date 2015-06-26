@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
                     default_url: 'events/default.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
-                    dropbox_options: { path: proc { |style| "places/#{id}/#{picture.original_filename}" } },
+                    dropbox_options: { path: proc { |style| "events/#{id}/#{picture.original_filename}" } },
                     styles: {
                       thumb: '100x100#',
                       normal: '300x200>'

@@ -1,4 +1,6 @@
 <div class="profile-show">
-    <%= image_tag("placeholders/profile.png") %>
+    <%= image_tag 'shared/ajax-loader.gif',
+    data: { 'image-ajax-url' => ajax_avatar_group_path(group) } %>
+
     <span><%= link_to group.name, group %></span>
 </div>

@@ -23,9 +23,7 @@ Rails.application.routes.draw do
     resources :ratings, module: :events, only: [:create, :update]
   end
 
-  resources :groups
-
-  # Allow user/id/followers and user/id/following urls
+  # Allow user/id/followers, user/id/following, etc. urls
   resources :users do
     member do
       get :following, :followers, :edit_password, :ajax_avatar
@@ -33,10 +31,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # Allow group/id/members urls
+  # Allow group/id/members, etc. urls
   resources :groups do
     member do
-      get :members
+      get :members, :ajax_avatar
     end
   end
 

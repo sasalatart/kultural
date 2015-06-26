@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
                     default_url: 'placeholders/profile.png',
                     storage: :dropbox,
                     dropbox_credentials: Rails.root.join('config/extras/dropbox.yml'),
-                    dropbox_options: { path: proc { |style| "avatars/#{id}/#{avatar.original_filename}" } },
+                    dropbox_options: { path: proc { |style| "users/#{id}/#{avatar.original_filename}" } },
                     styles: {
                       thumb: '100x100#',
                       square: '200x200#',
@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :ratings, dependent: :destroy
+
   # Attendance
   has_many :attendances, dependent: :destroy
   has_many :events_to_attend, class_name: 'Event', through: :attendances, source: 'event'

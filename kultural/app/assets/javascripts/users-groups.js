@@ -1,7 +1,3 @@
-//# Place all the behaviors and hooks related to the matching controller here.
-//# All this logic will automatically be available in application.js.
-//# You can use CoffeeScript in this file: http://coffeescript.org/
-
 var ajaxImages = {};
 var fetchAjaxImages = function(){
   $("[data-image-ajax-url]").each(function(key,value){
@@ -17,4 +13,3 @@ var fetchAjaxImages = function(){
 };
 
 $(document).ready(fetchAjaxImages);
-
