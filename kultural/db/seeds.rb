@@ -99,9 +99,9 @@ puts('Creating events')
 32.times do
   Event.create!(owner:       User.order('RANDOM()').first,
                 place:       Place.order('RANDOM()').first,
-                name:        Faker::Lorem.words(rand(2..3)).map(&:capitalize).join(' '),
+                name:        Faker::Lorem.words(2).map(&:capitalize).join(' '),
                 description: Faker::Lorem.paragraph,
-                date:        Faker::Date.between(Date.today, 7.days.from_now),
+                date:        Faker::Date.between(2.days.from_now, 9.days.from_now),
                 price:       (Random.new.rand(500..5000) / 10.0).ceil * 10,
                 event_types: [EventType.order('RANDOM()').first])
 end
@@ -123,7 +123,7 @@ puts('Creating comments, ratings and reports')
 Place.all.each do |place|
   user_list_1 = User.order('RANDOM()')
   user_list_2 = User.order('RANDOM()')
-  number_of_comments  = Random.new.rand(0..10)
+  number_of_comments  = Random.new.rand(0..15)
   number_of_ratings   = Random.new.rand(0..10)
   number_of_reports   = Random.new.rand(0..10)
 
