@@ -91,7 +91,7 @@ vicen.places.create!(name:         'Chuck E. Cheese´s',
                      description:  Faker::Lorem.paragraph)
 
 vicen.places.create!(name:         'Plaza Baquedano',
-                     address:      'Avenida Libertador Bernardo O Higgins',
+                     address:      "Avenida Libertador Bernardo O'Higgins 10",
                      description:  Faker::Lorem.paragraph)
 
 puts('Creating events')
