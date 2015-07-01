@@ -4,32 +4,29 @@
 
 @import 'shared/palette';
 
-// TO-DO(PROFILE FORMS)
-.follow-form{
+.follow-form {
   text-align: center;
 
-  form{
-    color: $light-text-color;
-
+  form {
     display: inline;
+    color: $light-text-color;
   }
 }
 
-// TO-DO (JOIN STATS)
-.stats{
+.stats {
   text-align: center;
   color: $light-text-color;
 
-  .attendance{
+  .attendance {
     padding-top: 10px;
   }
 
-  a{
+  a {
     padding: 0 0.5em;
     text-decoration: none;
 
-    &:first-child{
-      padding-left: 0;
+    &:first-child {
+      padding-left: 0px;
     }
   }
 }
@@ -38,7 +35,4 @@
   padding-top: 10px;
   padding-bottom: 10px;
   color: $light-text-color;
-  table {
-
-  }
 }

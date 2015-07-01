@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'shared/fonts';
 
-@mixin reports{
+@mixin reports {
   text-shadow: 1px 1px 3px black;
 }
 
-span#num-reports{
+span#num-reports {
   @include reports;
 
-  i{
+  i {
     padding-left: 1.25em;
     color: red;
   }

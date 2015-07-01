@@ -12,17 +12,14 @@
 .loading {
   font-size: 12px;
   color: $light-text-color;
+
   .loading_gif {
     opacity: 0.7;
-    width:30px;
-    height:30px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     padding-right: 5px;
   }
-}
-
-.loaded {
-
 }
 
 .not_found {

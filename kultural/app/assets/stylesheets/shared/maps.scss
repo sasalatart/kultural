@@ -1,7 +1,9 @@
 @import 'palette';
-.info-window{
+
+.info-window {
   color: black;
-  a{
+
+  a {
     color: $dark-text-color;
 
     &:visited {

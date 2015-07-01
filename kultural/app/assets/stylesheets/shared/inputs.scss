@@ -1,5 +1,6 @@
 @import 'palette';
 @import 'fonts';
+
 .button {
   display: inline-block;
   border: 0px;
@@ -13,6 +14,7 @@
   @extend .button;
   background: $button-color-webkit;
   background: $button-color-moz;
+
   &:hover {
     background: $button-hover-color;
   }

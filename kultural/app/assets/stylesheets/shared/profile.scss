@@ -1,12 +1,12 @@
 @import 'shared/palette';
 
-div.profile-show{
+div.profile-show {
   vertical-align: middle;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 
-  img{
+  img {
     background-color: #000;
     display: inline-block;
     vertical-align: middle;
@@ -17,72 +17,69 @@ div.profile-show{
   }
 }
 
-div.profile-groups{
+div.profile-groups {
   @extend .profile-show;
   padding: 10px 0px;
 }
 
-div.profile-forms{
+div.profile-forms {
   text-align: center;
   padding-bottom: 10px;
-  .join-form, .edit-form, .delete-form, .follow-form, form{
+
+  .join-form, .edit-form, .delete-form, .follow-form, form {
     display: inline;
   }
 }
 
-#profile-info{
+#profile-info {
   background-color: $dark-alpha-color;
   display: block;
   float: left;
   width: 28%;
   margin: 0 1%;
 
+  .profile-about {
+    padding: 10px 0px;
 
-  .profile-about{
-    padding: 10px 0;
-
-    table{
-
+    table {
       table-layout: fixed;
       width: 100%;
-      background-color:rgba(0,0,0,0);
+      background-color: rgba(0,0,0,0);
 
-      td:first-child{
+      td:first-child {
         width: 33%;
       }
 
-      td{
+      td {
         text-overflow: ellipsis;
         overflow: hidden;
         padding: 6px 12px;
-
       }
-
     }
   }
 
-  .profile-presentation{
-    margin: 10px 0;
+  .profile-presentation {
+    margin: 10px 0px;
 
-    .profile-name-image{
+    .profile-name-image {
       overflow: auto;
 
       .profile-img {
         display: block;
         border-radius: 5px;
         background-color: #000;
-        margin:0 auto;
+        margin: 0px auto;
       }
 
-      .profile-name-container{
+      .profile-name-container {
         text-align: center;
-        padding: 10px 0;
+        padding: 10px 0px;
       }
     }
   }
 }
 
-#profile-activity{
+#profile-activity {
   display: block;
   width: 68%;
   margin-left: 375px;
@@ -90,30 +87,30 @@ div.profile-forms{
   h3, >*{
     margin-bottom: 0.6em;
   }
+
   h3 {
     color: $light-text-color;
     text-shadow: 2px 2px 2px $dark-alpha-color;
   }
-  >**{
+
+  >** {
     margin-bottom: 0.3em;
   }
 
-  .profile-comment{
-
+  .profile-comment {
     margin-bottom: 1em;
 
     .profile-comment-head {
-      display:inline;
-      span{
+      display: inline;
+
+      span {
         color: $medium-text-color;
       }
     }
 
-    .profile-comment-body{
+    .profile-comment-body {
       color: $light-text-color;
       margin-left: 50px;
     }
-
   }
-
 }

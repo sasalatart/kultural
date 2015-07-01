@@ -7,7 +7,7 @@
 }
 
 html, body {
-	height: 100%;
+  height: 100%;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
   padding: 0;
 }
 
-#main{
+#main {
   margin-top: 75px;
 
   >*{
@@ -41,7 +41,7 @@ body {
 
 .wrapper {
   position: relative;
-	min-height: 100%;
+  min-height: 100%;
   width: 1190px;
   margin-left: auto;
   margin-right: auto;
@@ -76,7 +76,7 @@ a {
     text-decoration: underline;
   }
 
-  &.hide-button{
+  &.hide-button {
     cursor: pointer;
   }
 }

@@ -2,7 +2,7 @@
 @import 'shared/fonts';
 
 .sessions {
-  #main{
+  #main {
     margin-top: 0px;
 
     &:after {
@@ -16,20 +16,20 @@
     text-align: center;
     padding: 50px 0 0 0px;
     width: 350px;
-    height:200px;
+    height: 200px;
     border: 2px solid $border-color;
     border-width: 5px;
     border-radius: 10px;
     position: relative;
 
     h2 {
-      margin-top:-30px;
-      margin-left:25px;
-      font-size:20px;
-      font-weight:bold;
-      font-family:$default-font;
-      text-transform:uppercase;
-      position:absolute;
+      margin-top: -30px;
+      margin-left: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: $default-font;
+      text-transform: uppercase;
+      position: absolute;
       color: White;
     }
 
@@ -39,77 +39,78 @@
   }
 
   .mail-input {
-    margin-left:20px;
-    position:absolute;
-    width:300;
-    height:50px;
-    margin-top:10px;
+    position: absolute;
+    width: 300;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
 
   .pass-input {
-    margin-left:20px;
-    position:absolute;
-    width:300;
-    height:50px;
-    margin-top:70px;
+    position: absolute;
+    width: 300;
+    height: 50px;
+    margin-top: 70px;
+    margin-left: 20px;
   }
 
   .login-field {
-    display:block;
-    width:276px;
-    height:45px;
+    display: block;
+    width: 276px;
+    height: 45px;
     border: 2px solid $border-color;
 
     font-family: $default-font;
-    font-size:14px;
-    padding-left:30px;
+    font-size: 14px;
+    padding-left: 30px;
   }
 
   #mail-img {
-    position:absolute;
-    display:block;
-    margin-top:-30px;
-    float:left;
-    margin-left:8px;
+    position: absolute;
+    display: block;
+    margin-top: -30px;
+    float: left;
+    margin-left: 8px;
   }
 
   #pass-img {
-    display:block;
-    position:absolute;
-    margin-top:-34px;
-    float:left;
-    margin-left:12px;
+    display: block;
+    position: absolute;
+    margin-top: -34px;
+    float: left;
+    margin-left: 12px;
   }
 
   #login-submit {
-    position:relative;
-    margin-top:130px;
-    width:310px;
-    height:40px;
-    border:0;
-    border-radius:5px;
-    font-weight:bold;
-    font-family:$default-font;
-    font-size:15px;
-    text-transform:uppercase;
+    position: relative;
+    margin-top: 130px;
+    width: 310px;
+    height: 40px;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: $default-font;
+    font-size: 15px;
+    text-transform: uppercase;
 
     color: white;
     background: $button-color-webkit;
     background: $button-color-moz;
+
     &:hover {
       background: $button-hover-color;
     }
   }
 
   #sign-up {
-    color:$light-text-color;
-    text-decoration:none;
-    font-weight:bold;
-    font-family:$default-font;
-    font-size:15px;
-    float:right;
-    margin-right:20px;
-    margin-top:5px;
+    color: $light-text-color;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: $default-font;
+    font-size: 15px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
     &:hover {
       color:$dark-text-hover-color;
     }

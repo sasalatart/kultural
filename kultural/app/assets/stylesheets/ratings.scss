@@ -5,24 +5,27 @@
 @import 'shared/palette';
 
 @mixin rating{
-  i{
-    color: orange;
-  }
   font-weight: bold;
   text-shadow: 2px 2px 2px black;
+
+  i {
+    color: orange;
+  }
 }
 
-span#avg-rating{
+span#avg-rating {
   @include rating;
   font-size: 1.5em;
 }
 
-div#user-rating{
+div#user-rating {
   @include rating;
+
   background: $dark-alpha-color;
   border-radius: 5px;
   padding: 5px;
   font-size: 1.15em;
+
   i{
     cursor: pointer;
   }
