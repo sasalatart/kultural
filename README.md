@@ -1,7 +1,7 @@
 # Grupo 7
 > Using Heroku: https://kulturalapp.herokuapp.com
 
-* Ayudante: **Patricio López** - [@mrpatiwi](https://github.com/mrpatiwi)
+> Ayudante: **Patricio López** - [@mrpatiwi](https://github.com/mrpatiwi)
 
 Pueden revisar el feedback y evaluación recibida después de cada entrega en la carpeta **feedback**.
 
